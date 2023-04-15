@@ -8,12 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var mortgage = ""
+    @State var interest = ""
+    @State var yearsRemaining = ""
+    @State var repaymentFrequency: Int = 26
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Mortgage amount")
+                TextField("Mortgage amount", text: $mortgage)
+            }
+            HStack {
+                Text("Interest")
+                TextField("Interest", text: $interest)
+            }
+            HStack {
+                Text("Years remaining")
+                TextField("Years remaining", text: $yearsRemaining)
+            }
+            HStack {
+                Text("Repayment frequency")
+                Picker("Repayment frequency", selection: $repaymentFrequency) {
+                    Text("Monthly").tag(12)
+                    Text("Fortnightly").tag(26)
+                }.pickerStyle(.segmented)
+            }
+            HStack {
+                Text("Repayment amount")
+                Text("$2000.00")
+            }
         }
         .padding()
     }
