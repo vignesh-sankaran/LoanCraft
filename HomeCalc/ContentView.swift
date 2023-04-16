@@ -5,26 +5,28 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
+import Foundation
 import SwiftUI
 
 struct ContentView: View {
-    @State var mortgage = ""
-    @State var interest = ""
-    @State var yearsRemaining = ""
+    @State var mortgage = 0
+    @State var interest = 0.0
+    @State var yearsRemaining = 30
     @State var repaymentFrequency: Int = 26
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Mortgage amount")
-                TextField("Mortgage amount", text: $mortgage)
+                TextField("Mortgage amount", value: $mortgage, format: .currency(code: "USD")).keyboardType(.numberPad)
             }
             HStack {
                 Text("Interest")
-                TextField("Interest", text: $interest)
+                TextField("Interest", value: $interest, format: .percent).keyboardType(.decimalPad)
             }
             HStack {
                 Text("Years remaining")
-                TextField("Years remaining", text: $yearsRemaining)
+                TextField("Years remaining", value: $yearsRemaining, format: .number).keyboardType(.numberPad)
             }
             HStack {
                 Text("Repayment frequency")
