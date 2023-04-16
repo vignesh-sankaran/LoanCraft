@@ -13,24 +13,25 @@ struct ContentView: View {
     @State var interest = 0.0
     @State var yearsRemaining = 30
     @State var repaymentFrequency: Int = 26
+    @State var viewModel = ViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Mortgage amount")
-                TextField("Mortgage amount", value: $mortgage, format: .currency(code: "USD")).keyboardType(.numberPad)
+                TextField("Mortgage amount", value: $viewModel.mortgage, format: .currency(code: "USD")).keyboardType(.numberPad)
             }
             HStack {
                 Text("Interest")
-                TextField("Interest", value: $interest, format: .percent).keyboardType(.decimalPad)
+                TextField("Interest", value: $viewModel.interest, format: .percent).keyboardType(.decimalPad)
             }
             HStack {
                 Text("Years remaining")
-                TextField("Years remaining", value: $yearsRemaining, format: .number).keyboardType(.numberPad)
+                TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number).keyboardType(.numberPad)
             }
             HStack {
                 Text("Repayment frequency")
-                Picker("Repayment frequency", selection: $repaymentFrequency) {
+                Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
                     Text("Monthly").tag(12)
                     Text("Fortnightly").tag(26)
                 }.pickerStyle(.segmented)
