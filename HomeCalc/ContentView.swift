@@ -5,15 +5,14 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
+import Combine
 import Foundation
 import SwiftUI
 
+var anyCancellable: AnyCancellable?
+
 struct ContentView: View {
-    @State var mortgage = 0
-    @State var interest = 0.0
-    @State var yearsRemaining = 30
-    @State var repaymentFrequency: Int = 26
-    @State var viewModel = ViewModel()
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -38,7 +37,7 @@ struct ContentView: View {
             }
             HStack {
                 Text("Repayment amount")
-                Text("$2000.00")
+                Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
             }
         }
         .padding()
