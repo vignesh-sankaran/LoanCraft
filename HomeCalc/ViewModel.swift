@@ -12,8 +12,8 @@ import SwiftUI
 var cancellable: [AnyCancellable] = []
 
 class ViewModel: ObservableObject {
-    @Published var mortgage = 0.0
-    @Published var interest = 0.0
+    @Published var mortgage = 500000.0
+    @Published var interest = 0.05
     @Published var yearsRemaining = 30
     @Published var repaymentFrequency = 12
     @Published var mortgageRepayment = 0.0
