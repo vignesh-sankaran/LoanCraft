@@ -9,13 +9,27 @@ import Combine
 import Foundation
 import SwiftUI
 
-var cancellable: [AnyCancellable] = []
-
 class ViewModel: ObservableObject {
-    @Published var mortgage = 500000.0
-    @Published var interest = 0.05
-    @Published var yearsRemaining = 30
-    @Published var repaymentFrequency = 12
+    @Published var mortgage = 500000.0 {
+        didSet {
+            calculateMortgageRepayment()
+        }
+    }
+    @Published var interest = 0.05 {
+        didSet {
+            calculateMortgageRepayment()
+        }
+    }
+    @Published var yearsRemaining = 30 {
+        didSet {
+            calculateMortgageRepayment()
+        }
+    }
+    @Published var repaymentFrequency = 12 {
+        didSet {
+            calculateMortgageRepayment()
+        }
+    }
     @Published var mortgageRepayment = 0.0
     
     func calculateMortgageRepayment() {
@@ -30,11 +44,8 @@ class ViewModel: ObservableObject {
 
         mortgageRepayment = topLine / bottomLine
     }
-
+    
     init() {
-        cancellable.append($mortgage.sink { _ in self.calculateMortgageRepayment() })
-        cancellable.append($interest.sink { _ in self.calculateMortgageRepayment() })
-        cancellable.append($yearsRemaining.sink { _ in self.calculateMortgageRepayment() })
-        cancellable.append($repaymentFrequency.sink { _ in self.calculateMortgageRepayment() })
+        calculateMortgageRepayment()
     }
 }
