@@ -33,12 +33,12 @@ class ViewModel: ObservableObject {
     @Published var mortgageRepayment = 0.0
     
     func calculateMortgageRepayment() {
-        let interstForPeriod = interest / Double(repaymentFrequency)
+        let interestForPeriod = interest / Double(repaymentFrequency)
         let numberOfPeriods = repaymentFrequency * yearsRemaining
 
-        let firstBracket = 1 + interstForPeriod
+        let firstBracket = 1 + interestForPeriod
         let firstPower = pow(firstBracket, Double(numberOfPeriods))
-        let topLine = mortgage * interstForPeriod * firstPower
+        let topLine = mortgage * interestForPeriod * firstPower
 
         let bottomLine = firstPower - 1
 
