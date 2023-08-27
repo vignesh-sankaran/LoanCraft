@@ -15,32 +15,36 @@ struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Mortgage amount")
-                TextField("Mortgage amount", value: $viewModel.mortgage, format: .currency(code: "USD")).keyboardType(.numberPad)
+        NavigationView {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Mortgage amount")
+                    TextField("Mortgage amount", value: $viewModel.mortgage, format: .currency(code: "USD")).keyboardType(.numberPad)
+                }
+                HStack {
+                    Text("Interest")
+                    TextField("Interest", value: $viewModel.interest, format: .percent).keyboardType(.decimalPad)
+                }
+                HStack {
+                    Text("Years remaining")
+                    TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number).keyboardType(.numberPad)
+                }
+                // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
+                HStack {
+                    Text("Repayment frequency")
+                    Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
+                        Text("Monthly").tag(12)
+                        Text("Fortnightly").tag(26)
+                    }.pickerStyle(.segmented)
+                }
+                HStack {
+                    Text("Repayment amount")
+                    Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
+                }
             }
-            HStack {
-                Text("Interest")
-                TextField("Interest", value: $viewModel.interest, format: .percent).keyboardType(.decimalPad)
-            }
-            HStack {
-                Text("Years remaining")
-                TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number).keyboardType(.numberPad)
-            }
-            HStack {
-                Text("Repayment frequency")
-                Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
-                    Text("Monthly").tag(12)
-                    Text("Fortnightly").tag(26)
-                }.pickerStyle(.segmented)
-            }
-            HStack {
-                Text("Repayment amount")
-                Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
-            }
+            .padding()
+            .navigationTitle("HomeCalc")
         }
-        .padding()
     }
 }
 
