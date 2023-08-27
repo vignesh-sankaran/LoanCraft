@@ -11,7 +11,7 @@ import SwiftUI
 
 var anyCancellable: AnyCancellable?
 
-struct ContentView: View {
+struct HomeView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
@@ -50,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

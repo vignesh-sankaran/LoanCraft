@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeCalcApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
