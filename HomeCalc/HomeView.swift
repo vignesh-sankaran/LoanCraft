@@ -5,11 +5,8 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
-import Combine
 import Foundation
 import SwiftUI
-
-var anyCancellable: AnyCancellable?
 
 struct HomeView: View {
     @StateObject var viewModel = ViewModel()
