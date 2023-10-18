@@ -5,8 +5,22 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
+import Charts
 import Foundation
 import SwiftUI
+
+struct SampleRepaymentData {
+    let amount: Int
+    let year: Int
+}
+
+let data = [
+    SampleRepaymentData(amount: 100, year: 0),
+    SampleRepaymentData(amount: 80, year: 1),
+    SampleRepaymentData(amount: 60, year: 2),
+    SampleRepaymentData(amount: 40, year: 3),
+    SampleRepaymentData(amount: 20, year: 4),
+]
 
 struct HomeView: View {
     @StateObject var viewModel = ViewModel()
@@ -38,6 +52,18 @@ struct HomeView: View {
                     Text("Repayment amount")
                     Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
                 }
+                // Set up fancy swift chart in here
+                // Need to set up an amortisation schedule array type
+                //
+                Chart(data, id: \.year) { principalRemaining in
+                    BarMark(
+                        x: .value("Year", principalRemaining.year),
+                        yStart: .value("Amount", 0),
+                        yEnd: .value("Amount", principalRemaining.amount)
+                    )
+//
+                }
+                
             }
             .padding()
             .navigationTitle("HomeCalc")
