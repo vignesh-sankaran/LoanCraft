@@ -137,6 +137,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "HomeCalc" */;
 			buildPhases = (
+				2F7919A22AE2C20300B861D5 /* ShellScript */,
 				2FD0EAA029E00D8F00EB19B3 /* Sources */,
 				2FD0EAA129E00D8F00EB19B3 /* Frameworks */,
 				2FD0EAA229E00D8F00EB19B3 /* Resources */,
@@ -254,6 +255,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F7919A22AE2C20300B861D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "swift-format format -i -r ${PROJECT_DIR}\nswift-format lint -r ${PROJECT_DIR}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FD0EAA029E00D8F00EB19B3 /* Sources */ = {
