@@ -16,10 +16,10 @@ struct SampleRepaymentData {
 
 let data = [
     SampleRepaymentData(amount: 100, year: 0),
-    SampleRepaymentData(amount: 80, year: 1),
+    SampleRepaymentData(amount: 90, year: 1),
     SampleRepaymentData(amount: 60, year: 2),
     SampleRepaymentData(amount: 40, year: 3),
-    SampleRepaymentData(amount: 20, year: 4),
+    SampleRepaymentData(amount: 10, year: 4),
 ]
 
 struct HomeView: View {
@@ -56,12 +56,13 @@ struct HomeView: View {
                 // Need to set up an amortisation schedule array type
                 //
                 Chart(data, id: \.year) { principalRemaining in
-                    BarMark(
+                    LineMark(
                         x: .value("Year", principalRemaining.year),
-                        yStart: .value("Amount", 0),
-                        yEnd: .value("Amount", principalRemaining.amount)
+                        y: .value("Amount", principalRemaining.amount)
                     )
-//
+                    .lineStyle(StrokeStyle(lineWidth: 3))
+                    .interpolationMethod(.catmullRom)
+                        
                 }
                 
             }
