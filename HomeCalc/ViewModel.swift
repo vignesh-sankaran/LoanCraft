@@ -9,51 +9,51 @@ import Foundation
 import SwiftUI
 
 struct Repayment {
-  let amount: Double
-  let year: Int
+    let amount: Double
+    let year: Int
 }
 
 class ViewModel: ObservableObject {
-  @Published var mortgage = 500000.0 {
-    didSet {
-      calculateMortgageRepayment()
+    @Published var mortgage = 500000.0 {
+        didSet {
+            calculateMortgageRepayment()
+        }
     }
-  }
-  @Published var interest = 0.05 {
-    didSet {
-      calculateMortgageRepayment()
+    @Published var interest = 0.05 {
+        didSet {
+            calculateMortgageRepayment()
+        }
     }
-  }
-  @Published var yearsRemaining = 30 {
-    didSet {
-      calculateMortgageRepayment()
+    @Published var yearsRemaining = 30 {
+        didSet {
+            calculateMortgageRepayment()
+        }
     }
-  }
-  @Published var repaymentFrequency = 12 {
-    didSet {
-      calculateMortgageRepayment()
+    @Published var repaymentFrequency = 12 {
+        didSet {
+            calculateMortgageRepayment()
+        }
     }
-  }
-  @Published var mortgageRepayment = 0.0
+    @Published var mortgageRepayment = 0.0
 
-  func calculateMortgageRepayment() {
-    let interestForPeriod = interest / Double(repaymentFrequency)
-    let numberOfPeriods = repaymentFrequency * yearsRemaining
+    func calculateMortgageRepayment() {
+        let interestForPeriod = interest / Double(repaymentFrequency)
+        let numberOfPeriods = repaymentFrequency * yearsRemaining
 
-    let firstBracket = 1 + interestForPeriod
-    let firstPower = pow(firstBracket, Double(numberOfPeriods))
-    let topLine = mortgage * interestForPeriod * firstPower
+        let firstBracket = 1 + interestForPeriod
+        let firstPower = pow(firstBracket, Double(numberOfPeriods))
+        let topLine = mortgage * interestForPeriod * firstPower
 
-    let bottomLine = firstPower - 1
+        let bottomLine = firstPower - 1
 
-    mortgageRepayment = topLine / bottomLine
-  }
+        mortgageRepayment = topLine / bottomLine
+    }
 
-  //    var repayments: [Repayment] {
-  //
-  //    }
+    //    var repayments: [Repayment] {
+    //
+    //    }
 
-  init() {
-    calculateMortgageRepayment()
-  }
+    init() {
+        calculateMortgageRepayment()
+    }
 }
