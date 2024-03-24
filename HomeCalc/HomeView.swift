@@ -23,7 +23,7 @@ let data = [
 ]
 
 struct HomeView: View {
-    @StateObject var viewModel = ViewModel()
+    @State var viewModel = ViewModel()
 
     var body: some View {
         NavigationView {
