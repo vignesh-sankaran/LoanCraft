@@ -9,11 +9,6 @@ import Charts
 import Foundation
 import SwiftUI
 
-struct SampleRepaymentData {
-    let amount: Int
-    let year: Int
-}
-
 let data = [
     SampleRepaymentData(amount: 100, year: 0),
     SampleRepaymentData(amount: 90, year: 1),

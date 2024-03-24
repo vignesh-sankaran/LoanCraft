@@ -13,8 +13,11 @@ struct Repayment {
     let year: Int
 }
 
-class ViewModel: ObservableObject {
-    @Published var mortgage = 500000.0 {
+struct SampleRepaymentData {
+    let amount: Int
+    let year: Int
+}
+
 @Observable class ViewModel {
     var mortgage = 500000.0 {
         didSet {
@@ -37,7 +40,7 @@ class ViewModel: ObservableObject {
         }
     }
     var mortgageRepayment = 0.0
-    
+
     func calculateMortgageRepayment() {
         let interestForPeriod = interest / Double(repaymentFrequency)
         let numberOfPeriods = repaymentFrequency * yearsRemaining
@@ -50,10 +53,6 @@ class ViewModel: ObservableObject {
 
         mortgageRepayment = topLine / bottomLine
     }
-
-    //    var repayments: [Repayment] {
-    //
-    //    }
 
     init() {
         calculateMortgageRepayment()
