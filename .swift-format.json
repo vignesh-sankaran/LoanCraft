@@ -5,6 +5,9 @@
     },
     "maximumBlankLines": 1,
     "rules": {
-        "OmitExplicitReturns": true
+        "AlwaysUseLiteralForEmptyCollectionInit": true,
+        "NeverUseForceTry": true,
+        "NeverForceUnwrap": true,
+        "OmitExplicitReturns": true,
+        "UseWhereClausesInForLoops": true
     }
-}
