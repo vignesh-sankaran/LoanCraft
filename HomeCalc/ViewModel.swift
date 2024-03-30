@@ -18,7 +18,15 @@ struct SampleRepaymentData {
     let year: Int
 }
 
+struct TotalRepayment: Identifiable {
+    var id = UUID()
+    var total: Double
+    var principal: Double
+    var interest: Double
+}
+
 @Observable class ViewModel {
+    var chartData = TotalRepayment(total: 500000, principal: 0, interest: 0)
     var mortgage = 500000.0 {
         didSet {
             calculateMortgageRepayment()
@@ -52,9 +60,11 @@ struct SampleRepaymentData {
         let bottomLine = firstPower - 1
 
         mortgageRepayment = topLine / bottomLine
+        chartData = .init(total: mortgage, principal: 0, interest: 0)
     }
 
     init() {
         calculateMortgageRepayment()
+        chartData = .init(total: mortgage, principal: 0, interest: 0)
     }
 }

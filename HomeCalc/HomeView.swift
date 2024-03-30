@@ -54,19 +54,12 @@ struct HomeView: View {
                     Text("Repayment amount")
                     Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
                 }
-                // Set up fancy swift chart in here
-                // Need to set up an amortisation schedule array type
-                //
-                Chart(data, id: \.year) { principalRemaining in
-                    LineMark(
-                        x: .value("Year", principalRemaining.year),
-                        y: .value("Amount", principalRemaining.amount)
+                Chart {
+                    BarMark(
+                        y: .value("Total amount", viewModel.chartData.total)
                     )
-                    .lineStyle(StrokeStyle(lineWidth: 3))
-                    .interpolationMethod(.catmullRom)
-
+                    .foregroundStyle(by: .value("Shape Color", "Repayment"))
                 }
-
             }
             .padding()
             .navigationTitle("HomeCalc")
