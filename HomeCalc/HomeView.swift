@@ -9,14 +9,6 @@ import Charts
 import Foundation
 import SwiftUI
 
-let data = [
-    SampleRepaymentData(amount: 100, year: 0),
-    SampleRepaymentData(amount: 90, year: 1),
-    SampleRepaymentData(amount: 60, year: 2),
-    SampleRepaymentData(amount: 40, year: 3),
-    SampleRepaymentData(amount: 10, year: 4),
-]
-
 struct HomeView: View {
     @State var viewModel = ViewModel()
 
@@ -58,7 +50,10 @@ struct HomeView: View {
                     BarMark(
                         y: .value("Total amount", viewModel.chartData.total)
                     )
-                    .foregroundStyle(by: .value("Shape Color", "Repayment"))
+                    .foregroundStyle(by: .value("Principal", "Principal"))
+                    BarMark(y: .value("Interest", viewModel.chartData.interest))
+                        .foregroundStyle(by: .value("Interest", "Interest"))
+                   
                 }
             }
             .padding()

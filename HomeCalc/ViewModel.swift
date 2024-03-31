@@ -8,25 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct Repayment {
-    let amount: Double
-    let year: Int
+struct Repayment: Identifiable {
+    var id = UUID()
+    var amount: Double
 }
 
-struct SampleRepaymentData {
-    let amount: Int
-    let year: Int
-}
-
-struct TotalRepayment: Identifiable {
+struct ChartData: Identifiable {
     var id = UUID()
     var total: Double
-    var principal: Double
     var interest: Double
 }
 
 @Observable class ViewModel {
-    var chartData = TotalRepayment(total: 500000, principal: 0, interest: 0)
+    var chartData: ChartData
     var mortgage = 500000.0 {
         didSet {
             calculateMortgageRepayment()
@@ -60,11 +54,14 @@ struct TotalRepayment: Identifiable {
         let bottomLine = firstPower - 1
 
         mortgageRepayment = topLine / bottomLine
-        chartData = .init(total: mortgage, principal: 0, interest: 0)
+        
+        let totalMortgage = mortgageRepayment * Double(repaymentFrequency) * Double(yearsRemaining)
+        let interest = totalMortgage - mortgage
+        chartData = ChartData(total: mortgage, interest: interest)
     }
 
     init() {
+        chartData = ChartData(total: 0, interest: 0)
         calculateMortgageRepayment()
-        chartData = .init(total: mortgage, principal: 0, interest: 0)
     }
 }
