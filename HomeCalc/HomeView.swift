@@ -48,10 +48,10 @@ struct HomeView: View {
                 }
                 Chart {
                     BarMark(
-                        y: .value("Total amount", viewModel.chartData.total)
+                        x: .value("", ""), y: .value("Total amount", viewModel.chartData.total), width: .ratio(0.85)
                     )
                     .foregroundStyle(by: .value("Principal", "Principal"))
-                    BarMark(y: .value("Interest", viewModel.chartData.interest))
+                    BarMark(x: .value("", ""), y: .value("Interest", viewModel.chartData.interest), width: .ratio(0.85))
                         .foregroundStyle(by: .value("Interest", "Interest"))
                    
                 }
