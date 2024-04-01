@@ -15,8 +15,16 @@ struct Repayment: Identifiable {
 
 struct ChartData: Identifiable {
     var id = UUID()
-    var total: Double
+    var principal: Double
     var interest: Double
+    var total: Double {
+        principal + interest
+    }
+    var formattedTotal: String? {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter.string(from: total as NSNumber)
+    }
 }
 
 @Observable class ViewModel {
@@ -57,11 +65,11 @@ struct ChartData: Identifiable {
         
         let totalMortgage = mortgageRepayment * Double(repaymentFrequency) * Double(yearsRemaining)
         let interest = totalMortgage - mortgage
-        chartData = ChartData(total: mortgage, interest: interest)
+        chartData = ChartData(principal: mortgage, interest: interest)
     }
 
     init() {
-        chartData = ChartData(total: 0, interest: 0)
+        chartData = ChartData(principal: 0, interest: 0)
         calculateMortgageRepayment()
     }
 }
