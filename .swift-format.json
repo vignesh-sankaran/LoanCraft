@@ -1,13 +1,14 @@
 {
-    "lineLength": 100,
-    "indentation": {
-        "spaces": 4
-    },
-    "maximumBlankLines": 1,
-    "rules": {
-        "AlwaysUseLiteralForEmptyCollectionInit": true,
-        "NeverUseForceTry": true,
-        "NeverForceUnwrap": true,
-        "OmitExplicitReturns": true,
-        "UseWhereClausesInForLoops": true
-    }
+  "lineLength": 100,
+  "indentation": {
+    "spaces": 4
+  },
+  "maximumBlankLines": 1,
+  "rules": {
+    "AlwaysUseLiteralForEmptyCollectionInit": true,
+    "NeverUseForceTry": true,
+    "NeverForceUnwrap": true,
+    "OmitExplicitReturns": true,
+    "UseWhereClausesInForLoops": true
+  }
+}
