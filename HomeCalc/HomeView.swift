@@ -11,14 +11,13 @@ import SwiftUI
 
 struct HomeView: View {
     @State var viewModel = ViewModel()
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Text("Mortgage amount")
                 TextField(
                     "Mortgage amount", value: $viewModel.mortgage,
-                    format: .currency(code: "USD")
+                    format: .currency(code: "AUD")
                 )
                 .keyboardType(.numberPad)
                 Text("Interest")
@@ -48,6 +47,7 @@ struct HomeView: View {
                         }
                 }
             }
+            .textFieldStyle(.roundedBorder)
             .padding()
             .navigationTitle("HomeCalc")
         }
