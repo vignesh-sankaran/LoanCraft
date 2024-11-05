@@ -19,6 +19,7 @@ struct HomeView: View {
                     "Mortgage amount", value: $viewModel.mortgage,
                     format: .currency(code: "AUD")
                 )
+                
                 .keyboardType(.numberPad)
                 Text("Interest")
                 TextField("Interest", value: $viewModel.interest, format: .percent)
@@ -27,14 +28,24 @@ struct HomeView: View {
                 Text("Years remaining")
                 TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
                     .keyboardType(.numberPad)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("Done") {
+                                hideKeyboard()
+                            }
+                        }
+                    }
                 // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
                 Text("Repayment frequency")
                 Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
                     Text("Monthly").tag(12)
                     Text("Fortnightly").tag(26)
-                }.pickerStyle(.segmented)
+                }
+                .pickerStyle(.segmented)
+                .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                 Text("Repayment amount")
-                Text(viewModel.mortgageRepayment, format: .currency(code: "USD"))
+                Text(viewModel.mortgageRepayment, format: .currency(code: "AUD"))
                 Chart {
                     BarMark(
                         x: .value("", ""), y: .value("Total amount", viewModel.chartData.principal), width: .ratio(0.85)
@@ -51,6 +62,10 @@ struct HomeView: View {
             .padding()
             .navigationTitle("HomeCalc")
         }
+    }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
