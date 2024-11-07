@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeView: View {
     @State var viewModel = ViewModel()
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 Text("Mortgage amount")
                 TextField(
