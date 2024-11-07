@@ -19,12 +19,13 @@ struct HomeView: View {
                     "Mortgage amount", value: $viewModel.mortgage,
                     format: .currency(code: "AUD")
                 )
-                
                 .keyboardType(.numberPad)
+                .padding(.bottom, 16)
                 Text("Interest")
                 TextField("Interest", value: $viewModel.interest, format: .percent)
                     .keyboardType(
                         .decimalPad)
+                    .padding(.bottom, 16)
                 Text("Years remaining")
                 TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
                     .keyboardType(.numberPad)
@@ -36,6 +37,7 @@ struct HomeView: View {
                             }
                         }
                     }
+                    .padding(.bottom, 16)
                 // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
                 Text("Repayment frequency")
                 Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
@@ -44,6 +46,7 @@ struct HomeView: View {
                 }
                 .pickerStyle(.segmented)
                 .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
+                .padding(.bottom, 16)
                 Text("Repayment amount")
                 Text(viewModel.mortgageRepayment, format: .currency(code: "AUD"))
                 Chart {
