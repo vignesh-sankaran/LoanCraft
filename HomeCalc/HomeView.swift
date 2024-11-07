@@ -31,6 +31,8 @@ struct HomeView: View {
                     .keyboardType(.numberPad)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
+                            Button("Left", systemImage: "chevron.left") {}
+                            Button("Right", systemImage: "chevron.right") {}
                             Spacer()
                             Button("Done") {
                                 hideKeyboard()
