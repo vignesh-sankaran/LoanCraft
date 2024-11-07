@@ -41,8 +41,8 @@ struct HomeView: View {
                 // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
                 Text("Repayment frequency")
                 Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
-                    Text("Monthly").tag(12)
                     Text("Fortnightly").tag(26)
+                    Text("Monthly").tag(12)
                 }
                 .pickerStyle(.segmented)
                 .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
