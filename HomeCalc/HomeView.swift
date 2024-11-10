@@ -49,8 +49,8 @@ struct HomeView: View {
                 .pickerStyle(.segmented)
                 .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                 .padding(.bottom, 16)
-                Text("Repayment amount")
-                Text(viewModel.mortgageRepayment, format: .currency(code: "AUD"))
+                Text("Repayment amount per period:").bold()
+                Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
                 Chart {
                     BarMark(
                         x: .value("", ""), y: .value("Total amount", viewModel.chartData.principal), width: .ratio(0.85)
