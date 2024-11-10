@@ -44,7 +44,7 @@ struct ChartData: Identifiable {
             calculateMortgageRepayment()
         }
     }
-    var repaymentFrequency = 12 {
+    var repaymentFrequency = 26 {
         didSet {
             calculateMortgageRepayment()
         }
