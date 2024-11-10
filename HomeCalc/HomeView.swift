@@ -68,6 +68,7 @@ struct HomeView: View {
             .textFieldStyle(.roundedBorder)
             .padding()
             .navigationTitle("HomeCalc")
+            .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
     
