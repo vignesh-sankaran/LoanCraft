@@ -64,7 +64,7 @@ struct HomeView: View {
                             .annotation {
                                 Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
                             }
-                    }
+                    }.frame(height: 400)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
