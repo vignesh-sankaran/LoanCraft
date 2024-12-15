@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F7E786E29EC06BF0093A1E2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */; };
-		2FD0EAA829E00D8F00EB19B3 /* HomeCalcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* HomeCalcApp.swift */; };
-		2FD0EAAA29E00D8F00EB19B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* HomeView.swift */; };
+		2F73D6E82D0F86980096408F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* HomeView.swift */; };
+		2F73D6E92D0F86980096408F /* HomeCalcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* HomeCalcApp.swift */; };
+		2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */; };
+		2F73D6EB2D0F86A90096408F /* HomeCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */; };
 		2FD0EAAC29E00D9200EB19B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */; };
 		2FD0EAAF29E00D9200EB19B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */; };
-		2FD0EAB929E00D9200EB19B3 /* HomeCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +28,12 @@
 /* Begin PBXFileReference section */
 		2F14C0B72CDB4CB200B8EF12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		2FD0EAA429E00D8F00EB19B3 /* HomeCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD0EAA429E00D8F00EB19B3 /* NestView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAA729E00D8F00EB19B3 /* HomeCalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalcApp.swift; sourceTree = "<group>"; };
 		2FD0EAA929E00D8F00EB19B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2FD0EAB429E00D9200EB19B3 /* HomeCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NestViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalcTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,8 +58,8 @@
 		2FD0EA9B29E00D8F00EB19B3 = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAA629E00D8F00EB19B3 /* HomeCalc */,
-				2FD0EAB729E00D9200EB19B3 /* HomeCalcTests */,
+				2FD0EAA629E00D8F00EB19B3 /* NestView */,
+				2FD0EAB729E00D9200EB19B3 /* NestViewTests */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,13 +67,13 @@
 		2FD0EAA529E00D8F00EB19B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAA429E00D8F00EB19B3 /* HomeCalc.app */,
-				2FD0EAB429E00D9200EB19B3 /* HomeCalcTests.xctest */,
+				2FD0EAA429E00D8F00EB19B3 /* NestView.app */,
+				2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FD0EAA629E00D8F00EB19B3 /* HomeCalc */ = {
+		2FD0EAA629E00D8F00EB19B3 /* NestView */ = {
 			isa = PBXGroup;
 			children = (
 				2F14C0B72CDB4CB200B8EF12 /* Info.plist */,
@@ -83,7 +83,7 @@
 				2FD0EAAD29E00D9200EB19B3 /* Preview Content */,
 				2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */,
 			);
-			path = HomeCalc;
+			path = NestView;
 			sourceTree = "<group>";
 		};
 		2FD0EAAD29E00D9200EB19B3 /* Preview Content */ = {
@@ -94,20 +94,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2FD0EAB729E00D9200EB19B3 /* HomeCalcTests */ = {
+		2FD0EAB729E00D9200EB19B3 /* NestViewTests */ = {
 			isa = PBXGroup;
 			children = (
 				2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */,
 			);
-			path = HomeCalcTests;
+			path = NestViewTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FD0EAA329E00D8F00EB19B3 /* HomeCalc */ = {
+		2FD0EAA329E00D8F00EB19B3 /* NestView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "HomeCalc" */;
+			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestView" */;
 			buildPhases = (
 				2F7919A22AE2C20300B861D5 /* ShellScript */,
 				2FD0EAA029E00D8F00EB19B3 /* Sources */,
@@ -118,14 +118,14 @@
 			);
 			dependencies = (
 			);
-			name = HomeCalc;
+			name = NestView;
 			productName = HomeCalc;
-			productReference = 2FD0EAA429E00D8F00EB19B3 /* HomeCalc.app */;
+			productReference = 2FD0EAA429E00D8F00EB19B3 /* NestView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2FD0EAB329E00D9200EB19B3 /* HomeCalcTests */ = {
+		2FD0EAB329E00D9200EB19B3 /* NestViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "HomeCalcTests" */;
+			buildConfigurationList = 2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestViewTests" */;
 			buildPhases = (
 				2FD0EAB029E00D9200EB19B3 /* Sources */,
 				2FD0EAB129E00D9200EB19B3 /* Frameworks */,
@@ -136,9 +136,9 @@
 			dependencies = (
 				2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */,
 			);
-			name = HomeCalcTests;
+			name = NestViewTests;
 			productName = HomeCalcTests;
-			productReference = 2FD0EAB429E00D9200EB19B3 /* HomeCalcTests.xctest */;
+			productReference = 2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +160,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "HomeCalc" */;
+			buildConfigurationList = 2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "NestView" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -173,8 +173,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FD0EAA329E00D8F00EB19B3 /* HomeCalc */,
-				2FD0EAB329E00D9200EB19B3 /* HomeCalcTests */,
+				2FD0EAA329E00D8F00EB19B3 /* NestView */,
+				2FD0EAB329E00D9200EB19B3 /* NestViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,9 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD0EAAA29E00D8F00EB19B3 /* HomeView.swift in Sources */,
-				2F7E786E29EC06BF0093A1E2 /* ViewModel.swift in Sources */,
-				2FD0EAA829E00D8F00EB19B3 /* HomeCalcApp.swift in Sources */,
+				2F73D6E82D0F86980096408F /* HomeView.swift in Sources */,
+				2F73D6E92D0F86980096408F /* HomeCalcApp.swift in Sources */,
+				2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD0EAB929E00D9200EB19B3 /* HomeCalcTests.swift in Sources */,
+				2F73D6EB2D0F86A90096408F /* HomeCalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +243,7 @@
 /* Begin PBXTargetDependency section */
 		2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2FD0EAA329E00D8F00EB19B3 /* HomeCalc */;
+			target = 2FD0EAA329E00D8F00EB19B3 /* NestView */;
 			targetProxy = 2FD0EAB529E00D9200EB19B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -438,7 +438,6 @@
 		2FD0EACC29E00D9200EB19B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -451,14 +450,13 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeCalc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HomeCalc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NestView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NestView";
 			};
 			name = Debug;
 		};
 		2FD0EACD29E00D9200EB19B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -471,14 +469,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeCalc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HomeCalc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NestView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NestView";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "HomeCalc" */ = {
+		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "NestView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EAC629E00D9200EB19B3 /* Debug */,
@@ -487,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "HomeCalc" */ = {
+		2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EAC929E00D9200EB19B3 /* Debug */,
@@ -496,7 +494,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "HomeCalcTests" */ = {
+		2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EACC29E00D9200EB19B3 /* Debug */,
