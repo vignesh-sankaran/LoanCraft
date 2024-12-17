@@ -10,7 +10,6 @@
 		2F73D6E82D0F86980096408F /* NestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* NestView.swift */; };
 		2F73D6E92D0F86980096408F /* NestViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* NestViewApp.swift */; };
 		2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */; };
-		2F73D6EB2D0F86A90096408F /* HomeCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */; };
 		2FD0EAAC29E00D9200EB19B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */; };
 		2FD0EAAF29E00D9200EB19B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -34,7 +33,6 @@
 		2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NestViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalcTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 		2FD0EAB729E00D9200EB19B3 /* NestViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAB829E00D9200EB19B3 /* HomeCalcTests.swift */,
 			);
 			path = NestViewTests;
 			sourceTree = "<group>";
@@ -234,7 +231,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F73D6EB2D0F86A90096408F /* HomeCalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
