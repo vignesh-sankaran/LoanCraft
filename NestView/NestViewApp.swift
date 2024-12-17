@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct HomeCalcApp: App {
+struct NestViewApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NestView()
         }
     }
 }

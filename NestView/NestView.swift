@@ -9,7 +9,7 @@ import Charts
 import Foundation
 import SwiftUI
 
-struct HomeView: View {
+struct NestView: View {
     @State var viewModel = ViewModel()
     var body: some View {
         NavigationStack {
@@ -81,6 +81,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        NestView()
     }
 }
