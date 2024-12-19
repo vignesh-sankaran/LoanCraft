@@ -20,7 +20,7 @@
 			containerPortal = 2FD0EA9C29E00D8F00EB19B3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2FD0EAA329E00D8F00EB19B3;
-			remoteInfo = HomeCalc;
+			remoteInfo = NestView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -116,7 +116,7 @@
 			dependencies = (
 			);
 			name = NestView;
-			productName = HomeCalc;
+			productName = NestView;
 			productReference = 2FD0EAA429E00D8F00EB19B3 /* NestView.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -134,7 +134,7 @@
 				2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */,
 			);
 			name = NestViewTests;
-			productName = HomeCalcTests;
+			productName = NestViewTests;
 			productReference = 2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -441,7 +441,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.HomeCalcTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.NestViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -460,7 +460,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.HomeCalcTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.NestViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

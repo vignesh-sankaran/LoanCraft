@@ -1,6 +1,6 @@
 //
-//  HomeCalcApp.swift
-//  HomeCalc
+//  NestViewApp.swift
+//  NestView
 //
 //  Created by Vignesh Sankaran on 7/4/2023.
 //

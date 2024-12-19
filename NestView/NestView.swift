@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  HomeCalc
+//  NestView
 //
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
@@ -69,7 +69,7 @@ struct NestView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding()
             }
-            .navigationTitle("HomeCalc")
+            .navigationTitle("NestView")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
