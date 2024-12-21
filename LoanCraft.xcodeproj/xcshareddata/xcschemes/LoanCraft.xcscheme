@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FD0EAA329E00D8F00EB19B3"
-               BuildableName = "NestView.app"
-               BlueprintName = "NestView"
-               ReferencedContainer = "container:NestView.xcodeproj">
+               BuildableName = "LoanCraft.app"
+               BlueprintName = "LoanCraft"
+               ReferencedContainer = "container:LoanCraft.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FD0EAB329E00D9200EB19B3"
-               BuildableName = "NestViewTests.xctest"
-               BlueprintName = "NestViewTests"
-               ReferencedContainer = "container:NestView.xcodeproj">
+               BuildableName = "LoanCraftTests.xctest"
+               BlueprintName = "LoanCraftTests"
+               ReferencedContainer = "container:LoanCraft.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FD0EAA329E00D8F00EB19B3"
-            BuildableName = "NestView.app"
-            BlueprintName = "NestView"
-            ReferencedContainer = "container:NestView.xcodeproj">
+            BuildableName = "LoanCraft.app"
+            BlueprintName = "LoanCraft"
+            ReferencedContainer = "container:LoanCraft.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FD0EAA329E00D8F00EB19B3"
-            BuildableName = "NestView.app"
-            BlueprintName = "NestView"
-            ReferencedContainer = "container:NestView.xcodeproj">
+            BuildableName = "LoanCraft.app"
+            BlueprintName = "LoanCraft"
+            ReferencedContainer = "container:LoanCraft.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

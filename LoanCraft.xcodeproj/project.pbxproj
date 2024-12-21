@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F73D6E82D0F86980096408F /* NestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* NestView.swift */; };
-		2F73D6E92D0F86980096408F /* NestViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* NestViewApp.swift */; };
+		2F73D6E82D0F86980096408F /* LoanCraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */; };
+		2F73D6E92D0F86980096408F /* LoanCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */; };
 		2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */; };
 		2FD0EAAC29E00D9200EB19B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */; };
 		2FD0EAAF29E00D9200EB19B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */; };
@@ -25,14 +25,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F14C0B72CDB4CB200B8EF12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		2FD0EAA429E00D8F00EB19B3 /* NestView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FD0EAA729E00D8F00EB19B3 /* NestViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestViewApp.swift; sourceTree = "<group>"; };
-		2FD0EAA929E00D8F00EB19B3 /* NestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestView.swift; sourceTree = "<group>"; };
+		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraftApp.swift; sourceTree = "<group>"; };
+		2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraft.swift; sourceTree = "<group>"; };
 		2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NestViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +55,8 @@
 		2FD0EA9B29E00D8F00EB19B3 = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAA629E00D8F00EB19B3 /* NestView */,
-				2FD0EAB729E00D9200EB19B3 /* NestViewTests */,
+				2FD0EAA629E00D8F00EB19B3 /* LoanCraft */,
+				2FD0EAB729E00D9200EB19B3 /* LoanCraftTests */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,23 +64,22 @@
 		2FD0EAA529E00D8F00EB19B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAA429E00D8F00EB19B3 /* NestView.app */,
-				2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */,
+				2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */,
+				2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FD0EAA629E00D8F00EB19B3 /* NestView */ = {
+		2FD0EAA629E00D8F00EB19B3 /* LoanCraft */ = {
 			isa = PBXGroup;
 			children = (
-				2F14C0B72CDB4CB200B8EF12 /* Info.plist */,
 				2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */,
-				2FD0EAA929E00D8F00EB19B3 /* NestView.swift */,
-				2FD0EAA729E00D8F00EB19B3 /* NestViewApp.swift */,
+				2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */,
+				2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */,
 				2FD0EAAD29E00D9200EB19B3 /* Preview Content */,
 				2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */,
 			);
-			path = NestView;
+			path = LoanCraft;
 			sourceTree = "<group>";
 		};
 		2FD0EAAD29E00D9200EB19B3 /* Preview Content */ = {
@@ -92,19 +90,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2FD0EAB729E00D9200EB19B3 /* NestViewTests */ = {
+		2FD0EAB729E00D9200EB19B3 /* LoanCraftTests */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = NestViewTests;
+			path = LoanCraftTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FD0EAA329E00D8F00EB19B3 /* NestView */ = {
+		2FD0EAA329E00D8F00EB19B3 /* LoanCraft */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestView" */;
+			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraft" */;
 			buildPhases = (
 				2F7919A22AE2C20300B861D5 /* ShellScript */,
 				2FD0EAA029E00D8F00EB19B3 /* Sources */,
@@ -115,14 +113,14 @@
 			);
 			dependencies = (
 			);
-			name = NestView;
+			name = LoanCraft;
 			productName = NestView;
-			productReference = 2FD0EAA429E00D8F00EB19B3 /* NestView.app */;
+			productReference = 2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2FD0EAB329E00D9200EB19B3 /* NestViewTests */ = {
+		2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestViewTests" */;
+			buildConfigurationList = 2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraftTests" */;
 			buildPhases = (
 				2FD0EAB029E00D9200EB19B3 /* Sources */,
 				2FD0EAB129E00D9200EB19B3 /* Frameworks */,
@@ -133,9 +131,9 @@
 			dependencies = (
 				2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */,
 			);
-			name = NestViewTests;
+			name = LoanCraftTests;
 			productName = NestViewTests;
-			productReference = 2FD0EAB429E00D9200EB19B3 /* NestViewTests.xctest */;
+			productReference = 2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -157,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "NestView" */;
+			buildConfigurationList = 2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "LoanCraft" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -170,8 +168,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FD0EAA329E00D8F00EB19B3 /* NestView */,
-				2FD0EAB329E00D9200EB19B3 /* NestViewTests */,
+				2FD0EAA329E00D8F00EB19B3 /* LoanCraft */,
+				2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -221,8 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F73D6E82D0F86980096408F /* NestView.swift in Sources */,
-				2F73D6E92D0F86980096408F /* NestViewApp.swift in Sources */,
+				2F73D6E82D0F86980096408F /* LoanCraft.swift in Sources */,
+				2F73D6E92D0F86980096408F /* LoanCraftApp.swift in Sources */,
 				2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +237,7 @@
 /* Begin PBXTargetDependency section */
 		2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2FD0EAA329E00D8F00EB19B3 /* NestView */;
+			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
 			targetProxy = 2FD0EAB529E00D9200EB19B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -297,6 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -353,6 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -370,11 +370,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NestView/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"LoanCraft/Preview Content\"";
 				DEVELOPMENT_TEAM = VZBMFUFU3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NestView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NestView;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -404,11 +403,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NestView/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"LoanCraft/Preview Content\"";
 				DEVELOPMENT_TEAM = VZBMFUFU3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NestView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NestView;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -446,7 +444,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NestView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NestView";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoanCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoanCraft";
 			};
 			name = Debug;
 		};
@@ -465,14 +463,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NestView.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NestView";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoanCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoanCraft";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "NestView" */ = {
+		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "LoanCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EAC629E00D9200EB19B3 /* Debug */,
@@ -481,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestView" */ = {
+		2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EAC929E00D9200EB19B3 /* Debug */,
@@ -490,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "NestViewTests" */ = {
+		2FD0EACB29E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FD0EACC29E00D9200EB19B3 /* Debug */,

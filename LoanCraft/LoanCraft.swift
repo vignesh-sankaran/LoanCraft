@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  NestView
+//  LoanCraft
 //
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
@@ -9,7 +9,7 @@ import Charts
 import Foundation
 import SwiftUI
 
-struct NestView: View {
+struct LoanCraft: View {
     @State var viewModel = ViewModel()
     var body: some View {
         NavigationStack {
@@ -69,7 +69,7 @@ struct NestView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding()
             }
-            .navigationTitle("NestView")
+            .navigationTitle("LoanCraft")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
@@ -81,6 +81,6 @@ struct NestView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NestView()
+        LoanCraft()
     }
 }

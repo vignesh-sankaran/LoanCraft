@@ -1,6 +1,6 @@
 //
 //  NestViewApp.swift
-//  NestView
+//  LoanCraft
 //
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct NestViewApp: App {
+struct LoanCraftApp: App {
     var body: some Scene {
         WindowGroup {
-            NestView()
+            LoanCraft()
         }
     }
 }
