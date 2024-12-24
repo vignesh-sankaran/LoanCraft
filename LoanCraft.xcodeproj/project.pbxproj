@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2FC602052D1ACF6F0005E8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraftApp.swift; sourceTree = "<group>"; };
 		2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraft.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		2FD0EAA629E00D8F00EB19B3 /* LoanCraft */ = {
 			isa = PBXGroup;
 			children = (
+				2FC602052D1ACF6F0005E8AB /* Info.plist */,
 				2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */,
 				2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */,
 				2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */,
@@ -374,6 +376,7 @@
 				DEVELOPMENT_TEAM = VZBMFUFU3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoanCraft/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LoanCraft;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -407,6 +410,7 @@
 				DEVELOPMENT_TEAM = VZBMFUFU3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoanCraft/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LoanCraft;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
