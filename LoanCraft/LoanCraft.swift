@@ -11,6 +11,7 @@ import SwiftUI
 
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
+    @State var barmarkTapped = false
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -54,6 +55,7 @@ struct LoanCraft: View {
                     .padding(.bottom, 16)
                     Text("Repayment amount per period:").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
+                    
                     Chart {
                         BarMark(
                             x: .value("", ""), y: .value("Total amount", viewModel.chartData.principal), width: .ratio(0.85)
@@ -64,10 +66,25 @@ struct LoanCraft: View {
                             .annotation {
                                 Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
                             }
-                    }.frame(height: 400)
+                    }
+                    .frame(height: 400)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
+                .chartOverlay { proxy in
+                    GeometryReader { geometry in
+                        // Tap on a bar mark, then
+                        Rectangle().fill(.clear).contentShape(Rectangle())
+                            .gesture(
+                                SpatialTapGesture().onEnded { _ in
+                                    self.barmarkTapped = true
+                                }
+                            )
+                    }.sensoryFeedback(.impact, trigger: barmarkTapped) { old, new in
+                        barmarkTapped = false
+                        return true
+                    }
+                }
             }
             .navigationTitle("LoanCraft")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
