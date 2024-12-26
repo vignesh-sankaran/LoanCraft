@@ -90,7 +90,7 @@ struct LoanCraft: View {
                                 VStack {
                                     Text("Hello there")
                                 }
-                                .frame(width: 100, alignment: .leading)
+                                .frame(width: 100, alignment: .center)
                                 .background {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 8)
@@ -101,6 +101,7 @@ struct LoanCraft: View {
                                     .padding(.horizontal, -8)
                                     .padding(.vertical, -4)
                                 }
+                                .offset(x: 100)
                             }
                         }
                     }
