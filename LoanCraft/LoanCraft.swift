@@ -68,6 +68,7 @@ struct LoanCraft: View {
                             }
                     }
                     .chartGesture { proxy in
+                        // TODO: Fix tap target so that it is on the full bar
                         SpatialTapGesture().onEnded { value in
                             guard let x = proxy.value(atX: value.location.x, as: String.self),
                                   let xRange = proxy.positionRange(forX: x) else { return }
@@ -75,7 +76,7 @@ struct LoanCraft: View {
 
                             // assuming the bars occupy half of the available width
                             // i.e. BarMark(x: ..., y: ..., width: .ratio(0.5))
-                            let barRatio = 0.5
+                            let barRatio = 0.85
                             let barRange = (xRange.lowerBound + rangeWidth * barRatio / 2)...(xRange.upperBound - rangeWidth * barRatio / 2)
                             
                             guard barRange.contains(value.location.x) else {
@@ -84,9 +85,10 @@ struct LoanCraft: View {
                             barGraphTapped.toggle()
                         }
                     }
-                    .chartBackground { proxy in
+                    .chartBackground { chartProxy in
                         if barGraphTapped {
-                            GeometryReader { geometry in
+                            GeometryReader { geometryProxy in
+                                let offset = (geometryProxy.size.width / 2) - 100
                                 VStack {
                                     Text("Hello there")
                                 }
@@ -101,7 +103,7 @@ struct LoanCraft: View {
                                     .padding(.horizontal, -8)
                                     .padding(.vertical, -4)
                                 }
-                                .offset(x: 100)
+                                .offset(x: offset)
                             }
                         }
                     }
