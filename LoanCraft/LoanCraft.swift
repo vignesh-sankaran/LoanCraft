@@ -11,6 +11,8 @@ import SwiftUI
 
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
+    @State var barGraphTapped = false
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -64,7 +66,45 @@ struct LoanCraft: View {
                             .annotation {
                                 Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
                             }
-                    }.frame(height: 400)
+                    }
+                    .chartGesture { proxy in
+                        SpatialTapGesture().onEnded { value in
+                            guard let x = proxy.value(atX: value.location.x, as: String.self),
+                                  let xRange = proxy.positionRange(forX: x) else { return }
+                            let rangeWidth = xRange.upperBound - xRange.lowerBound
+
+                            // assuming the bars occupy half of the available width
+                            // i.e. BarMark(x: ..., y: ..., width: .ratio(0.5))
+                            let barRatio = 0.5
+                            let barRange = (xRange.lowerBound + rangeWidth * barRatio / 2)...(xRange.upperBound - rangeWidth * barRatio / 2)
+                            
+                            guard barRange.contains(value.location.x) else {
+                                return
+                            }
+                            barGraphTapped.toggle()
+                        }
+                    }
+                    .chartBackground { proxy in
+                        if barGraphTapped {
+                            GeometryReader { geometry in
+                                VStack {
+                                    Text("Hello there")
+                                }
+                                .frame(width: 100, alignment: .leading)
+                                .background {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(.background)
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(.quaternary.opacity(0.7))
+                                    }
+                                    .padding(.horizontal, -8)
+                                    .padding(.vertical, -4)
+                                }
+                            }
+                        }
+                    }
+                    .frame(height: 400)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
@@ -77,6 +117,8 @@ struct LoanCraft: View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    
+    // Create new function here to handle different haptic feedback gestures
 }
 
 struct ContentView_Previews: PreviewProvider {
