@@ -9,9 +9,14 @@ import Charts
 import Foundation
 import SwiftUI
 
+enum SelectedBarItem {
+    case interest, principal
+}
+
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
     @State var barGraphTapped = false
+    @State var selectedBar: SelectedBarItem?
 
     var body: some View {
         NavigationStack {
@@ -67,18 +72,13 @@ struct LoanCraft: View {
                                 Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
                             }
                     }
-                    .chartGesture { proxy in
+                    .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
-                            guard let x = proxy.value(atX: value.location.x, as: String.self),
-                                  let xRange = proxy.positionRange(forX: x) else { return }
-                            let rangeWidth = xRange.upperBound - xRange.lowerBound
-                            
-                            // assuming the bars occupy half of the available width
-                            let barRatio = 0.0
-                            let barRange = (xRange.lowerBound + rangeWidth * barRatio / 2)...(xRange.upperBound - rangeWidth * barRatio / 2)
-                            
-                            guard barRange.contains(value.location.x) else {
-                                return
+                            let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy)
+                            if self.selectedBar == selectedBar {
+                                self.selectedBar = nil
+                            } else {
+                                self.selectedBar = selectedBar
                             }
                             barGraphTapped.toggle()
                         }
@@ -88,7 +88,11 @@ struct LoanCraft: View {
                             GeometryReader { geometryProxy in
                                 let offset = (geometryProxy.size.width / 2) - 100
                                 VStack {
-                                    Text("Hello there")
+                                    if selectedBar == .principal {
+                                        Text("Principal: \(viewModel.chartData.principal)")
+                                    } else if selectedBar == .interest {
+                                        Text("Interest: \(viewModel.chartData.interest)")
+                                    }
                                 }
                                 .frame(width: 100, alignment: .center)
                                 .background {
@@ -117,6 +121,21 @@ struct LoanCraft: View {
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    func findSelectedBar(
+        location: CGPoint,
+        chartProxy: ChartProxy
+    ) -> SelectedBarItem? {
+        guard let value = chartProxy.value(atY: location.y) as Double? else {
+            return nil
+        }
+
+        if value <= viewModel.chartData.principal {
+            return .principal
+        } else {
+            return .interest
+        }
     }
     
     // Create new function here to handle different haptic feedback gestures
