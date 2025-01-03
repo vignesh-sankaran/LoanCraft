@@ -133,8 +133,10 @@ struct LoanCraft: View {
 
         if value <= viewModel.chartData.principal {
             return .principal
-        } else {
+        } else if value <= viewModel.chartData.total {
             return .interest
+        } else {
+            return nil
         }
     }
     
