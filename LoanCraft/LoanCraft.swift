@@ -15,7 +15,6 @@ enum SelectedBarItem {
 
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
-    @State var barGraphTapped = false
     @State var selectedBar: SelectedBarItem?
 
     var body: some View {
@@ -80,11 +79,10 @@ struct LoanCraft: View {
                             } else {
                                 self.selectedBar = selectedBar
                             }
-                            barGraphTapped.toggle()
                         }
                     }
                     .chartBackground { chartProxy in
-                        if barGraphTapped {
+                        if let selectedBar {
                             GeometryReader { geometryProxy in
                                 let offset = (geometryProxy.size.width / 2) - 100
                                 VStack {
