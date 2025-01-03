@@ -81,7 +81,7 @@ struct LoanCraft: View {
                             }
                         }
                     }
-                    .chartBackground { chartProxy in
+                    .chartOverlay { chartProxy in
                         if let selectedBar {
                             GeometryReader { geometryProxy in
                                 let offset = (geometryProxy.size.width / 2) - 100
@@ -103,7 +103,7 @@ struct LoanCraft: View {
                                     .padding(.horizontal, -8)
                                     .padding(.vertical, -4)
                                 }
-                                .offset(x: offset)
+                                .offset(x: offset, y: 100)
                             }
                         }
                     }
