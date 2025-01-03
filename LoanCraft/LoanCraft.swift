@@ -89,9 +89,9 @@ struct LoanCraft: View {
                                 let offset = (geometryProxy.size.width / 2) - 100
                                 VStack {
                                     if selectedBar == .principal {
-                                        Text("Principal: \(viewModel.chartData.principal)")
+                                        Text("Principal: \(viewModel.chartData.formattedPrincipal ?? "")")
                                     } else if selectedBar == .interest {
-                                        Text("Interest: \(viewModel.chartData.interest)")
+                                        Text("Interest: \(viewModel.chartData.formattedInterest ?? "")")
                                     }
                                 }
                                 .frame(width: 100, alignment: .center)
@@ -127,7 +127,7 @@ struct LoanCraft: View {
         location: CGPoint,
         chartProxy: ChartProxy
     ) -> SelectedBarItem? {
-        guard let value = chartProxy.value(atY: location.y) as Double? else {
+        guard let value = chartProxy.value(atY: location.y) as Decimal? else {
             return nil
         }
 

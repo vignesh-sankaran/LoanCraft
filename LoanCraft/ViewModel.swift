@@ -10,15 +10,25 @@ import SwiftUI
 
 struct Repayment: Identifiable {
     var id = UUID()
-    var amount: Double
+    var amount: Decimal
 }
 
 struct ChartData: Identifiable {
     var id = UUID()
-    var principal: Double
-    var interest: Double
-    var total: Double {
+    var principal: Decimal
+    var interest: Decimal
+    var total: Decimal {
         principal + interest
+    }
+    var formattedPrincipal: String? {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter.string(from: principal as NSNumber)
+    }
+    var formattedInterest: String? {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter.string(from: interest as NSNumber)
     }
     var formattedTotal: String? {
         let currencyFormatter = NumberFormatter()
@@ -29,12 +39,12 @@ struct ChartData: Identifiable {
 
 @Observable class ViewModel {
     var chartData: ChartData
-    var mortgage = 500000.0 {
+    var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()
         }
     }
-    var interest = 0.05 {
+    var interest: Decimal = 0.05 {
         didSet {
             calculateMortgageRepayment()
         }
@@ -49,21 +59,21 @@ struct ChartData: Identifiable {
             calculateMortgageRepayment()
         }
     }
-    var mortgageRepayment = 0.0
+    var mortgageRepayment: Decimal = 0.0
 
     func calculateMortgageRepayment() {
-        let interestForPeriod = interest / Double(repaymentFrequency)
+        let interestForPeriod = interest / Decimal(repaymentFrequency)
         let numberOfPeriods = repaymentFrequency * yearsRemaining
 
         let firstBracket = 1 + interestForPeriod
-        let firstPower = pow(firstBracket, Double(numberOfPeriods))
+        let firstPower = pow(firstBracket, numberOfPeriods)
         let topLine = mortgage * interestForPeriod * firstPower
 
         let bottomLine = firstPower - 1
 
         mortgageRepayment = topLine / bottomLine
         
-        let totalMortgage = mortgageRepayment * Double(repaymentFrequency) * Double(yearsRemaining)
+        let totalMortgage = mortgageRepayment * Decimal(repaymentFrequency) * Decimal(yearsRemaining)
         let interest = totalMortgage - mortgage
         chartData = ChartData(principal: mortgage, interest: interest)
     }
