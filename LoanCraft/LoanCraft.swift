@@ -109,6 +109,7 @@ struct LoanCraft: View {
                         }
                     }
                     .frame(height: 400)
+                    .sensoryFeedback(.selection, trigger: selectedBar)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
