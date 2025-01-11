@@ -71,6 +71,12 @@ struct LoanCraft: View {
                                 Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
                             }
                     }
+                    .chartForegroundStyleScale(
+                        [
+                            "Principal": Color("Principal"),
+                            "Interest": Color("Interest"),
+                        ]
+                    )
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
                             let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy)
@@ -143,8 +149,6 @@ struct LoanCraft: View {
             return nil
         }
     }
-    
-    // Create new function here to handle different haptic feedback gestures
 }
 
 struct ContentView_Previews: PreviewProvider {
