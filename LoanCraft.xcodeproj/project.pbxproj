@@ -3,16 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		2F73D6E82D0F86980096408F /* LoanCraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */; };
-		2F73D6E92D0F86980096408F /* LoanCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */; };
-		2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */; };
-		2FD0EAAC29E00D9200EB19B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */; };
-		2FD0EAAF29E00D9200EB19B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2FD0EAB529E00D9200EB19B3 /* PBXContainerItemProxy */ = {
@@ -25,15 +17,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		2FC602052D1ACF6F0005E8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraftApp.swift; sourceTree = "<group>"; };
-		2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCraft.swift; sourceTree = "<group>"; };
-		2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
+		2FA562AC2D32B55200D69DA3 /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2FD0EAA129E00D8F00EB19B3 /* Frameworks */ = {
@@ -56,8 +57,8 @@
 		2FD0EA9B29E00D8F00EB19B3 = {
 			isa = PBXGroup;
 			children = (
-				2FD0EAA629E00D8F00EB19B3 /* LoanCraft */,
-				2FD0EAB729E00D9200EB19B3 /* LoanCraftTests */,
+				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
+				2FA562AC2D32B55200D69DA3 /* LoanCraftTests */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,34 +70,6 @@
 				2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2FD0EAA629E00D8F00EB19B3 /* LoanCraft */ = {
-			isa = PBXGroup;
-			children = (
-				2FC602052D1ACF6F0005E8AB /* Info.plist */,
-				2FD0EAAB29E00D9200EB19B3 /* Assets.xcassets */,
-				2FD0EAA929E00D8F00EB19B3 /* LoanCraft.swift */,
-				2FD0EAA729E00D8F00EB19B3 /* LoanCraftApp.swift */,
-				2FD0EAAD29E00D9200EB19B3 /* Preview Content */,
-				2F7E786D29EC06BF0093A1E2 /* ViewModel.swift */,
-			);
-			path = LoanCraft;
-			sourceTree = "<group>";
-		};
-		2FD0EAAD29E00D9200EB19B3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				2FD0EAAE29E00D9200EB19B3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2FD0EAB729E00D9200EB19B3 /* LoanCraftTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoanCraftTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,6 +87,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
 			);
 			name = LoanCraft;
 			productName = LoanCraft;
@@ -181,8 +157,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD0EAAF29E00D9200EB19B3 /* Preview Assets.xcassets in Resources */,
-				2FD0EAAC29E00D9200EB19B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,9 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F73D6E82D0F86980096408F /* LoanCraft.swift in Sources */,
-				2F73D6E92D0F86980096408F /* LoanCraftApp.swift in Sources */,
-				2F73D6EA2D0F86980096408F /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
