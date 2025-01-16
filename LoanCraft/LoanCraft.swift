@@ -92,9 +92,9 @@ struct LoanCraft: View {
                             GeometryReader { geometryProxy in
                                 let xOffset = (chartProxy.plotSize.width / 2) - 50
                                 let yOffset: CGFloat = if selectedBar == .principal {
-                                    215
+                                    chartProxy.position(forY: self.viewModel.chartData.principal) ?? 0
                                 } else {
-                                    100
+                                    chartProxy.position(forY: self.viewModel.chartData.total + 10) ?? 0
                                 }
                                 VStack {
                                     if selectedBar == .principal {
@@ -114,7 +114,7 @@ struct LoanCraft: View {
                                     .padding(.horizontal, -8)
                                     .padding(.vertical, -4)
                                 }
-                                .offset(x: xOffset, y: yOffset)
+                                .offset(x: xOffset, y: yOffset - 20)
                             }
                         }
                     }
