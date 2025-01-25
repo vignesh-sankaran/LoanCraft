@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B02D3E3F5800D69DA3 /* FirebaseCrashlytics */; };
+		2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B82D4514A600D69DA3 /* AmplitudeSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */,
 				2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */,
 			);
@@ -152,6 +154,7 @@
 			mainGroup = 2FD0EA9B29E00D8F00EB19B3;
 			packageReferences = (
 				2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
 			);
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
 			projectDirPath = "";
@@ -523,6 +526,14 @@
 				minimumVersion = 11.7.0;
 			};
 		};
+		2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/Amplitude-Swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -535,6 +546,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		2FA562B82D4514A600D69DA3 /* AmplitudeSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */;
+			productName = AmplitudeSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
