@@ -86,10 +86,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraft" */;
 			buildPhases = (
-				2F7919A22AE2C20300B861D5 /* ShellScript */,
+				2F7919A22AE2C20300B861D5 /* Linter */,
 				2FD0EAA029E00D8F00EB19B3 /* Sources */,
 				2FD0EAA129E00D8F00EB19B3 /* Frameworks */,
 				2FD0EAA229E00D8F00EB19B3 /* Resources */,
+				2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */,
 			);
 			buildRules = (
 			);
@@ -180,7 +181,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F7919A22AE2C20300B861D5 /* ShellScript */ = {
+		2F7919A22AE2C20300B861D5 /* Linter */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -190,6 +191,7 @@
 			);
 			inputPaths = (
 			);
+			name = Linter;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -197,6 +199,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
 			shellScript = "swift-format format -i -r ${PROJECT_DIR} --configuration .swift-format.json\nswift-format lint -r ${PROJECT_DIR} --configuration .swift-format.json\n";
+		};
+		2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			name = "Set up Crash;ytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
