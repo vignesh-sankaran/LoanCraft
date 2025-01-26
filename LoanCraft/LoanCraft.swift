@@ -34,6 +34,9 @@ struct LoanCraft: View {
                             .decimalPad)
                         .padding(.bottom, 16)
                     Text("Years remaining")
+                    Button("Test crash") {
+                        fatalError("Test crash")
+                    }
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
                         .keyboardType(.numberPad)
                         .toolbar {
