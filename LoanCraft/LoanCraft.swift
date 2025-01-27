@@ -38,8 +38,8 @@ struct LoanCraft: View {
                         .keyboardType(.numberPad)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
-                                Button("Left", systemImage: "chevron.left") {}
-                                Button("Right", systemImage: "chevron.right") {}
+                                Button("Up", systemImage: "chevron.up") {}
+                                Button("Down", systemImage: "chevron.down") {}
                                 Spacer()
                                 Button("Done") {
                                     hideKeyboard()
