@@ -13,10 +13,38 @@ enum SelectedBarItem {
     case interest, principal
 }
 
+enum SelectedTextField: Hashable, CaseIterable {
+    case mortgageAmount
+    case interest
+    case yearsRemaining
+    
+    var next: Self {
+        switch self {
+        case .mortgageAmount:
+            return .interest
+        case .interest:
+            return .yearsRemaining
+        case .yearsRemaining:
+            return .mortgageAmount
+        }
+    }
+    
+    var previous: Self {
+        switch self {
+        case .mortgageAmount:
+            return .yearsRemaining
+        case .interest:
+            return .mortgageAmount
+        case .yearsRemaining:
+            return .interest
+        }
+    }
+}
+
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
-
+    @FocusState var selectedTextField: SelectedTextField?
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -26,20 +54,26 @@ struct LoanCraft: View {
                         "Mortgage amount", value: $viewModel.mortgage,
                         format: .currency(code: "AUD")
                     )
+                    .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
                     .padding(.bottom, 16)
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
-                        .keyboardType(
-                            .decimalPad)
+                        .keyboardType(.decimalPad)
+                        .focused($selectedTextField, equals: .interest)
                         .padding(.bottom, 16)
                     Text("Years remaining")
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
                         .keyboardType(.numberPad)
+                        .focused($selectedTextField, equals: .yearsRemaining)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
-                                Button("Up", systemImage: "chevron.up") {}
-                                Button("Down", systemImage: "chevron.down") {}
+                                Button("Up", systemImage: "chevron.up") {
+                                    selectedTextField = selectedTextField?.previous
+                                }.disabled(selectedTextField == .mortgageAmount)
+                                Button("Down", systemImage: "chevron.down") {
+                                    selectedTextField = selectedTextField?.next
+                                }.disabled(selectedTextField == .yearsRemaining)
                                 Spacer()
                                 Button("Done") {
                                     hideKeyboard()

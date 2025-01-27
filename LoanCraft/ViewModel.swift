@@ -35,6 +35,8 @@ struct ChartData: Identifiable {
         currencyFormatter.numberStyle = .currency
         return currencyFormatter.string(from: total as NSNumber)
     }
+    let iterator = SelectedTextField.allCases.makeIterator()
+
 }
 
 @Observable class ViewModel {
