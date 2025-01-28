@@ -6,40 +6,7 @@
 //
 
 import Charts
-import Foundation
 import SwiftUI
-
-enum SelectedBarItem {
-    case interest, principal
-}
-
-enum SelectedTextField: Hashable, CaseIterable {
-    case mortgageAmount
-    case interest
-    case yearsRemaining
-    
-    var next: Self {
-        switch self {
-        case .mortgageAmount:
-            return .interest
-        case .interest:
-            return .yearsRemaining
-        case .yearsRemaining:
-            return .mortgageAmount
-        }
-    }
-    
-    var previous: Self {
-        switch self {
-        case .mortgageAmount:
-            return .yearsRemaining
-        case .interest:
-            return .mortgageAmount
-        case .yearsRemaining:
-            return .interest
-        }
-    }
-}
 
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
