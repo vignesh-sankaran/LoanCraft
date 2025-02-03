@@ -11,7 +11,13 @@ import SwiftUI
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
-    @FocusState var selectedTextField: SelectedTextField?
+    @FocusState var selectedTextField: SelectedTextField? {
+        didSet {
+            if let selectedTextField {
+                analytics.send(event: selectedTextField.trackingValue)
+            }
+        }
+    }
     let analytics = AnalyticsService()
     var body: some View {
         NavigationStack {

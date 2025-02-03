@@ -11,6 +11,7 @@ enum Event: String {
     case appResumed
     case mortgage
     case interest
+    case period
     case periodSlider
     case interestBarMark
     case principalBarMark
