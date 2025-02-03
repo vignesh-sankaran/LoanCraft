@@ -12,6 +12,7 @@ struct LoanCraft: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
     @FocusState var selectedTextField: SelectedTextField?
+    let analytics = AnalyticsService()
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -85,6 +86,7 @@ struct LoanCraft: View {
                                 self.selectedBar = nil
                             } else {
                                 self.selectedBar = selectedBar
+                                analytics.send(event: .principalBarMark)
                             }
                         }
                     }
