@@ -11,13 +11,7 @@ import SwiftUI
 struct LoanCraft: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
-    @FocusState var selectedTextField: SelectedTextField? {
-        didSet {
-            if let selectedTextField {
-                analytics.send(event: selectedTextField.trackingValue)
-            }
-        }
-    }
+    @FocusState var selectedTextField: SelectedTextField?
     let analytics = AnalyticsService()
     var body: some View {
         NavigationStack {
@@ -30,6 +24,11 @@ struct LoanCraft: View {
                     )
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
+                    .onChange(of: selectedTextField) { selectedTextField in
+                        if let selectedTextField {
+                            analytics.send(event: selectedTextField.trackingValue)
+                        }
+                    }
                     .padding(.bottom, 16)
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
