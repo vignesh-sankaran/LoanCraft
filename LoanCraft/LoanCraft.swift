@@ -65,6 +65,9 @@ struct LoanCraft: View {
                     .pickerStyle(.segmented)
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
+                    .onChange(of: viewModel.repaymentFrequency) { _ in
+                        analytics.send(event: .repaymentFrequency)
+                    }
                     Text("Repayment amount per period:").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
                     Chart {
