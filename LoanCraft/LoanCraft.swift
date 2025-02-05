@@ -68,8 +68,8 @@ struct LoanCraft: View {
                     .pickerStyle(.segmented)
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
-                    .onChange(of: viewModel.repaymentFrequency) { _ in
-                        analytics.send(event: .repaymentFrequency)
+                    .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
+                        analytics.send(event: .repaymentFrequency, properties: ["selectedFrequency": repaymentFrequency])
                     }
                     Text("Repayment amount per period:").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
@@ -93,7 +93,7 @@ struct LoanCraft: View {
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
                             guard let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy) else { return }
-                            analytics.send(event: selectedBar.trackingValue)
+                            analytics.send(event: selectedBar.trackingValue, properties: ["isVisible": self.selectedBar == nil])
                             if self.selectedBar == selectedBar {
                                 self.selectedBar = nil
                             } else {

@@ -19,7 +19,7 @@ final class AnalyticsService {
         ))
     }
     
-    func send(event: Event) {
-        amplitudeService.track(eventType: event.rawValue)
+    func send(event: Event, properties: [String: Any]? = nil) {
+        amplitudeService.track(eventType: event.rawValue, eventProperties: properties)
     }
 }
