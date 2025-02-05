@@ -6,12 +6,10 @@
 //
 
 enum Event: String {
-    case appStarted
-    case appBackgrounded
-    case appResumed
     case mortgage
     case interest
-    case period
+    case yearsRemaining
+    case repaymentFrequency
     case periodSlider
     case interestBarMark
     case principalBarMark

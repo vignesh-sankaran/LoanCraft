@@ -39,7 +39,7 @@ enum SelectedTextField: Hashable, CaseIterable {
         case .interest:
             return .interest
         case .yearsRemaining:
-            return .period
+            return .yearsRemaining
         }
     }
 }
