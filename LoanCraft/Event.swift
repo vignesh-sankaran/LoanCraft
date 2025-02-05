@@ -13,4 +13,7 @@ enum Event: String {
     case periodSlider
     case interestBarMark
     case principalBarMark
+    case upButtonTapped
+    case downButtonTapped
+    case doneButtonTapped
 }

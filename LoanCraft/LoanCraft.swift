@@ -42,13 +42,16 @@ struct LoanCraft: View {
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Button("Up", systemImage: "chevron.up") {
+                                    analytics.send(event: .upButtonTapped)
                                     selectedTextField = selectedTextField?.previous
                                 }.disabled(selectedTextField == .mortgageAmount)
                                 Button("Down", systemImage: "chevron.down") {
+                                    analytics.send(event: .downButtonTapped)
                                     selectedTextField = selectedTextField?.next
                                 }.disabled(selectedTextField == .yearsRemaining)
                                 Spacer()
                                 Button("Done") {
+                                    analytics.send(event: .doneButtonTapped)
                                     hideKeyboard()
                                 }
                             }
