@@ -92,12 +92,12 @@ struct LoanCraft: View {
                     )
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
-                            let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy)
+                            guard let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy) else { return }
+                            analytics.send(event: selectedBar.trackingValue)
                             if self.selectedBar == selectedBar {
                                 self.selectedBar = nil
                             } else {
                                 self.selectedBar = selectedBar
-                                analytics.send(event: .principalBarMark)
                             }
                         }
                     }

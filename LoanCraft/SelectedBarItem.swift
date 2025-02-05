@@ -7,4 +7,13 @@
 
 enum SelectedBarItem {
     case interest, principal
+    
+    var trackingValue: Event {
+        switch self {
+        case .principal:
+            return .principalBarMark
+        case .interest:
+            return .interestBarMark
+        }
+    }
 }
