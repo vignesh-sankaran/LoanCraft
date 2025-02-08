@@ -93,7 +93,7 @@ struct LoanCraftView: View {
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
                             guard let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy) else { return }
-                            analytics.send(event: selectedBar.trackingValue, properties: ["isVisible": self.selectedBar == nil])
+                            analytics.send(event: selectedBar.trackingValue, properties: ["overlayBeingShown": self.selectedBar != nil])
                             if self.selectedBar == selectedBar {
                                 self.selectedBar = nil
                             } else {
