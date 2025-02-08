@@ -60,16 +60,16 @@ struct LoanCraft: View {
                     // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
                     Text("Repayment frequency")
                     Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
-                        Text("Weekly").tag(52)
-                        Text("Fortnightly").tag(26)
-                        Text("Monthly").tag(12)
-                        Text("Yearly").tag(1)
+                        Text("Weekly").tag(RepaymentFrequency.week)
+                        Text("Fortnightly").tag(RepaymentFrequency.fortnight)
+                        Text("Monthly").tag(RepaymentFrequency.month)
+                        Text("Yearly").tag(RepaymentFrequency.year)
                     }
                     .pickerStyle(.segmented)
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
                     .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
-                        analytics.send(event: .repaymentFrequency, properties: ["selectedFrequency": repaymentFrequency])
+                        analytics.send(event: .repaymentFrequency, properties: ["selectedFrequency": repaymentFrequency.rawValue])
                     }
                     Text("Repayment amount per period:").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)

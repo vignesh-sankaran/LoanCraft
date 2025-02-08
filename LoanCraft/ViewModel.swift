@@ -56,7 +56,7 @@ struct ChartData: Identifiable {
             calculateMortgageRepayment()
         }
     }
-    var repaymentFrequency = 26 {
+    var repaymentFrequency: RepaymentFrequency = .fortnight {
         didSet {
             calculateMortgageRepayment()
         }
@@ -64,8 +64,9 @@ struct ChartData: Identifiable {
     var mortgageRepayment: Decimal = 0.0
 
     func calculateMortgageRepayment() {
-        let interestForPeriod = interest / Decimal(repaymentFrequency)
-        let numberOfPeriods = repaymentFrequency * yearsRemaining
+        let repaymentsPerYear = repaymentFrequency.repaymentsPerYear
+        let interestForPeriod = interest / Decimal(repaymentsPerYear)
+        let numberOfPeriods = repaymentsPerYear * yearsRemaining
 
         let firstBracket = 1 + interestForPeriod
         let firstPower = pow(firstBracket, numberOfPeriods)
@@ -75,7 +76,7 @@ struct ChartData: Identifiable {
 
         mortgageRepayment = topLine / bottomLine
         
-        let totalMortgage = mortgageRepayment * Decimal(repaymentFrequency) * Decimal(yearsRemaining)
+        let totalMortgage = mortgageRepayment * Decimal(repaymentsPerYear) * Decimal(yearsRemaining)
         let interest = totalMortgage - mortgage
         chartData = ChartData(principal: mortgage, interest: interest)
     }

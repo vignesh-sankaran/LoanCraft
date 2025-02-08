@@ -9,7 +9,6 @@ import AmplitudeSwift
 import Foundation
 
 final class AnalyticsService {
-    // Store user id in UserDefaults
     let amplitudeService: Amplitude
     
     init() {
