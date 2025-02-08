@@ -13,7 +13,7 @@ struct LoanCraftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoanCraft()
+            LoanCraftView()
         }
     }
 }

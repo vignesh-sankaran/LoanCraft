@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoanCraftView.swift
 //  LoanCraft
 //
 //  Created by Vignesh Sankaran on 7/4/2023.
@@ -8,7 +8,7 @@
 import Charts
 import SwiftUI
 
-struct LoanCraft: View {
+struct LoanCraftView: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
     @FocusState var selectedTextField: SelectedTextField?
@@ -167,6 +167,6 @@ struct LoanCraft: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoanCraft()
+        LoanCraftView()
     }
 }
