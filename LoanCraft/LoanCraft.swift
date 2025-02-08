@@ -71,7 +71,7 @@ struct LoanCraft: View {
                     .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
                         analytics.send(event: .repaymentFrequency, properties: ["selectedFrequency": repaymentFrequency.rawValue])
                     }
-                    Text("Repayment amount per period:").bold()
+                    Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
                     Chart {
                         BarMark(
