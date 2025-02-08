@@ -42,11 +42,11 @@ struct LoanCraftView: View {
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Button("Up", systemImage: "chevron.up") {
-                                    analytics.send(event: .upButtonTapped)
+                                    analytics.send(event: .keyboardUpButtonTapped)
                                     selectedTextField = selectedTextField?.previous
                                 }.disabled(selectedTextField == .mortgageAmount)
                                 Button("Down", systemImage: "chevron.down") {
-                                    analytics.send(event: .downButtonTapped)
+                                    analytics.send(event: .keyboardDownButtonTapped)
                                     selectedTextField = selectedTextField?.next
                                 }.disabled(selectedTextField == .yearsRemaining)
                                 Spacer()
@@ -69,7 +69,7 @@ struct LoanCraftView: View {
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
                     .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
-                        analytics.send(event: .repaymentFrequency, properties: ["selectedFrequency": repaymentFrequency.rawValue])
+                        analytics.send(event: .repaymentFrequencySlider, properties: ["selectedFrequency": repaymentFrequency.rawValue])
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)

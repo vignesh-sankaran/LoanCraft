@@ -6,14 +6,13 @@
 //
 
 enum Event: String {
-    case mortgage
-    case interest
-    case yearsRemaining
-    case repaymentFrequency
-    case periodSlider
+    case mortgageAmountField
+    case interestField
+    case yearsRemainingField
+    case repaymentFrequencySlider
     case interestBarMark
     case principalBarMark
-    case upButtonTapped
-    case downButtonTapped
+    case keyboardUpButtonTapped
+    case keyboardDownButtonTapped
     case doneButtonTapped
 }

@@ -35,11 +35,11 @@ enum SelectedTextField: Hashable, CaseIterable {
     var trackingValue: Event {
         switch self {
         case .mortgageAmount:
-            return .mortgage
+            return .mortgageAmountField
         case .interest:
-            return .interest
+            return .interestField
         case .yearsRemaining:
-            return .yearsRemaining
+            return .yearsRemainingField
         }
     }
 }
