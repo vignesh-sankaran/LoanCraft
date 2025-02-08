@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3FA1662D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin */; };
 		2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B02D3E3F5800D69DA3 /* FirebaseCrashlytics */; };
 		2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B82D4514A600D69DA3 /* AmplitudeSwift */; };
@@ -48,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */,
+				2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */,
 				2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */,
 			);
@@ -155,6 +157,7 @@
 			packageReferences = (
 				2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
+				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
 			);
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
 			projectDirPath = "";
@@ -522,6 +525,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/AmplitudeSessionReplay-iOS.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -541,6 +552,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F3FA1662D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */;
+			productName = AmplitudeSwiftSessionReplayPlugin;
+		};
 		2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -6,6 +6,7 @@
 //
 
 import AmplitudeSwift
+import AmplitudeSwiftSessionReplayPlugin
 import Foundation
 
 final class AnalyticsService {
@@ -16,6 +17,7 @@ final class AnalyticsService {
         amplitudeService = Amplitude(configuration: Configuration(
             apiKey: apiKey
         ))
+        amplitudeService.add(plugin: AmplitudeSwiftSessionReplayPlugin(sampleRate: 1.0))
     }
     
     func send(event: Event, properties: [String: Any]? = nil) {
