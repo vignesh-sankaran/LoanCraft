@@ -139,12 +139,6 @@ struct LoanCraftView: View {
                 .padding()
             }
             .navigationTitle("LoanCraft")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Button(action: {}) {
-                    Image(systemName: "paperplane")
-                }
-            }
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
