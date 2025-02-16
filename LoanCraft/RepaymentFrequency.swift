@@ -10,7 +10,7 @@ enum RepaymentFrequency: String, CaseIterable {
     case fortnight
     case month
     case year
-    
+
     var repaymentsPerYear: Int {
         switch self {
         case .week:

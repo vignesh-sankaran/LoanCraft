@@ -9,7 +9,7 @@ enum SelectedTextField: Hashable, CaseIterable {
     case mortgageAmount
     case interest
     case yearsRemaining
-    
+
     var next: Self {
         switch self {
         case .mortgageAmount:
@@ -20,7 +20,7 @@ enum SelectedTextField: Hashable, CaseIterable {
             return .mortgageAmount
         }
     }
-    
+
     var previous: Self {
         switch self {
         case .mortgageAmount:

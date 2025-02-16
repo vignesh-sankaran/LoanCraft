@@ -69,20 +69,28 @@ struct LoanCraftView: View {
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
                     .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
-                        analytics.send(event: .repaymentFrequencySlider, properties: ["selectedFrequency": repaymentFrequency.rawValue])
+                        analytics.send(
+                            event: .repaymentFrequencySlider,
+                            properties: ["selectedFrequency": repaymentFrequency.rawValue])
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                    Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(.bottom, 32)
+                    Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(
+                        .bottom, 32)
                     Chart {
                         BarMark(
-                            x: .value("", ""), y: .value("Total amount", viewModel.chartData.principal), width: .ratio(0.85)
+                            x: .value("", ""),
+                            y: .value("Total amount", viewModel.chartData.principal),
+                            width: .ratio(0.85)
                         )
                         .foregroundStyle(by: .value("Principal", "Principal"))
-                        BarMark(x: .value("", ""), y: .value("Interest", viewModel.chartData.interest), width: .ratio(0.85))
-                            .foregroundStyle(by: .value("Interest", "Interest"))
-                            .annotation {
-                                Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
-                            }
+                        BarMark(
+                            x: .value("", ""), y: .value("Interest", viewModel.chartData.interest),
+                            width: .ratio(0.85)
+                        )
+                        .foregroundStyle(by: .value("Interest", "Interest"))
+                        .annotation {
+                            Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
+                        }
                     }
                     .chartForegroundStyleScale(
                         [
@@ -92,8 +100,13 @@ struct LoanCraftView: View {
                     )
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
-                            guard let selectedBar = findSelectedBar(location: value.location, chartProxy: chartProxy) else { return }
-                            analytics.send(event: selectedBar.trackingValue, properties: ["overlayBeingShown": self.selectedBar != nil])
+                            guard
+                                let selectedBar = findSelectedBar(
+                                    location: value.location, chartProxy: chartProxy)
+                            else { return }
+                            analytics.send(
+                                event: selectedBar.trackingValue,
+                                properties: ["overlayBeingShown": self.selectedBar != nil])
                             if self.selectedBar == selectedBar {
                                 self.selectedBar = nil
                             } else {
@@ -105,16 +118,23 @@ struct LoanCraftView: View {
                         if let selectedBar {
                             GeometryReader { geometryProxy in
                                 let xOffset = (chartProxy.plotSize.width / 2) - 50
-                                let yOffset: CGFloat = if selectedBar == .principal {
-                                    chartProxy.position(forY: self.viewModel.chartData.principal) ?? 0
-                                } else {
-                                    chartProxy.position(forY: self.viewModel.chartData.total + 10) ?? 0
-                                }
+                                let yOffset: CGFloat =
+                                    if selectedBar == .principal {
+                                        chartProxy.position(
+                                            forY: self.viewModel.chartData.principal) ?? 0
+                                    } else {
+                                        chartProxy.position(
+                                            forY: self.viewModel.chartData.total + 10) ?? 0
+                                    }
                                 VStack {
                                     if selectedBar == .principal {
-                                        Text("Principal: \(viewModel.chartData.formattedPrincipal ?? "")")
+                                        Text(
+                                            "Principal: \(viewModel.chartData.formattedPrincipal ?? "")"
+                                        )
                                     } else if selectedBar == .interest {
-                                        Text("Interest: \(viewModel.chartData.formattedInterest ?? "")")
+                                        Text(
+                                            "Interest: \(viewModel.chartData.formattedInterest ?? "")"
+                                        )
                                     }
                                 }
                                 .frame(width: 100, alignment: .center)
@@ -142,11 +162,12 @@ struct LoanCraftView: View {
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
-    
+
     func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
+
     func findSelectedBar(
         location: CGPoint,
         chartProxy: ChartProxy

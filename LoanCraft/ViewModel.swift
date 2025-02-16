@@ -75,7 +75,7 @@ struct ChartData: Identifiable {
         let bottomLine = firstPower - 1
 
         mortgageRepayment = topLine / bottomLine
-        
+
         let totalMortgage = mortgageRepayment * Decimal(repaymentsPerYear) * Decimal(yearsRemaining)
         let interest = totalMortgage - mortgage
         chartData = ChartData(principal: mortgage, interest: interest)
