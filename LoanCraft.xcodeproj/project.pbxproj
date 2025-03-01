@@ -14,6 +14,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2F94B9DE2D5DE9B800907DAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FD0EA9C29E00D8F00EB19B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FD0EAA329E00D8F00EB19B3;
+			remoteInfo = LoanCraft;
+		};
 		2FD0EAB529E00D9200EB19B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2FD0EA9C29E00D8F00EB19B3 /* Project object */;
@@ -24,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreSnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -39,11 +47,18 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppStoreSnapshots; sourceTree = "<group>"; };
 		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
-		2FA562AC2D32B55200D69DA3 /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2F94B9D52D5DE9B800907DAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FD0EAA129E00D8F00EB19B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
-				2FA562AC2D32B55200D69DA3 /* LoanCraftTests */,
+				2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +94,7 @@
 			children = (
 				2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */,
 				2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */,
+				2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +102,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2F94B9D72D5DE9B800907DAD /* AppStoreSnapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F94B9E02D5DE9B800907DAD /* Build configuration list for PBXNativeTarget "AppStoreSnapshots" */;
+			buildPhases = (
+				2F94B9D42D5DE9B800907DAD /* Sources */,
+				2F94B9D52D5DE9B800907DAD /* Frameworks */,
+				2F94B9D62D5DE9B800907DAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F94B9DF2D5DE9B800907DAD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */,
+			);
+			name = AppStoreSnapshots;
+			packageProductDependencies = (
+			);
+			productName = AppStoreSnapshots;
+			productReference = 2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		2FD0EAA329E00D8F00EB19B3 /* LoanCraft */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FD0EAC829E00D9200EB19B3 /* Build configuration list for PBXNativeTarget "LoanCraft" */;
@@ -133,9 +172,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					2F94B9D72D5DE9B800907DAD = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 2FD0EAA329E00D8F00EB19B3;
+					};
 					2FD0EAA329E00D8F00EB19B3 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -165,11 +208,19 @@
 			targets = (
 				2FD0EAA329E00D8F00EB19B3 /* LoanCraft */,
 				2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */,
+				2F94B9D72D5DE9B800907DAD /* AppStoreSnapshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2F94B9D62D5DE9B800907DAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FD0EAA229E00D8F00EB19B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +285,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2F94B9D42D5DE9B800907DAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FD0EAA029E00D8F00EB19B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +309,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2F94B9DF2D5DE9B800907DAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
+			targetProxy = 2F94B9DE2D5DE9B800907DAD /* PBXContainerItemProxy */;
+		};
 		2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
@@ -259,6 +322,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		2F94B9E12D5DE9B800907DAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VZBMFUFU3J;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.AppStoreSnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LoanCraft;
+			};
+			name = Debug;
+		};
+		2F94B9E22D5DE9B800907DAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VZBMFUFU3J;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.AppStoreSnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LoanCraft;
+			};
+			name = Release;
+		};
 		2FD0EAC629E00D9200EB19B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,6 +600,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2F94B9E02D5DE9B800907DAD /* Build configuration list for PBXNativeTarget "AppStoreSnapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F94B9E12D5DE9B800907DAD /* Debug */,
+				2F94B9E22D5DE9B800907DAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "LoanCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

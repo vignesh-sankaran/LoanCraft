@@ -83,10 +83,12 @@ struct LoanCraftView: View {
                             width: .ratio(0.85)
                         )
                         .foregroundStyle(by: .value("Principal", "Principal"))
+                        .accessibilityIdentifier("interest-bar-mark")
                         BarMark(
                             x: .value("", ""), y: .value("Interest", viewModel.chartData.interest),
                             width: .ratio(0.85)
                         )
+                        .accessibilityIdentifier("interest-bar-mark")
                         .foregroundStyle(by: .value("Interest", "Interest"))
                         .annotation {
                             Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
