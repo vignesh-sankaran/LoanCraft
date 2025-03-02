@@ -27,26 +27,18 @@ final class AppStoreSnapshots: XCTestCase {
     }
 
     func test_full_screen() {
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.lifetime = .keepAlways
-
+        snapshot("Launch")
     }
 
     func test_tap_mortgage_field() {
         let firstTextField = app.textFields.firstMatch
         firstTextField.tap()
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Enter your mortgage amount"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        snapshot("Tap mortgage field")
     }
 
     func test_tap_chart() {
         app.swipeUp()
         app.otherElements["interest-bar-mark"].tap()
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Tap the graph to see principal and interest"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        snapshot("Tap interest bar")
     }
 }
