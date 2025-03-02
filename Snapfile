@@ -5,7 +5,7 @@ devices([
 ])
 
 languages([
-  "en-US",
+  "en-AU",
 ])
 
 scheme("AppStoreSnapshots")
