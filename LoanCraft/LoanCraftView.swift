@@ -130,16 +130,15 @@ struct LoanCraftView: View {
                                     }
                                 VStack {
                                     if selectedBar == .principal {
-                                        Text(
-                                            "Principal: \(viewModel.chartData.formattedPrincipal ?? "")"
-                                        )
+                                        Text("Principal:")
+                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")")
                                     } else if selectedBar == .interest {
                                         Text(
-                                            "Interest: \(viewModel.chartData.formattedInterest ?? "")"
+                                            "Interest:"
                                         )
+                                        Text("\(viewModel.chartData.formattedInterest ?? "")")
                                     }
                                 }
-                                .frame(width: 100, alignment: .center)
                                 .background {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 8)
