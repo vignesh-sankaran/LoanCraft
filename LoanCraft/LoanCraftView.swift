@@ -132,12 +132,10 @@ struct LoanCraftView: View {
                                     }
                                 VStack {
                                     if selectedBar == .principal {
-                                        Text("Principal:")
+                                        Text("Principal:").font(.headline)
                                         Text("\(viewModel.chartData.formattedPrincipal ?? "")")
                                     } else if selectedBar == .interest {
-                                        Text(
-                                            "Interest:"
-                                        )
+                                        Text("Interest:").font(.headline)
                                         Text("\(viewModel.chartData.formattedInterest ?? "")")
                                     }
                                 }
