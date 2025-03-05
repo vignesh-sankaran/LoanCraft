@@ -13,6 +13,8 @@ struct LoanCraftView: View {
     @State var selectedBar: SelectedBarItem?
     @FocusState var selectedTextField: SelectedTextField?
     let analytics = AnalyticsService()
+    @State var overlayWidth: CGFloat = 100
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -119,7 +121,7 @@ struct LoanCraftView: View {
                     .chartOverlay { chartProxy in
                         if let selectedBar {
                             GeometryReader { geometryProxy in
-                                let xOffset = (chartProxy.plotSize.width / 2) - 50
+                                let xOffset = (chartProxy.plotSize.width / 2) - (self.overlayWidth / 2)
                                 let yOffset: CGFloat =
                                     if selectedBar == .principal {
                                         chartProxy.position(
@@ -139,6 +141,12 @@ struct LoanCraftView: View {
                                         Text("\(viewModel.chartData.formattedInterest ?? "")")
                                     }
                                 }
+                                .background(GeometryReader { geometryProxy in
+                                    Color.clear
+                                        .onAppear {
+                                            self.overlayWidth = geometryProxy.size.width
+                                        }
+                                })
                                 .background {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 8)
