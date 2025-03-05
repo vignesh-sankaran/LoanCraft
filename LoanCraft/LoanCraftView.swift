@@ -132,11 +132,11 @@ struct LoanCraftView: View {
                                     }
                                 VStack {
                                     if selectedBar == .principal {
-                                        Text("Principal:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")")
+                                        Text("Principal:").font(.system(size: 20)).bold()
+                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")").font(.system(size: 20))
                                     } else if selectedBar == .interest {
-                                        Text("Interest:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedInterest ?? "")")
+                                        Text("Interest:").font(.system(size: 20)).bold()
+                                        Text("\(viewModel.chartData.formattedInterest ?? "")").font(.system(size: 20))
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in
