@@ -19,6 +19,10 @@ final class AnalyticsService {
                 apiKey: apiKey
             ))
         amplitudeService.add(plugin: AmplitudeSwiftSessionReplayPlugin(sampleRate: 1.0))
+        
+        #if DEBUG
+            amplitudeService.configuration.offline = true
+        #endif
     }
 
     func send(event: Event, properties: [String: Any]? = nil) {
