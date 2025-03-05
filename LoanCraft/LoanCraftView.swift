@@ -20,7 +20,7 @@ struct LoanCraftView: View {
                     Text("Mortgage amount")
                     TextField(
                         "Mortgage amount", value: $viewModel.mortgage,
-                        format: .currency(code: "AUD")
+                        format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
@@ -74,7 +74,7 @@ struct LoanCraftView: View {
                             properties: ["selectedFrequency": repaymentFrequency.rawValue])
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                    Text(viewModel.mortgageRepayment, format: .currency(code: "AUD")).padding(
+                    Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
                         .bottom, 32)
                     Chart {
                         BarMark(
