@@ -11,10 +11,20 @@
 		2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B02D3E3F5800D69DA3 /* FirebaseCrashlytics */; };
 		2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B82D4514A600D69DA3 /* AmplitudeSwift */; };
+		2FB907B22D79BD290066A56F /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B12D79BD290066A56F /* InlineSnapshotTesting */; };
+		2FB907B42D79BD290066A56F /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B32D79BD290066A56F /* SnapshotTesting */; };
+		2FB907B62D79BD290066A56F /* SnapshotTestingCustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B52D79BD290066A56F /* SnapshotTestingCustomDump */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2F94B9DE2D5DE9B800907DAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FD0EA9C29E00D8F00EB19B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FD0EAA329E00D8F00EB19B3;
+			remoteInfo = LoanCraft;
+		};
+		2FB907AA2D79BB660066A56F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2FD0EA9C29E00D8F00EB19B3 /* Project object */;
 			proxyType = 1;
@@ -32,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreSnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB907A62D79BB660066A56F /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,6 +60,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppStoreSnapshots; sourceTree = "<group>"; };
 		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
+		2FB907A72D79BB660066A56F /* SnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SnapshotTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FB907A32D79BB660066A56F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FB907B62D79BD290066A56F /* SnapshotTestingCustomDump in Frameworks */,
+				2FB907B22D79BD290066A56F /* InlineSnapshotTesting in Frameworks */,
+				2FB907B42D79BD290066A56F /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +107,7 @@
 			children = (
 				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
 				2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */,
+				2FB907A72D79BB660066A56F /* SnapshotTests */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +118,7 @@
 				2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */,
 				2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */,
 				2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */,
+				2FB907A62D79BB660066A56F /* SnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +148,32 @@
 			productName = AppStoreSnapshots;
 			productReference = 2F94B9D82D5DE9B800907DAD /* AppStoreSnapshots.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		2FB907A52D79BB660066A56F /* SnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FB907AC2D79BB660066A56F /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
+			buildPhases = (
+				2FB907A22D79BB660066A56F /* Sources */,
+				2FB907A32D79BB660066A56F /* Frameworks */,
+				2FB907A42D79BB660066A56F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FB907AB2D79BB660066A56F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2FB907A72D79BB660066A56F /* SnapshotTests */,
+			);
+			name = SnapshotTests;
+			packageProductDependencies = (
+				2FB907B12D79BD290066A56F /* InlineSnapshotTesting */,
+				2FB907B32D79BD290066A56F /* SnapshotTesting */,
+				2FB907B52D79BD290066A56F /* SnapshotTestingCustomDump */,
+			);
+			productName = SnapshotTests;
+			productReference = 2FB907A62D79BB660066A56F /* SnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		2FD0EAA329E00D8F00EB19B3 /* LoanCraft */ = {
 			isa = PBXNativeTarget;
@@ -179,6 +229,10 @@
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 2FD0EAA329E00D8F00EB19B3;
 					};
+					2FB907A52D79BB660066A56F = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 2FD0EAA329E00D8F00EB19B3;
+					};
 					2FD0EAA329E00D8F00EB19B3 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -201,6 +255,7 @@
 				2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
 				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
+				2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
 			projectDirPath = "";
@@ -209,12 +264,20 @@
 				2FD0EAA329E00D8F00EB19B3 /* LoanCraft */,
 				2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */,
 				2F94B9D72D5DE9B800907DAD /* AppStoreSnapshots */,
+				2FB907A52D79BB660066A56F /* SnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2F94B9D62D5DE9B800907DAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FB907A42D79BB660066A56F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,6 +355,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FB907A22D79BB660066A56F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FD0EAA029E00D8F00EB19B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,6 +383,11 @@
 			isa = PBXTargetDependency;
 			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
 			targetProxy = 2F94B9DE2D5DE9B800907DAD /* PBXContainerItemProxy */;
+		};
+		2FB907AB2D79BB660066A56F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
+			targetProxy = 2FB907AA2D79BB660066A56F /* PBXContainerItemProxy */;
 		};
 		2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -361,6 +436,50 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LoanCraft;
+			};
+			name = Release;
+		};
+		2FB907AD2D79BB660066A56F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VZBMFUFU3J;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.SnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoanCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoanCraft";
+			};
+			name = Debug;
+		};
+		2FB907AE2D79BB660066A56F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VZBMFUFU3J;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.SnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoanCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoanCraft";
 			};
 			name = Release;
 		};
@@ -609,6 +728,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2FB907AC2D79BB660066A56F /* Build configuration list for PBXNativeTarget "SnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FB907AD2D79BB660066A56F /* Debug */,
+				2FB907AE2D79BB660066A56F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "LoanCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -663,6 +791,14 @@
 				kind = branch;
 			};
 		};
+		2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.18.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -685,6 +821,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */;
 			productName = AmplitudeSwift;
+		};
+		2FB907B12D79BD290066A56F /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		2FB907B32D79BD290066A56F /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		2FB907B52D79BD290066A56F /* SnapshotTestingCustomDump */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTestingCustomDump;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
