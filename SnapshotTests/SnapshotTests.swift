@@ -15,5 +15,6 @@ final class SnapshotTests: XCTestCase {
         let view = LoanCraftView()
         
         assertSnapshot(of: view, as: .image)
+        assertSnapshot(of: view, as: .image(traits: .init(userInterfaceStyle: .dark)))
     }
 }
