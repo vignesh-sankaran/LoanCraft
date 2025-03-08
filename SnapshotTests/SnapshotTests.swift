@@ -14,12 +14,15 @@ final class SnapshotTests: XCTestCase {
     func test_default() {
         let view = LoanCraftView()
         
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8)))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhoneSe)))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone13ProMax)))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8), traits: .init(userInterfaceStyle: .dark)))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2)))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2(.landscape))))
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2), traits: .init(userInterfaceStyle: .dark)))
+        let ciPath: StaticString = "/Volumes/workspace/repository/ci_scripts/resources/SnapshotTests/SnapshotTests.swift"
+        let localPath: StaticString = #file
+
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhoneSe)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone13ProMax)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8), traits: .init(userInterfaceStyle: .dark)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2(.landscape))), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2), traits: .init(userInterfaceStyle: .dark)), file: ciPath)
     }
 }
