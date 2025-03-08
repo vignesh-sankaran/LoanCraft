@@ -19,8 +19,22 @@ struct ViewModelTests {
         #expect(viewModel.yearsRemaining == 30)
         #expect(viewModel.repaymentFrequency == .fortnight)
         #expect(viewModel.mortgageRepayment != 0.0)
-    }
+        #expect(
+            viewModel.chartData.principal == 500_000
+        )
+        var actualValue = viewModel.chartData.interest
+        var actualValueRounded = Decimal()
+        NSDecimalRound(
+            &actualValueRounded,
+            &actualValue,
+            2,
+            .plain
+        )
+        let expectedValue: Decimal = 465812.56
+        #expect(actualValueRounded == expectedValue)
 
+    }
+    
     @Test func calculateMortgageRepayment_zero() {
         let viewModel = ViewModel()
         

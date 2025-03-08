@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable class ViewModel {
-    var chartData: ChartData
+    private(set) var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()
