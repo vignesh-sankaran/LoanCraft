@@ -55,13 +55,27 @@
 			);
 			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
 		};
+		2FFB28B82D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Decimal+rounded.swift",
+			);
+			target = 2FD0EAA329E00D8F00EB19B3 /* LoanCraft */;
+		};
+		2FFB28B92D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Decimal+rounded.swift",
+			);
+			target = 2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppStoreSnapshots; sourceTree = "<group>"; };
 		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
 		2FB907A72D79BB660066A56F /* SnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SnapshotTests; sourceTree = "<group>"; };
-		2FE1322D2D7BC2C50078A52A /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
+		2FE1322D2D7BC2C50078A52A /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FFB28B82D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 2FFB28B92D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
