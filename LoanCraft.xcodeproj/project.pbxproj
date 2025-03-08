@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 73;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,41 +69,12 @@
 			);
 			target = 2FD0EAB329E00D9200EB19B3 /* LoanCraftTests */;
 		};
-		2FFB28C82D7C5B7900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				__Snapshots__/SnapshotTests/test_default.1.png,
-				__Snapshots__/SnapshotTests/test_default.2.png,
-				__Snapshots__/SnapshotTests/test_default.3.png,
-				__Snapshots__/SnapshotTests/test_default.4.png,
-				__Snapshots__/SnapshotTests/test_default.5.png,
-				__Snapshots__/SnapshotTests/test_default.6.png,
-				__Snapshots__/SnapshotTests/test_default.7.png,
-			);
-			target = 2FB907A52D79BB660066A56F /* SnapshotTests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		2FFB28C92D7C5B7900F09E41 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 2FB907A22D79BB660066A56F /* Sources */;
-			membershipExceptions = (
-				__Snapshots__/SnapshotTests/test_default.1.png,
-				__Snapshots__/SnapshotTests/test_default.2.png,
-				__Snapshots__/SnapshotTests/test_default.3.png,
-				__Snapshots__/SnapshotTests/test_default.4.png,
-				__Snapshots__/SnapshotTests/test_default.5.png,
-				__Snapshots__/SnapshotTests/test_default.6.png,
-				__Snapshots__/SnapshotTests/test_default.7.png,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppStoreSnapshots; sourceTree = "<group>"; };
 		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
-		2FB907A72D79BB660066A56F /* SnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FFB28C82D7C5B7900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 2FFB28C92D7C5B7900F09E41 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SnapshotTests; sourceTree = "<group>"; };
+		2FB907A72D79BB660066A56F /* SnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SnapshotTests; sourceTree = "<group>"; };
 		2FE1322D2D7BC2C50078A52A /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FFB28B82D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 2FFB28B92D7C3B1900F09E41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -292,6 +263,7 @@
 				};
 			};
 			buildConfigurationList = 2FD0EA9F29E00D8F00EB19B3 /* Build configuration list for PBXProject "LoanCraft" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -305,7 +277,6 @@
 				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
 				2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
-			preferredProjectObjectVersion = 56;
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
