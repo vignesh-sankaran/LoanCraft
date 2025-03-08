@@ -81,6 +81,8 @@ struct ViewModelTests {
         #expect(viewModel.chartData.interest.rounded(to: 2) == 466_278.92)
     }
     
+    // MARK: - Specific values
+    
     @Test func calculateMortgageRepayment_zero() {
         let viewModel = ViewModel()
         
