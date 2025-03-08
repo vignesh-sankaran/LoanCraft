@@ -61,6 +61,7 @@
 		2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppStoreSnapshots; sourceTree = "<group>"; };
 		2FA562A42D32B54D00D69DA3 /* LoanCraft */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2FA562AB2D32B54D00D69DA3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LoanCraft; sourceTree = "<group>"; };
 		2FB907A72D79BB660066A56F /* SnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SnapshotTests; sourceTree = "<group>"; };
+		2FE1322D2D7BC2C50078A52A /* LoanCraftTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LoanCraftTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
+				2FE1322D2D7BC2C50078A52A /* LoanCraftTests */,
 				2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */,
 				2FB907A72D79BB660066A56F /* SnapshotTests */,
 				2FD0EAA529E00D8F00EB19B3 /* Products */,
@@ -210,6 +212,9 @@
 			dependencies = (
 				2FD0EAB629E00D9200EB19B3 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				2FE1322D2D7BC2C50078A52A /* LoanCraftTests */,
+			);
 			name = LoanCraftTests;
 			productName = LoanCraftTests;
 			productReference = 2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */;
@@ -238,6 +243,7 @@
 					};
 					2FD0EAB329E00D9200EB19B3 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1620;
 						TestTargetID = 2FD0EAA329E00D8F00EB19B3;
 					};
 				};
@@ -682,6 +688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZBMFUFU3J;
@@ -691,6 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sankaran.loancraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoanCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoanCraft";
@@ -701,6 +709,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZBMFUFU3J;

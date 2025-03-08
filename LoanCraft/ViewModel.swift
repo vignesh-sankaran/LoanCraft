@@ -29,7 +29,7 @@ import SwiftUI
             calculateMortgageRepayment()
         }
     }
-    var mortgageRepayment: Decimal = 0.0
+    private(set) var mortgageRepayment: Decimal = 0.0
 
     func calculateMortgageRepayment() {
         let repaymentsPerYear = repaymentFrequency.repaymentsPerYear
