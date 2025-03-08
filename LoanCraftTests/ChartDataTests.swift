@@ -19,7 +19,7 @@ struct ChartDataTests {
         #expect(data.total == 110_000)
     }
     
-    @Test func formattedPrincipal() async throws {
+    @Test func formattedPrincipal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
@@ -28,7 +28,7 @@ struct ChartDataTests {
         #expect(data.formattedPrincipal == "$100,000.00")
     }
     
-    @Test func formattedInterest() async throws {
+    @Test func formattedInterest() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
@@ -37,7 +37,7 @@ struct ChartDataTests {
         #expect(data.formattedInterest == "$10,000.00")
     }
     
-    @Test func formattedTotal() async throws {
+    @Test func formattedTotal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
