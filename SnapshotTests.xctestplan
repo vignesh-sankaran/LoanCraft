@@ -16,6 +16,8 @@
             "argument" : "CI=$(CI)"
           }
         ],
+        "language" : "en",
+        "region" : "AU",
         "targetForVariableExpansion" : {
           "containerPath" : "container:LoanCraft.xcodeproj",
           "identifier" : "2FD0EAA329E00D8F00EB19B3",
