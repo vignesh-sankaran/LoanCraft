@@ -1,0 +1,41 @@
+{
+  "configurations" : [
+    {
+      "id" : "F3915302-DF05-4A33-9383-6ECC0E5118FE",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "9BA42778-B171-4D5A-8586-B6D534CCB596",
+      "name" : "Xcode Cloud",
+      "options" : {
+        "commandLineArgumentEntries" : [
+          {
+            "argument" : "CI=$(CI)"
+          }
+        ],
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:LoanCraft.xcodeproj",
+          "identifier" : "2FD0EAA329E00D8F00EB19B3",
+          "name" : "LoanCraft"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LoanCraft.xcodeproj",
+        "identifier" : "2FB907A52D79BB660066A56F",
+        "name" : "SnapshotTests"
+      }
+    }
+  ],
+  "version" : 1
+}

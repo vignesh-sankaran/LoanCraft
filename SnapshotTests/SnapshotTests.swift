@@ -11,18 +11,25 @@ import XCTest
 @testable import LoanCraft
 
 final class SnapshotTests: XCTestCase {
+    let xcodeCloudPath: StaticString = "/Volumes/workspace/repository/ci_scripts/SnapshotTests.swift"
+
     func test_default() {
         let view = LoanCraftView()
         
-        let ciPath: StaticString = "/Volumes/workspace/repository/ci_scripts/resources/SnapshotTests/SnapshotTests.swift"
-        let localPath: StaticString = #file
+        let filePath: StaticString
+        
+        if ProcessInfo.processInfo.environment["CI"] == "TRUE" {
+            filePath = xcodeCloudPath
+        } else {
+            filePath = #file
+        }
 
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8)), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhoneSe)), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone13ProMax)), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8), traits: .init(userInterfaceStyle: .dark)), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2)), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2(.landscape))), file: ciPath)
-        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2), traits: .init(userInterfaceStyle: .dark)), file: ciPath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8)), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhoneSe)), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone13ProMax)), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPhone8), traits: .init(userInterfaceStyle: .dark)), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2)), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2(.landscape))), file: filePath)
+        assertSnapshot(of: view, as: .image(layout: .device(config: .iPad10_2), traits: .init(userInterfaceStyle: .dark)), file: filePath)
     }
 }

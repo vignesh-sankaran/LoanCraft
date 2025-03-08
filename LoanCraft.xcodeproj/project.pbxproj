@@ -45,6 +45,7 @@
 		2FB907A62D79BB660066A56F /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAA429E00D8F00EB19B3 /* LoanCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD0EAB429E00D9200EB19B3 /* LoanCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FFB29842D7C731700F09E41 /* SnapshotTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SnapshotTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -120,6 +121,7 @@
 		2FD0EA9B29E00D8F00EB19B3 = {
 			isa = PBXGroup;
 			children = (
+				2FFB29842D7C731700F09E41 /* SnapshotTests.xctestplan */,
 				2FA562A42D32B54D00D69DA3 /* LoanCraft */,
 				2FE1322D2D7BC2C50078A52A /* LoanCraftTests */,
 				2F94B9D92D5DE9B800907DAD /* AppStoreSnapshots */,
