@@ -28,8 +28,8 @@ struct LoanCraftView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(
-                                selectedTextField == .mortgageAmount ? Color.blue : Color.gray,
-                                lineWidth: selectedTextField == .mortgageAmount ? 2 : 1
+                                selectedTextField == .mortgageAmount ? Color.blue : Color(.darkGray),
+                                lineWidth: selectedTextField == .mortgageAmount ? 2 : 0.5
                             )
                     )
                     .focused($selectedTextField, equals: .mortgageAmount)
@@ -46,8 +46,8 @@ struct LoanCraftView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(
-                                    selectedTextField == .interest ? Color.blue : Color.gray,
-                                    lineWidth: selectedTextField == .interest ? 2 : 1
+                                    selectedTextField == .interest ? Color.blue : Color(.darkGray),
+                                    lineWidth: selectedTextField == .interest ? 2 : 0.5
                                 )
                         )
                         .keyboardType(.decimalPad)
@@ -59,8 +59,8 @@ struct LoanCraftView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(
-                                    selectedTextField == .yearsRemaining ? Color.blue : Color.gray,
-                                    lineWidth: selectedTextField == .yearsRemaining ? 2 : 1
+                                    selectedTextField ==    .yearsRemaining ? Color.blue : Color(.darkGray),
+                                    lineWidth: selectedTextField == .yearsRemaining ? 2 : 0.5
                                 )
                         )
                         .keyboardType(.numberPad)
