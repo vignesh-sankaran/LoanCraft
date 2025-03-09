@@ -26,9 +26,9 @@ struct LoanCraftView: View {
                     )
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
-                    .onChange(of: selectedTextField) { selectedTextField in
-                        if let selectedTextField {
-                            analytics.send(event: selectedTextField.trackingValue)
+                    .onChange(of: selectedTextField) { _, newValue in
+                        if let newValue {
+                            analytics.send(event: newValue.trackingValue)
                         }
                     }
                     .padding(.bottom, 16)
@@ -70,10 +70,11 @@ struct LoanCraftView: View {
                     .pickerStyle(.segmented)
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
-                    .onChange(of: viewModel.repaymentFrequency) { repaymentFrequency in
+                    .onChange(of: viewModel.repaymentFrequency) { _, newValue in
                         analytics.send(
                             event: .repaymentFrequencySlider,
-                            properties: ["selectedFrequency": repaymentFrequency.rawValue])
+                            properties: ["selectedFrequency": newValue.rawValue]
+                        )
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
