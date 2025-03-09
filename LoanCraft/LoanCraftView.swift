@@ -24,6 +24,7 @@ struct LoanCraftView: View {
                         "Mortgage amount", value: $viewModel.mortgage,
                         format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
+                    .cornerRadius(4)
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
                     .onChange(of: selectedTextField) { _, newValue in
@@ -34,11 +35,13 @@ struct LoanCraftView: View {
                     .padding(.bottom, 16)
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
+                        .cornerRadius(4)
                         .keyboardType(.decimalPad)
                         .focused($selectedTextField, equals: .interest)
                         .padding(.bottom, 16)
                     Text("Years remaining")
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
+                        .cornerRadius(4)
                         .keyboardType(.numberPad)
                         .focused($selectedTextField, equals: .yearsRemaining)
                         .toolbar {
