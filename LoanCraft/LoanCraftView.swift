@@ -195,7 +195,7 @@ struct LoanCraftView: View {
                             }
                         }
                     }
-                    .frame(height: 400)
+                    .frame(height: 450)
                     .sensoryFeedback(.selection, trigger: selectedBar)
                 }
                 .textFieldStyle(.roundedBorder)
