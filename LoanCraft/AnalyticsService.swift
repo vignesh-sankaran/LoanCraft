@@ -18,7 +18,12 @@ final class AnalyticsService {
             configuration: Configuration(
                 apiKey: apiKey
             ))
-        amplitudeService.add(plugin: AmplitudeSwiftSessionReplayPlugin(sampleRate: 1.0))
+        amplitudeService.add(
+            plugin: AmplitudeSwiftSessionReplayPlugin(
+                sampleRate: 1.0,
+                maskLevel: .conservative
+            )
+        )
         
         #if DEBUG
             amplitudeService.configuration.offline = true
