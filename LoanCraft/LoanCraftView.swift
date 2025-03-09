@@ -28,7 +28,7 @@ struct LoanCraftView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(
-                                selectedTextField == .mortgageAmount ? Color.blue : Color(.darkGray),
+                                selectedTextField == .mortgageAmount ? Color.blue : Color("UnselectedFieldBorder"),
                                 lineWidth: selectedTextField == .mortgageAmount ? 2 : 0.5
                             )
                     )
@@ -46,7 +46,7 @@ struct LoanCraftView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(
-                                    selectedTextField == .interest ? Color.blue : Color(.darkGray),
+                                    selectedTextField == .interest ? Color.blue : Color("UnselectedFieldBorder"),
                                     lineWidth: selectedTextField == .interest ? 2 : 0.5
                                 )
                         )
@@ -59,7 +59,7 @@ struct LoanCraftView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(
-                                    selectedTextField ==    .yearsRemaining ? Color.blue : Color(.darkGray),
+                                    selectedTextField ==    .yearsRemaining ? Color.blue : Color("UnselectedFieldBorder"),
                                     lineWidth: selectedTextField == .yearsRemaining ? 2 : 0.5
                                 )
                         )
