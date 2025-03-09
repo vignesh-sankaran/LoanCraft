@@ -27,7 +27,10 @@ struct LoanCraftView: View {
                     .cornerRadius(4)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
-                            .stroke(selectedTextField == .mortgageAmount ? Color.blue : Color.gray, lineWidth: 2)
+                            .stroke(
+                                selectedTextField == .mortgageAmount ? Color.blue : Color.gray,
+                                lineWidth: selectedTextField == .mortgageAmount ? 2 : 1
+                            )
                     )
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
@@ -42,7 +45,10 @@ struct LoanCraftView: View {
                         .cornerRadius(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(selectedTextField == .interest ? Color.blue : Color.gray, lineWidth: 2)
+                                .stroke(
+                                    selectedTextField == .interest ? Color.blue : Color.gray,
+                                    lineWidth: selectedTextField == .interest ? 2 : 1
+                                )
                         )
                         .keyboardType(.decimalPad)
                         .focused($selectedTextField, equals: .interest)
@@ -52,7 +58,10 @@ struct LoanCraftView: View {
                         .cornerRadius(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(selectedTextField == .yearsRemaining ? Color.blue : Color.gray, lineWidth: 2)
+                                .stroke(
+                                    selectedTextField == .yearsRemaining ? Color.blue : Color.gray,
+                                    lineWidth: selectedTextField == .yearsRemaining ? 2 : 1
+                                )
                         )
                         .keyboardType(.numberPad)
                         .focused($selectedTextField, equals: .yearsRemaining)
