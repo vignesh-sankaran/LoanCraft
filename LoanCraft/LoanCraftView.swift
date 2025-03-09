@@ -25,6 +25,10 @@ struct LoanCraftView: View {
                         format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
                     .cornerRadius(4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 4)
+                            .stroke(selectedTextField == .mortgageAmount ? Color.blue : Color.gray, lineWidth: 2)
+                    )
                     .focused($selectedTextField, equals: .mortgageAmount)
                     .keyboardType(.numberPad)
                     .onChange(of: selectedTextField) { _, newValue in
@@ -36,12 +40,20 @@ struct LoanCraftView: View {
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
                         .cornerRadius(4)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(selectedTextField == .interest ? Color.blue : Color.gray, lineWidth: 2)
+                        )
                         .keyboardType(.decimalPad)
                         .focused($selectedTextField, equals: .interest)
                         .padding(.bottom, 16)
                     Text("Years remaining")
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
                         .cornerRadius(4)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(selectedTextField == .yearsRemaining ? Color.blue : Color.gray, lineWidth: 2)
+                        )
                         .keyboardType(.numberPad)
                         .focused($selectedTextField, equals: .yearsRemaining)
                         .toolbar {
