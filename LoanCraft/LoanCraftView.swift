@@ -127,6 +127,25 @@ struct LoanCraftView: View {
                             "Interest": Color("Interest"),
                         ]
                     )
+                    .chartLegend(position: .bottom) {
+                        HStack(spacing: 16) {
+                            HStack {
+                                BasicChartSymbolShape.circle
+                                    .foregroundColor(Color("Principal"))
+                                    .frame(width: 8, height: 8)
+                                Text("Principal")
+                                    .foregroundColor(Color(uiColor: .gray))
+                            }
+                            HStack {
+                                BasicChartSymbolShape.circle
+                                    .foregroundColor(Color("Interest"))
+                                    .frame(width: 8, height: 8)
+                                Text("Interest")
+                                    .foregroundColor(Color(uiColor: .gray))
+                            }
+                        }
+                        .padding()
+                    }
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
                             guard
