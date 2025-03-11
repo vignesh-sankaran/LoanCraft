@@ -24,9 +24,9 @@ struct LoanCraftView: View {
                         "Mortgage amount", value: $viewModel.mortgage,
                         format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
-                    .cornerRadius(4)
+                    .cornerRadius(8)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 4)
+                        RoundedRectangle(cornerRadius: 8)
                             .stroke(
                                 selectedTextField == .mortgageAmount ? Color.blue : Color("UnselectedFieldBorder"),
                                 lineWidth: selectedTextField == .mortgageAmount ? 2 : 0.5
@@ -42,9 +42,9 @@ struct LoanCraftView: View {
                     .padding(.bottom, 16)
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
-                        .cornerRadius(4)
+                        .cornerRadius(8)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 4)
+                            RoundedRectangle(cornerRadius: 8)
                                 .stroke(
                                     selectedTextField == .interest ? Color.blue : Color("UnselectedFieldBorder"),
                                     lineWidth: selectedTextField == .interest ? 2 : 0.5
@@ -55,9 +55,9 @@ struct LoanCraftView: View {
                         .padding(.bottom, 16)
                     Text("Years remaining")
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
-                        .cornerRadius(4)
+                        .cornerRadius(8)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 4)
+                            RoundedRectangle(cornerRadius: 8)
                                 .stroke(
                                     selectedTextField ==    .yearsRemaining ? Color.blue : Color("UnselectedFieldBorder"),
                                     lineWidth: selectedTextField == .yearsRemaining ? 2 : 0.5
