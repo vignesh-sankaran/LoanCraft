@@ -24,7 +24,7 @@ struct LoanCraftView: View {
                         "Mortgage amount", value: $viewModel.mortgage,
                         format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
-                    .cornerRadius(8)
+                    .textFieldStyle(.roundedBorder)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(
@@ -42,7 +42,7 @@ struct LoanCraftView: View {
                     .padding(.bottom, 16)
                     Text("Interest")
                     TextField("Interest", value: $viewModel.interest, format: .percent)
-                        .cornerRadius(8)
+                        .textFieldStyle(.roundedBorder)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(
@@ -55,7 +55,7 @@ struct LoanCraftView: View {
                         .padding(.bottom, 16)
                     Text("Years remaining")
                     TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
-                        .cornerRadius(8)
+                        .textFieldStyle(.roundedBorder)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(
