@@ -5,6 +5,7 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
+import AmplitudeSessionReplay
 import Charts
 import SwiftUI
 
@@ -102,7 +103,7 @@ struct LoanCraftView: View {
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
-                        .bottom, 32)
+                        .bottom, 32).amp_setBlocked(true)
                     Chart {
                         BarMark(
                             x: .value("", ""),
@@ -169,10 +170,10 @@ struct LoanCraftView: View {
                                 VStack {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")")
+                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")").amp_setBlocked(true)
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedInterest ?? "")")
+                                        Text("\(viewModel.chartData.formattedInterest ?? "")").amp_setBlocked(true)
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in
