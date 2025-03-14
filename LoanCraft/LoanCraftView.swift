@@ -108,11 +108,14 @@ struct LoanCraftView: View {
                     TextEditor(text: .constant(viewModel.formattedMortgagePayment))
                         .introspect(.textEditor, on: .iOS(.v18)) { textView in
                             textView.isEditable = false
+                            textView.textContainerInset = .zero
                             textView.isSelectable = true
                             textView.tintColor = .systemBlue
                             textView.inputAccessoryView = nil
                             textView.reloadInputViews()
                         }
+                        .scrollDisabled(true)
+                        .padding(.bottom, 32)
                     Chart {
                         BarMark(
                             x: .value("", ""),
