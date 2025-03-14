@@ -30,7 +30,12 @@ import SwiftUI
         }
     }
     private(set) var mortgageRepayment: Decimal = 0.0
-
+    var formattedMortgagePayment: String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter.string(from: mortgageRepayment as NSNumber) ?? ""
+    }
+    
     func calculateMortgageRepayment() {
         let repaymentsPerYear = repaymentFrequency.repaymentsPerYear
         let interestForPeriod = interest / Decimal(repaymentsPerYear)

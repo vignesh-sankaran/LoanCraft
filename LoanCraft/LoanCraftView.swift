@@ -105,7 +105,7 @@ struct LoanCraftView: View {
                         )
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                    TextEditor(text: .constant("Hello there"))
+                    TextEditor(text: .constant(viewModel.formattedMortgagePayment))
                         .introspect(.textEditor, on: .iOS(.v18)) { textView in
                             textView.isEditable = false
                             textView.isSelectable = true
@@ -113,9 +113,6 @@ struct LoanCraftView: View {
                             textView.inputAccessoryView = nil
                             textView.reloadInputViews()
                         }
-
-                    Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
-                        .bottom, 32).amp_setBlocked(true).textSelection(.enabled)
                     Chart {
                         BarMark(
                             x: .value("", ""),
@@ -222,13 +219,6 @@ struct LoanCraftView: View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(
             #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-    
-    private func handleSelection(_ selection: TextSelection?) {
-        guard case .selection(let range) = selection?.indices else { return }
-//        let selectedText = text[range]
-//        print("Selected: \(selectedText)")
-//        UIPasteboard.general.string = String(selectedText)
     }
 }
 
