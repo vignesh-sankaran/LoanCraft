@@ -71,16 +71,16 @@ struct LoanCraftView: View {
                                 Button("Up", systemImage: "chevron.up") {
                                     analytics.send(event: .keyboardUpButtonTapped)
                                     selectedTextField = selectedTextField?.previous
-                                }.disabled(selectedTextField == .mortgageAmount)
+                                }.fontWeight(.bold).disabled(selectedTextField == .mortgageAmount)
                                 Button("Down", systemImage: "chevron.down") {
                                     analytics.send(event: .keyboardDownButtonTapped)
                                     selectedTextField = selectedTextField?.next
-                                }.disabled(selectedTextField == .yearsRemaining)
+                                }.fontWeight(.bold).disabled(selectedTextField == .yearsRemaining)
                                 Spacer()
                                 Button("Done") {
                                     analytics.send(event: .doneButtonTapped)
                                     hideKeyboard()
-                                }
+                                }.bold()
                             }
                         }
                         .padding(.bottom, 16)
