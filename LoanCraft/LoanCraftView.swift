@@ -7,6 +7,7 @@
 
 import AmplitudeSessionReplay
 import Charts
+import SwiftUIIntrospect
 import SwiftUI
 
 struct LoanCraftView: View {
@@ -15,7 +16,9 @@ struct LoanCraftView: View {
     @FocusState var selectedTextField: SelectedTextField?
     let analytics = AnalyticsService()
     @State var overlayWidth: CGFloat = 100
-
+    @State var selection: TextSelection?
+    @FocusState private var focused: Bool
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -102,6 +105,15 @@ struct LoanCraftView: View {
                         )
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
+                    TextEditor(text: .constant("Hello there"))
+                        .introspect(.textEditor, on: .iOS(.v18)) { textView in
+                            textView.isEditable = false
+                            textView.isSelectable = true
+                            textView.tintColor = .systemBlue
+                            textView.inputAccessoryView = nil
+                            textView.reloadInputViews()
+                        }
+
                     Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
                         .bottom, 32).amp_setBlocked(true).textSelection(.enabled)
                     Chart {
@@ -206,10 +218,17 @@ struct LoanCraftView: View {
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
-
+    
     func hideKeyboard() {
         UIApplication.shared.sendAction(
             #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    private func handleSelection(_ selection: TextSelection?) {
+        guard case .selection(let range) = selection?.indices else { return }
+//        let selectedText = text[range]
+//        print("Selected: \(selectedText)")
+//        UIPasteboard.general.string = String(selectedText)
     }
 }
 

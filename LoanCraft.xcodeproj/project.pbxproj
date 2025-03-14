@@ -14,6 +14,7 @@
 		2FB907B22D79BD290066A56F /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B12D79BD290066A56F /* InlineSnapshotTesting */; };
 		2FB907B42D79BD290066A56F /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B32D79BD290066A56F /* SnapshotTesting */; };
 		2FB907B62D79BD290066A56F /* SnapshotTestingCustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B52D79BD290066A56F /* SnapshotTestingCustomDump */; };
+		2FBA0C572D844E3200A3626E /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBA0C562D844E3200A3626E /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 				2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */,
 				2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */,
 				2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				2FBA0C572D844E3200A3626E /* SwiftUIIntrospect in Frameworks */,
 				2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +280,7 @@
 				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
 				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
 				2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				2FBA0C552D844E3200A3626E /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
 			projectDirPath = "";
@@ -824,6 +827,14 @@
 				minimumVersion = 1.18.1;
 			};
 		};
+		2FBA0C552D844E3200A3626E /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -861,6 +872,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTestingCustomDump;
+		};
+		2FBA0C562D844E3200A3626E /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FBA0C552D844E3200A3626E /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
