@@ -103,7 +103,7 @@ struct LoanCraftView: View {
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     Text(viewModel.mortgageRepayment, format: .currency(code: Locale.current.currency?.identifier ?? "USD")).padding(
-                        .bottom, 32).amp_setBlocked(true)
+                        .bottom, 32).amp_setBlocked(true).textSelection(.enabled)
                     Chart {
                         BarMark(
                             x: .value("", ""),
@@ -170,10 +170,10 @@ struct LoanCraftView: View {
                                 VStack {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")").amp_setBlocked(true)
+                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")").textSelection(.enabled).amp_setBlocked(true)
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedInterest ?? "")").amp_setBlocked(true)
+                                        Text("\(viewModel.chartData.formattedInterest ?? "")").textSelection(.enabled).amp_setBlocked(true)
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in
