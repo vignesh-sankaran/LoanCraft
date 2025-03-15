@@ -110,6 +110,7 @@ struct LoanCraftView: View {
                     SelectableText(
                         text: viewModel.formattedMortgagePayment
                     )
+                    .id(UUID())
                     .padding(.bottom, 16)
                     Chart {
                         BarMark(
@@ -129,6 +130,7 @@ struct LoanCraftView: View {
                             SelectableText(
                                 text: viewModel.chartData.formattedTotal ?? ""
                             )
+                            .id(UUID())
                         }
                     }
                     .chartForegroundStyleScale(
@@ -182,12 +184,13 @@ struct LoanCraftView: View {
                                         SelectableText(
                                             text: viewModel.chartData.formattedPrincipal ?? ""
                                         )
-
+                                        .id(UUID())
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
                                         SelectableText(
                                             text: viewModel.chartData.formattedInterest ?? ""
                                         )
+                                        .id(UUID())
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in
