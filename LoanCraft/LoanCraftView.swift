@@ -108,9 +108,8 @@ struct LoanCraftView: View {
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                     SelectableText(
-                        text: viewModel.formattedMortgagePayment
+                        text: $viewModel.formattedMortgagePayment
                     )
-                    .id(UUID())
                     .padding(.bottom, 16)
                     Chart {
                         BarMark(
@@ -128,9 +127,8 @@ struct LoanCraftView: View {
                         .foregroundStyle(by: .value("Interest", "Interest"))
                         .annotation {
                             SelectableText(
-                                text: viewModel.chartData.formattedTotal ?? ""
+                                text: .constant(viewModel.chartData.formattedTotal ?? "")
                             )
-                            .id(UUID())
                         }
                     }
                     .chartForegroundStyleScale(
@@ -182,15 +180,13 @@ struct LoanCraftView: View {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
                                         SelectableText(
-                                            text: viewModel.chartData.formattedPrincipal ?? ""
+                                            text: .constant(viewModel.chartData.formattedPrincipal ?? "")
                                         )
-                                        .id(UUID())
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
                                         SelectableText(
-                                            text: viewModel.chartData.formattedInterest ?? ""
+                                            text: .constant(viewModel.chartData.formattedInterest ?? "")
                                         )
-                                        .id(UUID())
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in

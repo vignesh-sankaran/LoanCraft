@@ -13,10 +13,10 @@ struct SelectableText: View {
     @FocusState private var focused: Bool
     @State private var textWidth: CGFloat = 0
     @State private var selection: TextSelection?
-    @State var text: String = ""
+    @Binding var text: String
     var body: some View {
         TextEditor(
-            text: .constant(text)
+            text: $text
         )
         .introspect(.textEditor, on: .iOS(.v18)) {
             $0.isEditable = false
