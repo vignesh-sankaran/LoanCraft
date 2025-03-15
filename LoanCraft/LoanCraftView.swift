@@ -7,7 +7,6 @@
 
 import AmplitudeSessionReplay
 import Charts
-import SwiftUIIntrospect
 import SwiftUI
 
 struct LoanCraftView: View {
@@ -108,17 +107,10 @@ struct LoanCraftView: View {
                         )
                     }
                     Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                    TextEditor(text: .constant(viewModel.formattedMortgagePayment))
-                        .introspect(.textEditor, on: .iOS(.v18)) { textView in
-                            textView.isEditable = false
-                            textView.textContainerInset = .zero
-                            textView.isSelectable = true
-                            textView.tintColor = .systemBlue
-                            textView.inputAccessoryView = nil
-                            textView.reloadInputViews()
-                        }
-                        .scrollDisabled(true)
-                        .padding(.bottom, 32)
+                    SelectableText(
+                        text: viewModel.formattedMortgagePayment
+                    )
+                    .padding(.bottom, 16)
                     Chart {
                         BarMark(
                             x: .value("", ""),
@@ -134,7 +126,9 @@ struct LoanCraftView: View {
                         .accessibilityIdentifier("interest-bar-mark")
                         .foregroundStyle(by: .value("Interest", "Interest"))
                         .annotation {
-                            Text(viewModel.chartData.formattedTotal ?? "").font(.title3).bold()
+                            SelectableText(
+                                text: viewModel.chartData.formattedTotal ?? ""
+                            )
                         }
                     }
                     .chartForegroundStyleScale(
@@ -185,54 +179,16 @@ struct LoanCraftView: View {
                                 VStack {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
-                                        TextEditor(text: .constant(viewModel.chartData.formattedPrincipal ?? ""))
-                                            .introspect(.textEditor, on: .iOS(.v18)) { textView in
-                                                textView.isEditable = false
-                                                textView.isScrollEnabled = false
-                                                textView.textContainer.maximumNumberOfLines = 1
-                                                textView.textContainer.lineBreakMode = .byTruncatingTail
-                                                textView.inputAccessoryView = nil
-                                                textView.reloadInputViews()
-                                                textView.textContainerInset = .zero
-                                                textView.backgroundColor = .clear
-                                                textView.tintColor = .systemBlue
-                                            }
-                                            .frame(width: textWidth1 + 125, height: 25)
-                                            .background(alignment: .leading) {
-                                                Text(viewModel.chartData.formattedPrincipal!.isEmpty ? " " : viewModel.chartData.formattedPrincipal ?? "")
-                                                    .lineLimit(1)
-                                                    .background(GeometryReader { geo in
-                                                        Color.clear
-                                                            .preference(key: WidthKey.self, value: geo.size.width)
-                                                    })
-                                                    .opacity(0)
-                                            }
-                                            .onPreferenceChange(WidthKey.self) { textWidth1 = $0 }
+                                        SelectableText(
+                                            text: viewModel.chartData.formattedPrincipal ?? ""
+                                        )
+
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
-                                        TextEditor(text: .constant(viewModel.chartData.formattedInterest ?? ""))
-                                            .introspect(.textEditor, on: .iOS(.v18)) { textView in
-                                                textView.isEditable = false
-                                                textView.isScrollEnabled = false
-                                                textView.textContainer.maximumNumberOfLines = 1
-                                                textView.textContainer.lineBreakMode = .byTruncatingTail
-                                                textView.inputAccessoryView = nil
-                                                textView.reloadInputViews()
-                                                textView.textContainerInset = .zero
-                                                textView.backgroundColor = .clear
-                                                textView.tintColor = .systemBlue
-                                            }
-                                            .frame(width: textWidth2 + 125, height: 25)
-                                            .background(alignment: .leading) {
-                                                Text(viewModel.chartData.formattedInterest!.isEmpty ? " " : viewModel.chartData.formattedInterest ?? "")
-                                                    .lineLimit(1)
-                                                    .background(GeometryReader { geo in
-                                                        Color.clear
-                                                            .preference(key: WidthKey.self, value: geo.size.width)
-                                                    })
-                                                    .opacity(0)
-                                            }
-                                            .onPreferenceChange(WidthKey.self) { textWidth2 = $0 }                                    }
+                                        SelectableText(
+                                            text: viewModel.chartData.formattedInterest ?? ""
+                                        )
+                                    }
                                 }
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear
@@ -264,13 +220,7 @@ struct LoanCraftView: View {
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
-    
-    struct WidthKey: PreferenceKey {
-        static let defaultValue: CGFloat = 0
-        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-            value = nextValue()
-        }
-    }
+
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(
