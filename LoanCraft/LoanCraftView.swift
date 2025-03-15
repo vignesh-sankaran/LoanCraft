@@ -18,6 +18,7 @@ struct LoanCraftView: View {
     @State var overlayWidth: CGFloat = 100
     @State var selection: TextSelection?
     @FocusState private var focused: Bool
+    @State private var textWidth: CGFloat = 0
     
     var body: some View {
         NavigationStack {
@@ -182,11 +183,55 @@ struct LoanCraftView: View {
                                 VStack {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedPrincipal ?? "")").textSelection(.enabled).amp_setBlocked(true)
+                                        TextEditor(text: .constant(viewModel.chartData.formattedPrincipal ?? ""))
+                                            .introspect(.textEditor, on: .iOS(.v18)) { textView in
+                                                textView.isEditable = false
+                                                textView.isScrollEnabled = false
+                                                textView.textContainer.maximumNumberOfLines = 1
+                                                textView.textContainer.lineBreakMode = .byTruncatingTail
+                                                textView.inputAccessoryView = nil
+                                                textView.reloadInputViews()
+                                                textView.textContainerInset = .zero
+                                                textView.backgroundColor = .clear
+                                                textView.tintColor = .systemBlue
+                                            }
+                                            .frame(width: textWidth + 150, height: 25)
+                                            .background(alignment: .leading) {
+                                                Text(viewModel.chartData.formattedPrincipal!.isEmpty ? " " : viewModel.chartData.formattedPrincipal ?? "")
+                                                    .lineLimit(1)
+                                                    .background(GeometryReader { geo in
+                                                        Color.clear
+                                                            .preference(key: WidthKey.self, value: geo.size.width)
+                                                    })
+                                                    .opacity(0)
+                                            }
+                                            .onPreferenceChange(WidthKey.self) { textWidth = $0 }
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
-                                        Text("\(viewModel.chartData.formattedInterest ?? "")").textSelection(.enabled).amp_setBlocked(true)
-                                    }
+                                        TextEditor(text: .constant(viewModel.chartData.formattedInterest ?? ""))
+                                            .introspect(.textEditor, on: .iOS(.v18)) { textView in
+                                                textView.isEditable = false
+                                                textView.isScrollEnabled = false
+                                                textView.textContainer.maximumNumberOfLines = 1
+                                                textView.textContainer.lineBreakMode = .byTruncatingTail
+                                                
+                                                textView.textContainerInset = .zero
+                                                textView.backgroundColor = .clear
+                                                textView.tintColor = .systemBlue
+                                                textView.inputAccessoryView = nil
+                                                textView.reloadInputViews()
+                                            }
+                                            .frame(width: textWidth + 150, height: 25)
+                                            .background(alignment: .leading) {
+                                                Text(viewModel.chartData.formattedInterest!.isEmpty ? " " : viewModel.chartData.formattedInterest ?? "")
+                                                    .lineLimit(1)
+                                                    .background(GeometryReader { geo in
+                                                        Color.clear
+                                                            .preference(key: WidthKey.self, value: geo.size.width)
+                                                    })
+                                                    .opacity(0)
+                                            }
+                                            .onPreferenceChange(WidthKey.self) { textWidth = $0 }                                    }
                                 }
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear
@@ -216,6 +261,13 @@ struct LoanCraftView: View {
             }
             .navigationTitle("LoanCraft")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
+        }
+    }
+    
+    struct WidthKey: PreferenceKey {
+        static let defaultValue: CGFloat = 0
+        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+            value = nextValue()
         }
     }
     
