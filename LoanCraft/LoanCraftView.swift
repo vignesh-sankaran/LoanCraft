@@ -18,8 +18,10 @@ struct LoanCraftView: View {
     @State var overlayWidth: CGFloat = 100
     @State var selection: TextSelection?
     @FocusState private var focused: Bool
-    @State private var textWidth: CGFloat = 0
-    
+    @State private var textWidth1: CGFloat = 0
+    @State private var textWidth2: CGFloat = 0
+    @State private var textWidth3: CGFloat = 0
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -195,7 +197,7 @@ struct LoanCraftView: View {
                                                 textView.backgroundColor = .clear
                                                 textView.tintColor = .systemBlue
                                             }
-                                            .frame(width: textWidth + 150, height: 25)
+                                            .frame(width: textWidth1 + 125, height: 25)
                                             .background(alignment: .leading) {
                                                 Text(viewModel.chartData.formattedPrincipal!.isEmpty ? " " : viewModel.chartData.formattedPrincipal ?? "")
                                                     .lineLimit(1)
@@ -205,7 +207,7 @@ struct LoanCraftView: View {
                                                     })
                                                     .opacity(0)
                                             }
-                                            .onPreferenceChange(WidthKey.self) { textWidth = $0 }
+                                            .onPreferenceChange(WidthKey.self) { textWidth1 = $0 }
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
                                         TextEditor(text: .constant(viewModel.chartData.formattedInterest ?? ""))
@@ -214,14 +216,13 @@ struct LoanCraftView: View {
                                                 textView.isScrollEnabled = false
                                                 textView.textContainer.maximumNumberOfLines = 1
                                                 textView.textContainer.lineBreakMode = .byTruncatingTail
-                                                
+                                                textView.inputAccessoryView = nil
+                                                textView.reloadInputViews()
                                                 textView.textContainerInset = .zero
                                                 textView.backgroundColor = .clear
                                                 textView.tintColor = .systemBlue
-                                                textView.inputAccessoryView = nil
-                                                textView.reloadInputViews()
                                             }
-                                            .frame(width: textWidth + 150, height: 25)
+                                            .frame(width: textWidth2 + 125, height: 25)
                                             .background(alignment: .leading) {
                                                 Text(viewModel.chartData.formattedInterest!.isEmpty ? " " : viewModel.chartData.formattedInterest ?? "")
                                                     .lineLimit(1)
@@ -231,7 +232,7 @@ struct LoanCraftView: View {
                                                     })
                                                     .opacity(0)
                                             }
-                                            .onPreferenceChange(WidthKey.self) { textWidth = $0 }                                    }
+                                            .onPreferenceChange(WidthKey.self) { textWidth2 = $0 }                                    }
                                 }
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear
