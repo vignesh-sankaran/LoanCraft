@@ -129,6 +129,7 @@ struct LoanCraftView: View {
                             SelectableText(
                                 text: .constant(viewModel.chartData.formattedTotal ?? "")
                             )
+                            .multilineTextAlignment(.center)
                         }
                     }
                     .chartForegroundStyleScale(
@@ -176,17 +177,19 @@ struct LoanCraftView: View {
                         if let selectedBar {
                             GeometryReader { geometryProxy in
                                 let offsets = calculateOverlayOffsets(from: chartProxy)
-                                VStack {
+                                VStack(alignment: .center) {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
                                         SelectableText(
                                             text: .constant(viewModel.chartData.formattedPrincipal ?? "")
                                         )
+                                        .multilineTextAlignment(.center)
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
                                         SelectableText(
                                             text: .constant(viewModel.chartData.formattedInterest ?? "")
                                         )
+                                        .multilineTextAlignment(.center)
                                     }
                                 }
                                 .background(GeometryReader { geometryProxy in
