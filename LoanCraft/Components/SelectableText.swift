@@ -18,6 +18,7 @@ struct SelectableText: View {
         TextEditor(
             text: $text
         )
+        .padding(0)
         .introspect(.textEditor, on: .iOS(.v18)) {
             $0.isEditable = false
             $0.isScrollEnabled = false
@@ -28,6 +29,7 @@ struct SelectableText: View {
             $0.textContainerInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
+            $0.textContainerInset = .zero
         }
         .background(alignment: .leading) {
             Text(text.isEmpty ? " " : text)
