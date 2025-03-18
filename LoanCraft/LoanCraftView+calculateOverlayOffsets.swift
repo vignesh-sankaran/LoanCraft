@@ -9,7 +9,9 @@ import Charts
 import Foundation
 
 extension LoanCraftView {
-    func calculateOverlayOffsets(from chartProxy: ChartProxy) -> (x: CGFloat, y: CGFloat) {
+    func calculateOverlayOffsets(
+        from chartProxy: ChartProxy
+    ) -> (x: CGFloat, y: CGFloat) {
         let xOffset = (chartProxy.plotSize.width / 2) - (self.overlayWidth / 2)
         let yOffset: CGFloat =
             if selectedBar == .principal {

@@ -48,6 +48,6 @@ struct SelectableText: View {
                 .bold(bold)
                 .opacity(0)
         }
-        .frame(width: textWidth + 125, height: 25)
+        .frame(width: max(125, textWidth + 20), height: 40)
     }
 }
