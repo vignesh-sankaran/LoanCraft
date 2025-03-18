@@ -36,26 +36,17 @@ struct SelectableText: View {
                 .lineLimit(1)
                 .background(
                     GeometryReader { geo in
-                        Color.clear
-                            .preference(
-                                key: WidthKey.self,
-                                value: geo.size.width
-                            )
+                        Color.clear.onAppear {
+                            textWidth = geo.size.width
+                        }
+                        .onChange(of: text) {
+                            textWidth = geo.size.width
+                        }
                     }
                 )
+                .font(.system(size: 17))
                 .opacity(0)
         }
         .frame(width: textWidth + 125, height: 25)
-        .onPreferenceChange(WidthKey.self) {
-            textWidth = $0
-        }
-        .id(text)
-    }
-    
-    struct WidthKey: PreferenceKey {
-        static let defaultValue: CGFloat = 0
-        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-            value = nextValue()
-        }
     }
 }
