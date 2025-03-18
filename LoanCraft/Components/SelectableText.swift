@@ -46,7 +46,10 @@ struct SelectableText: View {
                 .opacity(0)
         }
         .frame(width: textWidth + 125, height: 25)
-        .onPreferenceChange(WidthKey.self) { textWidth = $0 }
+        .onPreferenceChange(WidthKey.self) {
+            textWidth = $0
+        }
+        .id(text)
     }
     
     struct WidthKey: PreferenceKey {
