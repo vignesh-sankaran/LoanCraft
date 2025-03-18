@@ -9,10 +9,9 @@ import SwiftUI
 import SwiftUIIntrospect
 
 struct SelectableText: View {
-    
-    @FocusState private var focused: Bool
     @State private var textWidth: CGFloat = 0
-    @State private var selection: TextSelection?
+    @State var bold: Bool = false
+    @State var font: Font = .body
     @Binding var text: String
     var body: some View {
         TextEditor(
@@ -29,8 +28,9 @@ struct SelectableText: View {
             $0.textContainerInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
-            $0.textContainerInset = .zero
         }
+        .bold(bold)
+        .font(font)
         .background(alignment: .leading) {
             Text(text.isEmpty ? " " : text)
                 .lineLimit(1)
@@ -44,7 +44,8 @@ struct SelectableText: View {
                         }
                     }
                 )
-                .font(.system(size: 17))
+                .font(font)
+                .bold(bold)
                 .opacity(0)
         }
         .frame(width: textWidth + 125, height: 25)

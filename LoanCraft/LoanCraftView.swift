@@ -16,10 +16,6 @@ struct LoanCraftView: View {
     let analytics = AnalyticsService()
     @State var overlayWidth: CGFloat = 100
     @State var selection: TextSelection?
-    @FocusState private var focused: Bool
-    @State private var textWidth1: CGFloat = 0
-    @State private var textWidth2: CGFloat = 0
-    @State private var textWidth3: CGFloat = 0
 
     var body: some View {
         NavigationStack {
@@ -127,6 +123,8 @@ struct LoanCraftView: View {
                         .foregroundStyle(by: .value("Interest", "Interest"))
                         .annotation {
                             SelectableText(
+                                bold: true,
+                                font: .title3,
                                 text: .constant(viewModel.chartData.formattedTotal ?? "")
                             )
                             .multilineTextAlignment(.center)
