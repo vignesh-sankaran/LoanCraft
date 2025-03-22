@@ -26,6 +26,7 @@ struct SelectableText: View {
             $0.inputAccessoryView = nil
             $0.reloadInputViews()
             $0.textContainerInset = .zero
+            $0.contentInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
         }

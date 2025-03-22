@@ -106,6 +106,7 @@ struct LoanCraftView: View {
                     SelectableText(
                         text: $viewModel.formattedMortgagePayment
                     )
+                    .offset(x: -5)
                     .padding(.bottom, 16)
                     Chart {
                         BarMark(
