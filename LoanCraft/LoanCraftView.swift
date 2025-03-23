@@ -129,6 +129,7 @@ struct LoanCraftView: View {
                                 text: .constant(viewModel.chartData.formattedTotal ?? "")
                             )
                             .multilineTextAlignment(.center)
+                            .hidden()
                         }
                     }
                     .chartForegroundStyleScale(
@@ -158,24 +159,30 @@ struct LoanCraftView: View {
                     }
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
-                            guard
-                                let selectedBar = findSelectedBar(
-                                    location: value.location, chartProxy: chartProxy)
-                            else { return }
-                            analytics.send(
-                                event: selectedBar.trackingValue,
-                                properties: ["overlayBeingShown": self.selectedBar != nil])
-                            if self.selectedBar == selectedBar {
-                                self.selectedBar = nil
-                            } else {
-                                self.selectedBar = selectedBar
+                            if let selectedBar = findSelectedBar(
+                                location: value.location, chartProxy: chartProxy) {
+                                analytics.send(
+                                    event: selectedBar.trackingValue,
+                                    properties: ["overlayBeingShown": self.selectedBar != nil])
+                                if self.selectedBar == selectedBar {
+                                    self.selectedBar = nil
+                                } else {
+                                    self.selectedBar = selectedBar
+                                }
                             }
                         }
                     }
                     .chartOverlay { chartProxy in
-                        if let selectedBar {
-                            GeometryReader { geometryProxy in
-                                let offsets = calculateOverlayOffsets(from: chartProxy)
+                        GeometryReader { geometryProxy in
+                            let offsets = calculateOverlayOffsets(from: chartProxy)
+                            SelectableText(
+                                bold: true,
+                                font: .title3,
+                                text: .constant(viewModel.chartData.formattedTotal ?? "")
+                            )
+                            .multilineTextAlignment(.center)
+                            .offset(x: offsets.x)
+                            if let selectedBar {
                                 VStack(alignment: .center) {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
