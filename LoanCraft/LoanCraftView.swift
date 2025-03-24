@@ -191,7 +191,10 @@ struct LoanCraftView: View {
                             }
                             if let selectedBar {
                                 let offsets = calculateOverlayOffsets(from: chartProxy)
-                                VStack(alignment: .center) {
+                                VStack(
+                                    alignment: .center,
+                                    spacing: .zero
+                                ) {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
                                         SelectableText(
