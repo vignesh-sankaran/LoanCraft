@@ -235,12 +235,21 @@ struct LoanCraftView: View {
             .navigationTitle("LoanCraft")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(
-            #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            #selector(
+                UIResponder.resignFirstResponder
+            ),
+            to: nil,
+            from: nil,
+            for: nil
+        )
     }
 }
 
