@@ -174,15 +174,19 @@ struct LoanCraftView: View {
                     }
                     .chartOverlay { chartProxy in
                         GeometryReader { geometryProxy in
-                            let offsets = calculateOverlayOffsets(from: chartProxy)
+                            let plotFrame = geometryProxy[chartProxy.plotAreaFrame]
+                            let centerX = plotFrame.midX
+                            let topY = plotFrame.minY
+
                             SelectableText(
                                 bold: true,
                                 font: .title3,
                                 text: .constant(viewModel.chartData.formattedTotal ?? "")
                             )
+                            .position(x: centerX, y: topY)
                             .multilineTextAlignment(.center)
-                            .offset(x: offsets.x)
                             if let selectedBar {
+                                let offsets = calculateOverlayOffsets(from: chartProxy)
                                 VStack(alignment: .center) {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
