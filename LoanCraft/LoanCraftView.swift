@@ -176,15 +176,17 @@ struct LoanCraftView: View {
                         GeometryReader { geometryProxy in
                             if let chartProxyPlotFrame = chartProxy.plotFrame {
                                 let plotFrame = geometryProxy[chartProxyPlotFrame]
-                                let centerX = plotFrame.midX
-                                let topY = plotFrame.minY
-
+                                let offsetX = plotFrame.midX
+                                let offsetY = chartProxy.position(
+                                    forY: self.viewModel.chartData.total
+                                ) ?? 0
+                
                                 SelectableText(
                                     bold: true,
                                     font: .title3,
                                     text: .constant(viewModel.chartData.formattedTotal ?? "")
                                 )
-                                .position(x: centerX, y: topY)
+                                .position(x: offsetX, y: offsetY - 8)
                                 .multilineTextAlignment(.center)
                             }
                             if let selectedBar {
