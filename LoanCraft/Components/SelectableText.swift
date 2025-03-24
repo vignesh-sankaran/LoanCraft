@@ -10,6 +10,7 @@ import SwiftUIIntrospect
 
 struct SelectableText: View {
     @State private var textWidth: CGFloat = 0
+    @State private var textHeight: CGFloat = 0
     @State var bold: Bool = false
     @State var font: Font = .body
     @Binding var text: String
@@ -39,9 +40,11 @@ struct SelectableText: View {
                     GeometryReader { geo in
                         Color.clear.onAppear {
                             textWidth = geo.size.width
+                            textHeight = geo.size.height
                         }
                         .onChange(of: text) {
                             textWidth = geo.size.width
+                            textHeight = geo.size.height
                         }
                     }
                 )
@@ -49,6 +52,6 @@ struct SelectableText: View {
                 .bold(bold)
                 .opacity(0)
         }
-        .frame(width: max(125, textWidth + 20), height: 40)
+        .frame(width: max(125, textWidth + 20), height: textHeight)
     }
 }
