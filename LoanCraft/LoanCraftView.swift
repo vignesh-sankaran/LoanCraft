@@ -186,7 +186,7 @@ struct LoanCraftView: View {
                                     font: .title3,
                                     text: .constant(viewModel.chartData.formattedTotal ?? "")
                                 )
-                                .position(x: offsetX, y: offsetY - 8)
+                                .position(x: offsetX, y: offsetY - 16)
                                 .multilineTextAlignment(.center)
                             }
                             if let selectedBar {
