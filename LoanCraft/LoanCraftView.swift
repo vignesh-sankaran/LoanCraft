@@ -102,12 +102,17 @@ struct LoanCraftView: View {
                             properties: ["selectedFrequency": newValue.rawValue]
                         )
                     }
-                    Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                    SelectableText(
-                        text: $viewModel.formattedMortgagePayment
-                    )
-                    .offset(x: -5)
-                    .padding(.bottom, 16)
+                    VStack(
+                        alignment: .leading,
+                        spacing: 4
+                    ) {
+                        Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
+                        SelectableText(
+                            text: $viewModel.formattedMortgagePayment
+                        )
+                        .offset(x: -5)
+                        .padding(.bottom, 16)
+                    }
                     Chart {
                         BarMark(
                             x: .value("", ""),
@@ -193,7 +198,7 @@ struct LoanCraftView: View {
                                 let offsets = calculateOverlayOffsets(from: chartProxy)
                                 VStack(
                                     alignment: .center,
-                                    spacing: .zero
+                                    spacing: 4
                                 ) {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
@@ -209,6 +214,8 @@ struct LoanCraftView: View {
                                         .multilineTextAlignment(.center)
                                     }
                                 }
+                                .padding(.top, 2)
+                                .padding(.bottom, 4)
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear
                                         .onAppear {
