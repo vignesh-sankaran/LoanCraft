@@ -64,6 +64,11 @@ final class TextViewDelegate: NSObject, UITextViewDelegate {
     @State var analytics = AnalyticsService.instance
 
     func textViewDidChangeSelection(_ textView: UITextView) {
+        guard let selectedRange = textView.selectedTextRange, !selectedRange.isEmpty else {
+            analytics.send(event: .textFieldDeselected)
+            return
+        }
+        
         analytics.send(event: .textFieldSelected)
     }
 }

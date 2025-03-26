@@ -16,4 +16,5 @@ enum Event: String {
     case keyboardDownButtonTapped
     case doneButtonTapped
     case textFieldSelected
+    case textFieldDeselected
 }
