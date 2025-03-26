@@ -5,6 +5,7 @@
 //  Created by Vignesh Sankaran on 15/3/2025.
 //
 
+import UIKit
 import SwiftUI
 import SwiftUIIntrospect
 
@@ -14,6 +15,7 @@ struct SelectableText: View {
     @State var bold: Bool = false
     @State var font: Font = .body
     @Binding var text: String
+    let textViewDelegate = TextViewDelegate()
     var body: some View {
         TextEditor(
             text: $text
@@ -30,6 +32,8 @@ struct SelectableText: View {
             $0.contentInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
+            
+            $0.delegate = textViewDelegate
         }
         .bold(bold)
         .font(font)
@@ -53,5 +57,13 @@ struct SelectableText: View {
                 .opacity(0)
         }
         .frame(width: max(125, textWidth + 20), height: textHeight)
+    }
+}
+
+final class TextViewDelegate: NSObject, UITextViewDelegate {
+    @State var analytics = AnalyticsService.instance
+
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        analytics.send(event: .textFieldSelected)
     }
 }

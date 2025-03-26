@@ -9,9 +9,11 @@ import AmplitudeSwift
 import AmplitudeSwiftSessionReplayPlugin
 import Foundation
 
-final class AnalyticsService {
-    let amplitudeService: Amplitude
-
+@Observable final class AnalyticsService {
+    private let amplitudeService: Amplitude
+    
+    static let instance = AnalyticsService()
+    
     init() {
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as! String
         amplitudeService = Amplitude(

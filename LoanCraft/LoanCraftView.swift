@@ -13,7 +13,7 @@ struct LoanCraftView: View {
     @State var viewModel = ViewModel()
     @State var selectedBar: SelectedBarItem?
     @FocusState var selectedTextField: SelectedTextField?
-    let analytics = AnalyticsService()
+    @State var analytics = AnalyticsService.instance
     @State var overlayWidth: CGFloat = 100
     @State var selection: TextSelection?
 
