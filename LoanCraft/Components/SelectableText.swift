@@ -12,10 +12,23 @@ import SwiftUIIntrospect
 struct SelectableText: View {
     @State private var textWidth: CGFloat = 0
     @State private var textHeight: CGFloat = 0
-    @State var bold: Bool = false
-    @State var font: Font = .body
     @Binding var text: String
-    let textViewDelegate = TextViewDelegate()
+    let bold: Bool
+    let font: Font
+    let textViewDelegate: TextViewDelegate
+   
+    init(
+        bold: Bool = false,
+        font: Font = .body,
+        text: Binding<String>,
+        type: SelectableTextType
+    ) {
+        self.bold = bold
+        self.font = font
+        self._text = text
+        textViewDelegate = .init(type: type)
+    }
+
     var body: some View {
         TextEditor(
             text: $text
@@ -62,6 +75,11 @@ struct SelectableText: View {
 
 final class TextViewDelegate: NSObject, UITextViewDelegate {
     @State var analytics = AnalyticsService.instance
+    let type: SelectableTextType
+    
+    init(type: SelectableTextType) {
+        self.type = type
+    }
 
     func textViewDidChangeSelection(_ textView: UITextView) {
         guard let selectedRange = textView.selectedTextRange, !selectedRange.isEmpty else {
@@ -69,6 +87,9 @@ final class TextViewDelegate: NSObject, UITextViewDelegate {
             return
         }
         
-        analytics.send(event: .textFieldSelected)
+        analytics.send(
+            event: .textFieldSelected,
+            properties: ["type": type]
+        )
     }
 }

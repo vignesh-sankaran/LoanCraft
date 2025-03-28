@@ -108,7 +108,8 @@ struct LoanCraftView: View {
                     ) {
                         Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
                         SelectableText(
-                            text: $viewModel.formattedMortgagePayment
+                            text: $viewModel.formattedMortgagePayment,
+                            type: SelectableTextType.mortgagePayment
                         )
                         .offset(x: -5)
                         .padding(.bottom, 16)
@@ -131,7 +132,8 @@ struct LoanCraftView: View {
                             SelectableText(
                                 bold: true,
                                 font: .title3,
-                                text: .constant(viewModel.chartData.formattedTotal ?? "")
+                                text: .constant(viewModel.chartData.formattedTotal ?? ""),
+                                type: .totalMortgage
                             )
                             .multilineTextAlignment(.center)
                             .hidden()
@@ -189,7 +191,8 @@ struct LoanCraftView: View {
                                 SelectableText(
                                     bold: true,
                                     font: .title3,
-                                    text: .constant(viewModel.chartData.formattedTotal ?? "")
+                                    text: .constant(viewModel.chartData.formattedTotal ?? ""),
+                                    type: .totalMortgage
                                 )
                                 .position(x: offsetX, y: offsetY - 16)
                                 .multilineTextAlignment(.center)
@@ -203,13 +206,15 @@ struct LoanCraftView: View {
                                     if selectedBar == .principal {
                                         Text("Principal:").font(.headline)
                                         SelectableText(
-                                            text: .constant(viewModel.chartData.formattedPrincipal ?? "")
+                                            text: .constant(viewModel.chartData.formattedPrincipal ?? ""),
+                                            type: .principal
                                         )
                                         .multilineTextAlignment(.center)
                                     } else if selectedBar == .interest {
                                         Text("Interest:").font(.headline)
                                         SelectableText(
-                                            text: .constant(viewModel.chartData.formattedInterest ?? "")
+                                            text: .constant(viewModel.chartData.formattedInterest ?? ""),
+                                            type: .interest
                                         )
                                         .multilineTextAlignment(.center)
                                     }

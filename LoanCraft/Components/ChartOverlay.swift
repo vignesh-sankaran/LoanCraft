@@ -17,7 +17,8 @@ struct ChartOverlay: View {
             Text("\(heading):")
                 .font(.headline)
             SelectableText(
-                text: $text
+                text: $text,
+                type: .interest
             )
         }
     }
