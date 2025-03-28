@@ -18,11 +18,11 @@ struct ChartOverlay: View {
     ) {
         if selectedBar == .principal {
             heading = "Principal:"
-            text = chartData.formattedPrincipal ?? ""
+            text = chartData.formattedPrincipal
             type = .principal
         } else {
             heading = "Interest:"
-            text = chartData.formattedInterest ?? ""
+            text = chartData.formattedInterest
             type = .interest
         }
     }

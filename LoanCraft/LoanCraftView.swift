@@ -132,7 +132,7 @@ struct LoanCraftView: View {
                             SelectableText(
                                 bold: true,
                                 font: .title3,
-                                text: .constant(viewModel.chartData.formattedTotal ?? ""),
+                                text: .constant(viewModel.chartData.formattedTotal),
                                 type: .totalMortgage
                             )
                             .multilineTextAlignment(.center)
@@ -191,7 +191,7 @@ struct LoanCraftView: View {
                                 SelectableText(
                                     bold: true,
                                     font: .title3,
-                                    text: .constant(viewModel.chartData.formattedTotal ?? ""),
+                                    text: .constant(viewModel.chartData.formattedTotal),
                                     type: .totalMortgage
                                 )
                                 .position(x: offsetX, y: offsetY - 16)
