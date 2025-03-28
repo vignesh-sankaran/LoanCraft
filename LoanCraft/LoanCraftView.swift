@@ -199,44 +199,16 @@ struct LoanCraftView: View {
                             }
                             if let selectedBar {
                                 let offsets = calculateOverlayOffsets(from: chartProxy)
-                                VStack(
-                                    alignment: .center,
-                                    spacing: 4
-                                ) {
-                                    if selectedBar == .principal {
-                                        Text("Principal:").font(.headline)
-                                        SelectableText(
-                                            text: .constant(viewModel.chartData.formattedPrincipal ?? ""),
-                                            type: .principal
-                                        )
-                                        .multilineTextAlignment(.center)
-                                    } else if selectedBar == .interest {
-                                        Text("Interest:").font(.headline)
-                                        SelectableText(
-                                            text: .constant(viewModel.chartData.formattedInterest ?? ""),
-                                            type: .interest
-                                        )
-                                        .multilineTextAlignment(.center)
-                                    }
-                                }
-                                .padding(.top, 2)
-                                .padding(.bottom, 4)
+                                ChartOverlay(
+                                    chartData: viewModel.chartData,
+                                    selectedBar: selectedBar
+                                )
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear
                                         .onAppear {
                                             self.overlayWidth = geometryProxy.size.width
                                         }
                                 })
-                                .background {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.background)
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.quaternary.opacity(0.7))
-                                    }
-                                    .padding(.horizontal, -8)
-                                    .padding(.vertical, -4)
-                                }
                                 .offset(x: offsets.x, y: offsets.y)
                             }
                         }
