@@ -83,12 +83,12 @@ final class TextViewDelegate: NSObject, UITextViewDelegate {
 
     func textViewDidChangeSelection(_ textView: UITextView) {
         guard let selectedRange = textView.selectedTextRange, !selectedRange.isEmpty else {
-            analytics.send(event: .textFieldDeselected)
+            analytics.track(.textFieldDeselected)
             return
         }
         
-        analytics.send(
-            event: .textFieldSelected,
+        analytics.track(
+            .textFieldSelected,
             properties: ["type": type]
         )
     }

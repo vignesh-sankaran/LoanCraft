@@ -32,7 +32,13 @@ import Foundation
         #endif
     }
 
-    func send(event: Event, properties: [String: Any]? = nil) {
-        amplitudeService.track(eventType: event.rawValue, eventProperties: properties)
+    func track(
+        _ event: Event,
+        properties: [String: Any]? = nil
+    ) {
+        amplitudeService.track(
+            eventType: event.rawValue,
+            eventProperties: properties
+        )
     }
 }

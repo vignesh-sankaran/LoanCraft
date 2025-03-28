@@ -38,7 +38,7 @@ struct LoanCraftView: View {
                     .keyboardType(.numberPad)
                     .onChange(of: selectedTextField) { _, newValue in
                         if let newValue {
-                            analytics.send(event: newValue.trackingValue)
+                            analytics.track(newValue.trackingValue)
                         }
                     }
                     .padding(.bottom, 16)
@@ -70,16 +70,16 @@ struct LoanCraftView: View {
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Button("Up", systemImage: "chevron.up") {
-                                    analytics.send(event: .keyboardUpButtonTapped)
+                                    analytics.track(.keyboardUpButtonTapped)
                                     selectedTextField = selectedTextField?.previous
                                 }.fontWeight(.bold).disabled(selectedTextField == .mortgageAmount)
                                 Button("Down", systemImage: "chevron.down") {
-                                    analytics.send(event: .keyboardDownButtonTapped)
+                                    analytics.track(.keyboardDownButtonTapped)
                                     selectedTextField = selectedTextField?.next
                                 }.fontWeight(.bold).disabled(selectedTextField == .yearsRemaining)
                                 Spacer()
                                 Button("Done") {
-                                    analytics.send(event: .doneButtonTapped)
+                                    analytics.track(.doneButtonTapped)
                                     hideKeyboard()
                                 }.bold()
                             }
@@ -97,8 +97,8 @@ struct LoanCraftView: View {
                     .sensoryFeedback(.selection, trigger: viewModel.repaymentFrequency)
                     .padding(.bottom, 16)
                     .onChange(of: viewModel.repaymentFrequency) { _, newValue in
-                        analytics.send(
-                            event: .repaymentFrequencySlider,
+                        analytics.track(
+                            .repaymentFrequencySlider,
                             properties: ["selectedFrequency": newValue.rawValue]
                         )
                     }
@@ -169,8 +169,8 @@ struct LoanCraftView: View {
                             guard let selectedBar = findSelectedBar(
                                 location: value.location, chartProxy: chartProxy)
                             else { return }
-                            analytics.send(
-                                event: selectedBar.trackingValue,
+                            analytics.track(
+                                selectedBar.trackingValue,
                                 properties: ["overlayBeingShown": self.selectedBar != nil])
                             if self.selectedBar == selectedBar {
                                 self.selectedBar = nil
