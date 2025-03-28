@@ -15,7 +15,6 @@ struct LoanCraftView: View {
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
     @State var overlayWidth: CGFloat = 100
-    @State var selection: TextSelection?
 
     var body: some View {
         NavigationStack {
