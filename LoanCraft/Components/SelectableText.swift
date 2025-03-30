@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUIIntrospect
 
 struct SelectableText: View {
-    @State private var textWidth: CGFloat = 0
+    @State var textWidth: CGFloat = 0
     @State private var textHeight: CGFloat = 0
     @Binding var text: String
     let bold: Bool
@@ -45,7 +45,6 @@ struct SelectableText: View {
             $0.contentInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
-            
             $0.delegate = textViewDelegate
         }
         .bold(bold)
@@ -89,7 +88,7 @@ final class TextViewDelegate: NSObject, UITextViewDelegate {
         
         analytics.track(
             .textFieldSelected,
-            properties: ["type": type]
+            properties: ["type": type.rawValue]
         )
     }
 }
