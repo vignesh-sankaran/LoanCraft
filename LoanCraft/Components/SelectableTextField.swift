@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import SwiftUIIntrospect
 
-struct SelectableText: View {
+struct SelectableTextField: View {
     @State var textWidth: CGFloat = 0
     @State private var textHeight: CGFloat = 0
     @Binding var text: String
@@ -21,7 +21,7 @@ struct SelectableText: View {
         bold: Bool = false,
         font: Font = .body,
         text: Binding<String>,
-        type: SelectableTextType
+        type: SelectableTextFieldType
     ) {
         self.bold = bold
         self.font = font
@@ -74,9 +74,9 @@ struct SelectableText: View {
 
 final class TextViewDelegate: NSObject, UITextViewDelegate {
     @State var analytics = AnalyticsService.instance
-    let type: SelectableTextType
+    let type: SelectableTextFieldType
     
-    init(type: SelectableTextType) {
+    init(type: SelectableTextFieldType) {
         self.type = type
     }
 

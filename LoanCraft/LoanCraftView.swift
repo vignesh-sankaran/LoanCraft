@@ -106,9 +106,9 @@ struct LoanCraftView: View {
                         spacing: 4
                     ) {
                         Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
-                        SelectableText(
+                        SelectableTextField(
                             text: $viewModel.formattedMortgagePayment,
-                            type: SelectableTextType.mortgagePayment
+                            type: .mortgagePayment
                         )
                         .offset(x: -5)
                         .padding(.bottom, 16)
@@ -128,7 +128,7 @@ struct LoanCraftView: View {
                         .accessibilityIdentifier("interest-bar-mark")
                         .foregroundStyle(by: .value("Interest", "Interest"))
                         .annotation {
-                            SelectableText(
+                            SelectableTextField(
                                 bold: true,
                                 font: .title3,
                                 text: .constant(viewModel.chartData.formattedTotal),
@@ -187,7 +187,7 @@ struct LoanCraftView: View {
                                     forY: self.viewModel.chartData.total
                                 ) ?? 0
                 
-                                SelectableText(
+                                SelectableTextField(
                                     bold: true,
                                     font: .title3,
                                     text: .constant(viewModel.chartData.formattedTotal),

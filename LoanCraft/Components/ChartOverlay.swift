@@ -10,7 +10,7 @@ import SwiftUI
 struct ChartOverlay: View {
     let heading: String
     let text: String
-    let type: SelectableTextType
+    let type: SelectableTextFieldType
     
     init(
         chartData: ChartData,
@@ -34,7 +34,7 @@ struct ChartOverlay: View {
         ) {
             Text(heading)
                 .font(.headline)
-            SelectableText(
+            SelectableTextField(
                 text: .constant(text),
                 type: type
             )
