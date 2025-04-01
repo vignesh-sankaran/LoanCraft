@@ -167,7 +167,10 @@ struct LoanCraftView: View {
                         SpatialTapGesture().onEnded { value in
                             guard let selectedBar = findSelectedBar(
                                 location: value.location, chartProxy: chartProxy)
-                            else { return }
+                            else {
+                                hideKeyboard()
+                                return
+                            }
                             analytics.track(
                                 selectedBar.trackingValue,
                                 properties: ["overlayBeingShown": self.selectedBar != nil])
