@@ -19,7 +19,7 @@ struct LoanCraftView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading) {
+                VStack {
                     VStack(alignment: .leading) {
                         Text("Mortgage amount")
                         TextField(
@@ -119,6 +119,7 @@ struct LoanCraftView: View {
                         Color.clear
                             .contentShape(Rectangle())
                             .onTapGesture {
+                                guard selectedTextField == nil else { return }
                                 hideKeyboard()
                             }
                     )
@@ -177,7 +178,9 @@ struct LoanCraftView: View {
                             guard let selectedBar = findSelectedBar(
                                 location: value.location, chartProxy: chartProxy)
                             else {
-                                hideKeyboard()
+                                if self.selectedTextField == nil {
+                                    self.hideKeyboard()
+                                }
                                 return
                             }
                             analytics.track(
