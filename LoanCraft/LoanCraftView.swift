@@ -225,7 +225,7 @@ struct LoanCraftView: View {
                                         .onChange(
                                             of: viewModel.chartData.total
                                         ) {
-                                            overlayWidth = geometryProxy.size.width
+                                            overlayWidth = max(100, geometryProxy.size.width)
                                         }
                                 })
                                 .offset(x: offsets.x, y: offsets.y)
