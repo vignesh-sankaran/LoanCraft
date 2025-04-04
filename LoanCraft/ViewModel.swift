@@ -37,7 +37,7 @@ import SwiftUI
         }
     }
 
-    var formattedMortgagePayment: String = ""
+    var formattedMortgagePayment = ""
 
     func calculateMortgageRepayment() {
         let repaymentsPerYear = repaymentFrequency.repaymentsPerYear
