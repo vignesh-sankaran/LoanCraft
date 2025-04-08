@@ -11,11 +11,14 @@ struct ChartOverlay: View {
     let heading: String
     let text: String
     let type: SelectableTextFieldType
+    @Binding var textWidth: CGFloat
     
     init(
         chartData: ChartData,
-        selectedBar: SelectedBarItem
+        selectedBar: SelectedBarItem,
+        textWidth: Binding<CGFloat>
     ) {
+        _textWidth = textWidth
         if selectedBar == .principal {
             heading = "Principal:"
             text = chartData.formattedPrincipal
@@ -37,7 +40,9 @@ struct ChartOverlay: View {
             SelectableTextField(
                 text: .constant(text),
                 type: type
-            )
+            ) { newValue in
+                textWidth = newValue
+            }
             .multilineTextAlignment(.center)
         }
         .padding(.top, 2)

@@ -15,6 +15,7 @@ struct LoanCraftView: View {
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
     @State var overlayWidth: CGFloat = 100
+    @State var overlayTextWidth: CGFloat = 0
 
     var body: some View {
         NavigationStack {
@@ -215,7 +216,8 @@ struct LoanCraftView: View {
                                 let offsets = calculateOverlayOffsets(from: chartProxy)
                                 ChartOverlay(
                                     chartData: viewModel.chartData,
-                                    selectedBar: selectedBar
+                                    selectedBar: selectedBar,
+                                    textWidth: $overlayTextWidth
                                 )
                                 .background(GeometryReader { geometryProxy in
                                     Color.clear

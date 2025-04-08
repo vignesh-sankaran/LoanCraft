@@ -11,6 +11,7 @@ import SwiftUIIntrospect
 
 struct SelectableTextField: View {
     @State var textWidth: CGFloat = 0
+    var onTextWidthChanged: ((CGFloat) -> Void)?
     @State private var textHeight: CGFloat = 0
     @Binding var text: String
     let bold: Bool
@@ -21,11 +22,13 @@ struct SelectableTextField: View {
         bold: Bool = false,
         font: Font = .body,
         text: Binding<String>,
-        type: SelectableTextFieldType
+        type: SelectableTextFieldType,
+        _ onTextWidthChanged: ((CGFloat) -> Void)? = nil
     ) {
         self.bold = bold
         self.font = font
         self._text = text
+        self.onTextWidthChanged = onTextWidthChanged
         textViewDelegate = .init(type: type)
     }
 
@@ -69,6 +72,9 @@ struct SelectableTextField: View {
                 .opacity(0)
         }
         .frame(width: max(125, textWidth + 20), height: textHeight)
+        .onChange(of: textWidth) {
+            onTextWidthChanged?(textWidth)
+        }
     }
 }
 
