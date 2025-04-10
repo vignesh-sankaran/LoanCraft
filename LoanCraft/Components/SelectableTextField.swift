@@ -5,19 +5,21 @@
 //  Created by Vignesh Sankaran on 15/3/2025.
 //
 
-import UIKit
 import SwiftUI
 import SwiftUIIntrospect
 
 struct SelectableTextField: View {
-    @State var textWidth: CGFloat = 0
-    var onTextWidthChanged: ((CGFloat) -> Void)?
+    @State private var analytics = AnalyticsService.instance
+    @FocusState private var focused: Bool
+    @State private var textWidth: CGFloat = 0
     @State private var textHeight: CGFloat = 0
     @Binding var text: String
-    let bold: Bool
-    let font: Font
-    let textViewDelegate: TextViewDelegate
-   
+    private let bold: Bool
+    private let font: Font
+    private let type: SelectableTextFieldType
+
+    var onTextWidthChanged: ((CGFloat) -> Void)?
+
     init(
         bold: Bool = false,
         font: Font = .body,
@@ -28,8 +30,8 @@ struct SelectableTextField: View {
         self.bold = bold
         self.font = font
         self._text = text
+        self.type = type
         self.onTextWidthChanged = onTextWidthChanged
-        textViewDelegate = .init(type: type)
     }
 
     var body: some View {
@@ -48,8 +50,8 @@ struct SelectableTextField: View {
             $0.contentInset = .zero
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
-            $0.delegate = textViewDelegate
         }
+        .focused($focused)
         .bold(bold)
         .font(font)
         .background(alignment: .leading) {
@@ -75,26 +77,15 @@ struct SelectableTextField: View {
         .onChange(of: textWidth) {
             onTextWidthChanged?(textWidth)
         }
-    }
-}
-
-final class TextViewDelegate: NSObject, UITextViewDelegate {
-    @State var analytics = AnalyticsService.instance
-    let type: SelectableTextFieldType
-    
-    init(type: SelectableTextFieldType) {
-        self.type = type
-    }
-
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        guard let selectedRange = textView.selectedTextRange, !selectedRange.isEmpty else {
-            analytics.track(.textFieldDeselected)
-            return
+        .onChange(of: focused) {
+            if focused {
+                analytics.track(
+                    .textFieldSelected,
+                    properties: ["type": type.rawValue]
+                )
+            } else {
+                analytics.track(.textFieldDeselected)
+            }
         }
-        
-        analytics.track(
-            .textFieldSelected,
-            properties: ["type": type.rawValue]
-        )
     }
 }
