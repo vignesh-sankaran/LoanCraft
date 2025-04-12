@@ -12,14 +12,14 @@ final class AppStoreSnapshots: XCTestCase {
         true
     }
     private var app: XCUIApplication!
-    
+
     override func setUp() {
         super.setUp()
         app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
     }
-    
+
     override func tearDown() {
         app = nil
         continueAfterFailure = false

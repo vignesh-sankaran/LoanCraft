@@ -31,7 +31,8 @@ struct LoanCraftView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(
-                                    selectedTextField == .mortgageAmount ? Color.blue : Color("UnselectedFieldBorder"),
+                                    selectedTextField == .mortgageAmount
+                                        ? Color.blue : Color("UnselectedFieldBorder"),
                                     lineWidth: selectedTextField == .mortgageAmount ? 2 : 0.5
                                 )
                         )
@@ -49,7 +50,8 @@ struct LoanCraftView: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(
-                                        selectedTextField == .interest ? Color.blue : Color("UnselectedFieldBorder"),
+                                        selectedTextField == .interest
+                                            ? Color.blue : Color("UnselectedFieldBorder"),
                                         lineWidth: selectedTextField == .interest ? 2 : 0.5
                                     )
                             )
@@ -57,35 +59,38 @@ struct LoanCraftView: View {
                             .focused($selectedTextField, equals: .interest)
                             .padding(.bottom, 16)
                         Text("Years remaining")
-                        TextField("Years remaining", value: $viewModel.yearsRemaining, format: .number)
-                            .textFieldStyle(.roundedBorder)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(
-                                        selectedTextField ==    .yearsRemaining ? Color.blue : Color("UnselectedFieldBorder"),
-                                        lineWidth: selectedTextField == .yearsRemaining ? 2 : 0.5
-                                    )
-                            )
-                            .keyboardType(.numberPad)
-                            .focused($selectedTextField, equals: .yearsRemaining)
-                            .toolbar {
-                                ToolbarItemGroup(placement: .keyboard) {
-                                    Button("Up", systemImage: "chevron.up") {
-                                        analytics.track(.keyboardUpButtonTapped)
-                                        selectedTextField = selectedTextField?.previous
-                                    }.fontWeight(.bold).disabled(selectedTextField == .mortgageAmount)
-                                    Button("Down", systemImage: "chevron.down") {
-                                        analytics.track(.keyboardDownButtonTapped)
-                                        selectedTextField = selectedTextField?.next
-                                    }.fontWeight(.bold).disabled(selectedTextField == .yearsRemaining)
-                                    Spacer()
-                                    Button("Done") {
-                                        analytics.track(.doneButtonTapped)
-                                        hideKeyboard()
-                                    }.bold()
-                                }
+                        TextField(
+                            "Years remaining", value: $viewModel.yearsRemaining, format: .number
+                        )
+                        .textFieldStyle(.roundedBorder)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(
+                                    selectedTextField == .yearsRemaining
+                                        ? Color.blue : Color("UnselectedFieldBorder"),
+                                    lineWidth: selectedTextField == .yearsRemaining ? 2 : 0.5
+                                )
+                        )
+                        .keyboardType(.numberPad)
+                        .focused($selectedTextField, equals: .yearsRemaining)
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Button("Up", systemImage: "chevron.up") {
+                                    analytics.track(.keyboardUpButtonTapped)
+                                    selectedTextField = selectedTextField?.previous
+                                }.fontWeight(.bold).disabled(selectedTextField == .mortgageAmount)
+                                Button("Down", systemImage: "chevron.down") {
+                                    analytics.track(.keyboardDownButtonTapped)
+                                    selectedTextField = selectedTextField?.next
+                                }.fontWeight(.bold).disabled(selectedTextField == .yearsRemaining)
+                                Spacer()
+                                Button("Done") {
+                                    analytics.track(.doneButtonTapped)
+                                    hideKeyboard()
+                                }.bold()
                             }
-                            .padding(.bottom, 16)
+                        }
+                        .padding(.bottom, 16)
                         // Set up saving of value if on focus, then off focus has a 0, empty, or invalid value
                         Text("Repayment frequency")
                         Picker("Repayment frequency", selection: $viewModel.repaymentFrequency) {
@@ -103,11 +108,15 @@ struct LoanCraftView: View {
                                 properties: ["selectedFrequency": newValue.rawValue]
                             )
                         }
+                        Button("Test crash") {
+                            fatalError("Test crash")
+                        }
                         VStack(
                             alignment: .leading,
                             spacing: 4
                         ) {
-                            Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):").bold()
+                            Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):")
+                                .bold()
                             SelectableTextField(
                                 text: $viewModel.formattedMortgagePayment,
                                 type: .mortgagePayment
@@ -176,8 +185,9 @@ struct LoanCraftView: View {
                     }
                     .chartGesture { chartProxy in
                         SpatialTapGesture().onEnded { value in
-                            guard let selectedBar = findSelectedBar(
-                                location: value.location, chartProxy: chartProxy)
+                            guard
+                                let selectedBar = findSelectedBar(
+                                    location: value.location, chartProxy: chartProxy)
                             else {
                                 if self.selectedTextField == nil {
                                     self.hideKeyboard()
@@ -199,10 +209,11 @@ struct LoanCraftView: View {
                             if let chartProxyPlotFrame = chartProxy.plotFrame {
                                 let plotFrame = geometryProxy[chartProxyPlotFrame]
                                 let offsetX = plotFrame.midX
-                                let offsetY = chartProxy.position(
-                                    forY: self.viewModel.chartData.total
-                                ) ?? 0
-                
+                                let offsetY =
+                                    chartProxy.position(
+                                        forY: self.viewModel.chartData.total
+                                    ) ?? 0
+
                                 SelectableTextField(
                                     bold: true,
                                     font: .title3,
@@ -219,17 +230,19 @@ struct LoanCraftView: View {
                                     selectedBar: selectedBar,
                                     textWidth: $overlayTextWidth
                                 )
-                                .background(GeometryReader { geometryProxy in
-                                    Color.clear
-                                        .onAppear {
-                                            self.overlayWidth = geometryProxy.size.width
-                                        }
-                                        .onChange(
-                                            of: viewModel.chartData.total
-                                        ) {
-                                            overlayWidth = max(100, geometryProxy.size.width)
-                                        }
-                                })
+                                .background(
+                                    GeometryReader { geometryProxy in
+                                        Color.clear
+                                            .onAppear {
+                                                self.overlayWidth = geometryProxy.size.width
+                                            }
+                                            .onChange(
+                                                of: viewModel.chartData.total
+                                            ) {
+                                                overlayWidth = max(100, geometryProxy.size.width)
+                                            }
+                                    }
+                                )
                                 .offset(x: offsets.x, y: offsets.y)
                             }
                         }
@@ -245,7 +258,6 @@ struct LoanCraftView: View {
         }
     }
 
-    
     func hideKeyboard() {
         UIApplication.shared.sendAction(
             #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

@@ -11,9 +11,9 @@ import Foundation
 
 @Observable final class AnalyticsService {
     private let amplitudeService: Amplitude
-    
+
     static let instance = AnalyticsService()
-    
+
     init() {
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as! String
         amplitudeService = Amplitude(
@@ -26,7 +26,7 @@ import Foundation
                 maskLevel: .conservative
             )
         )
-        
+
         #if DEBUG
             amplitudeService.configuration.offline = true
         #endif

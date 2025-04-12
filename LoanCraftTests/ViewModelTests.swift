@@ -25,7 +25,7 @@ struct ViewModelTests {
         )
         #expect(viewModel.chartData.interest.rounded(to: 2) == 465812.56)
     }
-    
+
     @Test func mortgage_didSet() throws {
         let viewModel = ViewModel()
 
@@ -39,25 +39,24 @@ struct ViewModelTests {
         )
         #expect(viewModel.chartData.interest.rounded(to: 2) == 326_068.79)
     }
-    
+
     @Test func interest_didSet() throws {
         let viewModel = ViewModel()
 
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
         viewModel.interest = 0.025
-        
+
         #expect(viewModel.mortgageRepayment.rounded(to: 2) == 911.47)
         #expect(
             viewModel.chartData.principal == 500_000
         )
         #expect(viewModel.chartData.interest.rounded(to: 2) == 210_950.07)
     }
-    
+
     @Test func yearsRemaining_didSet() throws {
         let viewModel = ViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
-
 
         viewModel.yearsRemaining = 25
 
@@ -67,11 +66,11 @@ struct ViewModelTests {
         )
         #expect(viewModel.chartData.interest.rounded(to: 2) == 376_392.14)
     }
-    
+
     @Test func repaymentFrequency_didSet() throws {
         let viewModel = ViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
-        
+
         viewModel.repaymentFrequency = .month
 
         #expect(viewModel.mortgageRepayment.rounded(to: 2) == 2684.11)
@@ -80,12 +79,12 @@ struct ViewModelTests {
         )
         #expect(viewModel.chartData.interest.rounded(to: 2) == 466_278.92)
     }
-    
+
     // MARK: - Specific values
-    
+
     @Test func calculateMortgageRepayment_zero() {
         let viewModel = ViewModel()
-        
+
         viewModel.mortgage = 0
 
         #expect(viewModel.mortgageRepayment == 0.0)
@@ -93,7 +92,7 @@ struct ViewModelTests {
 
     @Test func calculateMortgagePayment_1_000_000() {
         let viewModel = ViewModel()
-        
+
         viewModel.mortgage = 1_000_000
         viewModel.interest = 0.04
         viewModel.yearsRemaining = 25

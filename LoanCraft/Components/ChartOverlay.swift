@@ -12,7 +12,7 @@ struct ChartOverlay: View {
     let text: String
     let type: SelectableTextFieldType
     @Binding var textWidth: CGFloat
-    
+
     init(
         chartData: ChartData,
         selectedBar: SelectedBarItem,

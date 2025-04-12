@@ -33,7 +33,8 @@ import SwiftUI
         didSet {
             let currencyFormatter = NumberFormatter()
             currencyFormatter.numberStyle = .currency
-            formattedMortgagePayment =  currencyFormatter.string(from: mortgageRepayment as NSNumber) ?? ""
+            formattedMortgagePayment =
+                currencyFormatter.string(from: mortgageRepayment as NSNumber) ?? ""
         }
     }
 

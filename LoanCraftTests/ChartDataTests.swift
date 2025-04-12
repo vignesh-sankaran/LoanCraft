@@ -15,34 +15,34 @@ struct ChartDataTests {
             principal: 100_000,
             interest: 10_000
         )
-        
+
         #expect(data.total == 110_000)
     }
-    
+
     @Test func formattedPrincipal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
         )
-        
+
         #expect(data.formattedPrincipal == "$100,000.00")
     }
-    
+
     @Test func formattedInterest() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
         )
-        
+
         #expect(data.formattedInterest == "$10,000.00")
     }
-    
+
     @Test func formattedTotal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
         )
-        
+
         #expect(data.formattedTotal == "$110,000.00")
     }
 }
