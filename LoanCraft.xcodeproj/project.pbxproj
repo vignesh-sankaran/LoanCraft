@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3FA1662D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin */; };
 		2F7C80452DAA665400139C7C /* NewRelic in Frameworks */ = {isa = PBXBuildFile; productRef = 2F7C80442DAA665400139C7C /* NewRelic */; };
-		2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B02D3E3F5800D69DA3 /* FirebaseCrashlytics */; };
 		2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B82D4514A600D69DA3 /* AmplitudeSwift */; };
 		2FB907B22D79BD290066A56F /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B12D79BD290066A56F /* InlineSnapshotTesting */; };
 		2FB907B42D79BD290066A56F /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B32D79BD290066A56F /* SnapshotTesting */; };
@@ -106,9 +104,7 @@
 				2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */,
 				2F7C80452DAA665400139C7C /* NewRelic in Frameworks */,
 				2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */,
-				2FA562AF2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				2FBA0C572D844E3200A3626E /* SwiftUIIntrospect in Frameworks */,
-				2FA562B12D3E3F5800D69DA3 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +201,6 @@
 				2FD0EAA029E00D8F00EB19B3 /* Sources */,
 				2FD0EAA129E00D8F00EB19B3 /* Frameworks */,
 				2FD0EAA229E00D8F00EB19B3 /* Resources */,
-				2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */,
 				2F7C80E02DAA67AA00139C7C /* Set up NewRelic */,
 			);
 			buildRules = (
@@ -279,7 +274,6 @@
 			);
 			mainGroup = 2FD0EA9B29E00D8F00EB19B3;
 			packageReferences = (
-				2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
 				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
 				2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
@@ -367,31 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# if [ ${CONFIGURATION} = \"Debug\" ]; then\n  # echo \"Skipping DSYM upload CONFIGURATION: ${CONFIGURATION}\"\n  # exit 0\n# fi\nARTIFACT_DIR=\"${BUILD_DIR%Build/*}\"\nSCRIPT=`/usr/bin/find \"${SRCROOT}\" \"${ARTIFACT_DIR}\" -type f -name run-symbol-tool | head -n 1`\n/bin/sh \"${SCRIPT}\" \"AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA\"\n";
-		};
-		2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
-				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
-			);
-			name = "Set up Crash;ytics";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -834,14 +803,6 @@
 				minimumVersion = 7.5.4;
 			};
 		};
-		2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.7.0;
-			};
-		};
 		2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/amplitude/Amplitude-Swift";
@@ -878,16 +839,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F7C80432DAA665400139C7C /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */;
 			productName = NewRelic;
-		};
-		2FA562AE2D3E3F5800D69DA3 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsWithoutAdIdSupport;
-		};
-		2FA562B02D3E3F5800D69DA3 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2FA562AD2D3E3F5700D69DA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
 		};
 		2FA562B82D4514A600D69DA3 /* AmplitudeSwift */ = {
 			isa = XCSwiftPackageProductDependency;
