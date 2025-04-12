@@ -360,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# if [ ${CONFIGURATION} = \"Debug\" ]; then\n  # echo \"Skipping DSYM upload CONFIGURATION: ${CONFIGURATION}\"\n  # exit 0\n# fi\nARTIFACT_DIR=\"${BUILD_DIR%Build/*}\"\nSCRIPT=`/usr/bin/find \"${SRCROOT}\" \"${ARTIFACT_DIR}\" -type f -name run-symbol-tool | head -n 1`\n/bin/sh \"${SCRIPT}\" \"AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA\"\n";
+			shellScript = "# if [ ${CONFIGURATION} = \"Debug\" ]; then\n  # echo \"Skipping DSYM upload CONFIGURATION: ${CONFIGURATION}\"\n  # exit 0\n# fi\nARTIFACT_DIR=\"${BUILD_DIR%Build/*}\"\nSCRIPT=`/usr/bin/find \"${SRCROOT}\" \"${ARTIFACT_DIR}\" -type f -name run-symbol-tool | head -n 1`\n/bin/sh \"${SCRIPT}\" \"AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA\" --debug\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
