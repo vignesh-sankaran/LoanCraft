@@ -1,5 +1,5 @@
 {
-  "originHash" : "4484058816099831c343f25651d664671b893947b17a54a35c52c1ef9af1ed1c",
+  "originHash" : "7f738c5b23d1f12c58fa4ac0ed45c550f9bec40d2c3f1466dddf2171cf56ddd4",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -152,6 +152,15 @@
       "state" : {
         "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
         "version" : "2.30910.0"
+      }
+    },
+    {
+      "identity" : "newrelic-ios-agent-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/newrelic/newrelic-ios-agent-spm",
+      "state" : {
+        "revision" : "fe8fc10fe5256fc810481971f967e541513fd4ab",
+        "version" : "7.5.4"
       }
     },
     {
