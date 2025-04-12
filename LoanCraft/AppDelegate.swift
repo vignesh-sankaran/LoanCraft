@@ -5,15 +5,16 @@
 //  Created by Vignesh Sankaran on 20/1/2025.
 //
 
-import Firebase
+import NewRelic
+import UIKit
 
-class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
+final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     @MainActor
     func application(
         _ application: UIApplication,
         willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        FirebaseApp.configure()
+        NewRelic.start(withApplicationToken:"AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA")
         return true
     }
 }

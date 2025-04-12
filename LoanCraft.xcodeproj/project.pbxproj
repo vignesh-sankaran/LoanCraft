@@ -206,6 +206,7 @@
 				2FD0EAA129E00D8F00EB19B3 /* Frameworks */,
 				2FD0EAA229E00D8F00EB19B3 /* Resources */,
 				2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */,
+				2F7C80E02DAA67AA00139C7C /* Set up NewRelic */,
 			);
 			buildRules = (
 			);
@@ -347,6 +348,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
 			shellScript = "swift-format format -i -r ${PROJECT_DIR} --configuration .swift-format.json\nswift-format lint -r ${PROJECT_DIR} --configuration .swift-format.json\n";
+		};
+		2F7C80E02DAA67AA00139C7C /* Set up NewRelic */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set up NewRelic";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# if [ ${CONFIGURATION} = \"Debug\" ]; then\n  # echo \"Skipping DSYM upload CONFIGURATION: ${CONFIGURATION}\"\n  # exit 0\n# fi\nARTIFACT_DIR=\"${BUILD_DIR%Build/*}\"\nSCRIPT=`/usr/bin/find \"${SRCROOT}\" \"${ARTIFACT_DIR}\" -type f -name run-symbol-tool | head -n 1`\n/bin/sh \"${SCRIPT}\" \"AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA\"\n";
 		};
 		2FA562B62D450B8000D69DA3 /* Set up Crash;ytics */ = {
 			isa = PBXShellScriptBuildPhase;
