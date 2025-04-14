@@ -15,7 +15,10 @@ import Foundation
     static let instance = AnalyticsService()
 
     init() {
-        let apiKey = Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as! String
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "AMPLITUDE_API_KEY") as? String
+        else {
+            fatalError("Amplitude API key not found!")
+        }
         amplitudeService = Amplitude(
             configuration: Configuration(
                 apiKey: apiKey
