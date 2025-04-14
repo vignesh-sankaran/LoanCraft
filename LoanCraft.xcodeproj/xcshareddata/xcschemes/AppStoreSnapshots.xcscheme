@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1620"
+   LastUpgradeVersion = "1630"
    version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -76,6 +76,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2FD0EAA329E00D8F00EB19B3"
+            BuildableName = "LoanCraft.app"
+            BlueprintName = "LoanCraft"
+            ReferencedContainer = "container:LoanCraft.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
