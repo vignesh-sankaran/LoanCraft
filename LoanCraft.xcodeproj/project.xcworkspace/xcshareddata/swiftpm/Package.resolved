@@ -16,7 +16,7 @@
       "location" : "https://github.com/amplitude/Amplitude-Swift",
       "state" : {
         "branch" : "main",
-        "revision" : "9916a8160bb0e780aea5b80bde4d8849bdcf88da"
+        "revision" : "70ea4be802cbe2d7b2e8475376bdcce4d6d64073"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/amplitude/AmplitudeSessionReplay-iOS.git",
       "state" : {
         "branch" : "main",
-        "revision" : "8bff2109923d94a6f866c1696cc0b8eacf05796b"
+        "revision" : "3e520c3919155d9e83bf480bc57badc957f168ca"
       }
     },
     {
