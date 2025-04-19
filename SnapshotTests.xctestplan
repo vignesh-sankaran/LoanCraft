@@ -17,6 +17,7 @@
           }
         ],
         "language" : "en",
+        "preferredScreenCaptureFormat" : "screenshot",
         "region" : "AU",
         "targetForVariableExpansion" : {
           "containerPath" : "container:LoanCraft.xcodeproj",
