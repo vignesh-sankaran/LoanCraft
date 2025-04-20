@@ -26,31 +26,82 @@ final class SnapshotTests: XCTestCase {
         }
 
         assertSnapshot(
-            of: view, as: .image(layout: .device(config: .iPhone8)), file: filePath
+            of: view,
+            as: .image(
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPhone8
+                )
+            ),
+            file: filePath
         )
         assertSnapshot(
-            of: view, as: .image(layout: .device(config: .iPhoneSe)),
-            file: filePath)
-        assertSnapshot(
-            of: view, as: .image(layout: .device(config: .iPhone13ProMax)),
-            file: filePath)
+            of: view,
+            as: .image(
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPhoneSe
+                )
+            ),
+            file: filePath
+        )
         assertSnapshot(
             of: view,
             as: .image(
-                layout: .device(config: .iPhone8),
-                traits: .init(userInterfaceStyle: .dark)),
-            file: filePath)
-        assertSnapshot(
-            of: view, as: .image(layout: .device(config: .iPad10_2)),
-            file: filePath)
-        assertSnapshot(
-            of: view, as: .image(layout: .device(config: .iPad10_2(.landscape))),
-            file: filePath)
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPhone13ProMax
+                )
+            ),
+            file: filePath
+        )
         assertSnapshot(
             of: view,
             as: .image(
-                layout: .device(config: .iPad10_2),
-                traits: .init(userInterfaceStyle: .dark)),
-            file: filePath)
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPhone8
+                ),
+                traits: .init(
+                    userInterfaceStyle: .dark
+                )
+            ),
+            file: filePath
+        )
+        assertSnapshot(
+            of: view,
+            as: .image(
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPad10_2
+                )
+            ),
+            file: filePath
+        )
+        assertSnapshot(
+            of: view,
+            as: .image(
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPad10_2(
+                        .landscape
+                    )
+                )
+            ),
+            file: filePath
+        )
+        assertSnapshot(
+            of: view,
+            as: .image(
+                perceptualPrecision: 0.98,
+                layout: .device(
+                    config: .iPad10_2
+                ),
+                traits: .init(
+                    userInterfaceStyle: .dark
+                )
+            ),
+            file: filePath
+        )
     }
 }
