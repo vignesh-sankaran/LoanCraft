@@ -1,5 +1,5 @@
 {
-  "originHash" : "6cd15d658433b3e9d339edeeb48d99335f2f1c069675b8d6183a299af48e119a",
+  "originHash" : "90b9873ac3c83d0ba811ba39e71c14bd8ada909e70bb3f4316c67b01f1f20ef7",
   "pins" : [
     {
       "identity" : "amplitude-ios",
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "7d47f4b42e6d74fe2de73b8e3c3fc2eeae4a3efd",
         "version" : "1.7.3"
+      }
+    },
+    {
+      "identity" : "experiment-ios-client",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/amplitude/experiment-ios-client",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b91e1e0c1da8d2e47f2883ba5b79ad1febc2df5b"
       }
     },
     {
