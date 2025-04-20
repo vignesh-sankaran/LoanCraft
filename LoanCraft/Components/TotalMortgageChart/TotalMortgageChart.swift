@@ -13,7 +13,6 @@ struct TotalMortgageChart: View {
     @State var overlayWidth: CGFloat = 100
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
-    @State var selectedTextField: SelectedTextField?
     @State var chartData: ChartData
 
     var body: some View {
@@ -71,16 +70,16 @@ struct TotalMortgageChart: View {
             SpatialTapGesture().onEnded { value in
                 guard
                     let selectedBar = findSelectedBar(
-                        location: value.location, chartProxy: chartProxy)
+                        location: value.location,
+                        chartProxy: chartProxy
+                    )
                 else {
-                    if self.selectedTextField == nil {
-                        hideKeyboard()
-                    }
                     return
                 }
                 analytics.track(
                     selectedBar.trackingValue,
-                    properties: ["overlayBeingShown": self.selectedBar != nil])
+                    properties: ["overlayBeingShown": self.selectedBar != nil]
+                )
                 if self.selectedBar == selectedBar {
                     self.selectedBar = nil
                 } else {
