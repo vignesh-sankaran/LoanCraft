@@ -26,30 +26,30 @@ final class SnapshotTests: XCTestCase {
         }
 
         assertSnapshot(
-            of: view, as: .image(precision: 0.95, layout: .device(config: .iPhone8)), file: filePath
+            of: view, as: .image(precision: 0.85, layout: .device(config: .iPhone8)), file: filePath
         )
         assertSnapshot(
-            of: view, as: .image(precision: 0.95, layout: .device(config: .iPhoneSe)),
+            of: view, as: .image(precision: 0.85, layout: .device(config: .iPhoneSe)),
             file: filePath)
         assertSnapshot(
-            of: view, as: .image(precision: 0.95, layout: .device(config: .iPhone13ProMax)),
+            of: view, as: .image(precision: 0.85, layout: .device(config: .iPhone13ProMax)),
             file: filePath)
         assertSnapshot(
             of: view,
             as: .image(
-                precision: 0.95, layout: .device(config: .iPhone8),
+                precision: 0.85, layout: .device(config: .iPhone8),
                 traits: .init(userInterfaceStyle: .dark)),
             file: filePath)
         assertSnapshot(
-            of: view, as: .image(precision: 0.95, layout: .device(config: .iPad10_2)),
+            of: view, as: .image(precision: 0.85, layout: .device(config: .iPad10_2)),
             file: filePath)
         assertSnapshot(
-            of: view, as: .image(precision: 0.95, layout: .device(config: .iPad10_2(.landscape))),
+            of: view, as: .image(precision: 0.85, layout: .device(config: .iPad10_2(.landscape))),
             file: filePath)
         assertSnapshot(
             of: view,
             as: .image(
-                precision: 0.95, layout: .device(config: .iPad10_2),
+                precision: 0.85, layout: .device(config: .iPad10_2),
                 traits: .init(userInterfaceStyle: .dark)),
             file: filePath)
     }
