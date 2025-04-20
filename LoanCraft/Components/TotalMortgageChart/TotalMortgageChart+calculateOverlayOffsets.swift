@@ -8,7 +8,7 @@
 import Charts
 import Foundation
 
-extension LoanCraftView {
+extension TotalMortgageChart {
     func calculateOverlayOffsets(
         from chartProxy: ChartProxy
     ) -> (x: CGFloat, y: CGFloat) {
@@ -16,10 +16,10 @@ extension LoanCraftView {
         let yOffset: CGFloat =
             if selectedBar == .principal {
                 chartProxy.position(
-                    forY: self.viewModel.chartData.principal) ?? 0
+                    forY: chartData.principal) ?? 0
             } else {
                 chartProxy.position(
-                    forY: self.viewModel.chartData.total + 10) ?? 0
+                    forY: chartData.total + 10) ?? 0
             }
         return (x: xOffset, y: yOffset)
     }

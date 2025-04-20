@@ -8,7 +8,7 @@
 import Charts
 import Foundation
 
-extension LoanCraftView {
+extension TotalMortgageChart {
     func findSelectedBar(
         location: CGPoint,
         chartProxy: ChartProxy
@@ -17,9 +17,9 @@ extension LoanCraftView {
             return nil
         }
 
-        if value <= viewModel.chartData.principal {
+        if value <= chartData.principal {
             return .principal
-        } else if value <= viewModel.chartData.total {
+        } else if value <= chartData.total {
             return .interest
         } else {
             return nil

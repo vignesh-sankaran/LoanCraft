@@ -11,11 +11,8 @@ import SwiftUI
 
 struct LoanCraftView: View {
     @State var viewModel = ViewModel()
-    @State var selectedBar: SelectedBarItem?
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
-    @State var overlayWidth: CGFloat = 100
-    @State var overlayTextWidth: CGFloat = 0
 
     var body: some View {
         NavigationStack {
@@ -129,122 +126,9 @@ struct LoanCraftView: View {
                                 hideKeyboard()
                             }
                     )
-                    Chart {
-                        BarMark(
-                            x: .value("", ""),
-                            y: .value("Total amount", viewModel.chartData.principal),
-                            width: .ratio(0.85)
-                        )
-                        .foregroundStyle(by: .value("Principal", "Principal"))
-                        .accessibilityIdentifier("interest-bar-mark")
-                        BarMark(
-                            x: .value("", ""), y: .value("Interest", viewModel.chartData.interest),
-                            width: .ratio(0.85)
-                        )
-                        .accessibilityIdentifier("interest-bar-mark")
-                        .foregroundStyle(by: .value("Interest", "Interest"))
-                        .annotation {
-                            SelectableTextField(
-                                bold: true,
-                                font: .title3,
-                                text: .constant(viewModel.chartData.formattedTotal),
-                                type: .totalMortgage
-                            )
-                            .multilineTextAlignment(.center)
-                            .hidden()
-                        }
-                    }
-                    .chartForegroundStyleScale(
-                        [
-                            "Principal": Color("Principal"),
-                            "Interest": Color("Interest"),
-                        ]
+                    TotalMortgageChart(
+                        chartData: viewModel.chartData
                     )
-                    .chartLegend(position: .bottom) {
-                        HStack(spacing: 16) {
-                            HStack {
-                                BasicChartSymbolShape.circle
-                                    .foregroundColor(Color("Principal"))
-                                    .frame(width: 8, height: 8)
-                                Text("Principal")
-                                    .foregroundColor(Color(uiColor: .gray))
-                            }
-                            HStack {
-                                BasicChartSymbolShape.circle
-                                    .foregroundColor(Color("Interest"))
-                                    .frame(width: 8, height: 8)
-                                Text("Interest")
-                                    .foregroundColor(Color(uiColor: .gray))
-                            }
-                        }
-                        .padding()
-                    }
-                    .chartGesture { chartProxy in
-                        SpatialTapGesture().onEnded { value in
-                            guard
-                                let selectedBar = findSelectedBar(
-                                    location: value.location, chartProxy: chartProxy)
-                            else {
-                                if self.selectedTextField == nil {
-                                    self.hideKeyboard()
-                                }
-                                return
-                            }
-                            analytics.track(
-                                selectedBar.trackingValue,
-                                properties: ["overlayBeingShown": self.selectedBar != nil])
-                            if self.selectedBar == selectedBar {
-                                self.selectedBar = nil
-                            } else {
-                                self.selectedBar = selectedBar
-                            }
-                        }
-                    }
-                    .chartOverlay { chartProxy in
-                        GeometryReader { geometryProxy in
-                            if let chartProxyPlotFrame = chartProxy.plotFrame {
-                                let plotFrame = geometryProxy[chartProxyPlotFrame]
-                                let offsetX = plotFrame.midX
-                                let offsetY =
-                                    chartProxy.position(
-                                        forY: self.viewModel.chartData.total
-                                    ) ?? 0
-
-                                SelectableTextField(
-                                    bold: true,
-                                    font: .title3,
-                                    text: .constant(viewModel.chartData.formattedTotal),
-                                    type: .totalMortgage
-                                )
-                                .position(x: offsetX, y: offsetY - 16)
-                                .multilineTextAlignment(.center)
-                            }
-                            if let selectedBar {
-                                let offsets = calculateOverlayOffsets(from: chartProxy)
-                                ChartOverlay(
-                                    chartData: viewModel.chartData,
-                                    selectedBar: selectedBar,
-                                    textWidth: $overlayTextWidth
-                                )
-                                .background(
-                                    GeometryReader { geometryProxy in
-                                        Color.clear
-                                            .onAppear {
-                                                self.overlayWidth = geometryProxy.size.width
-                                            }
-                                            .onChange(
-                                                of: viewModel.chartData.total
-                                            ) {
-                                                overlayWidth = max(100, geometryProxy.size.width)
-                                            }
-                                    }
-                                )
-                                .offset(x: offsets.x, y: offsets.y)
-                            }
-                        }
-                    }
-                    .frame(height: 450)
-                    .sensoryFeedback(.selection, trigger: selectedBar)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
@@ -253,10 +137,18 @@ struct LoanCraftView: View {
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
         }
     }
+}
 
+extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(
-            #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            #selector(
+                UIResponder.resignFirstResponder
+            ),
+            to: nil,
+            from: nil,
+            for: nil
+        )
     }
 }
 
