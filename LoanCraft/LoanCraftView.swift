@@ -129,6 +129,7 @@ struct LoanCraftView: View {
                     TotalMortgageChart(
                         chartData: viewModel.chartData
                     )
+                    AmortisationChart()
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
