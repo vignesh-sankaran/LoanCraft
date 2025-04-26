@@ -1,5 +1,5 @@
 {
-  "originHash" : "90b9873ac3c83d0ba811ba39e71c14bd8ada909e70bb3f4316c67b01f1f20ef7",
+  "originHash" : "b64fefab233e50e8e356262c4642d1a602a28309d9e16a859d059c5afdee87a6",
   "pins" : [
     {
       "identity" : "amplitude-ios",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/amplitude/Amplitude-Swift",
       "state" : {
         "branch" : "main",
-        "revision" : "70ea4be802cbe2d7b2e8475376bdcce4d6d64073"
+        "revision" : "2485aebcdaba9c679979381787258297489cb08a"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/amplitude/AmplitudeSessionReplay-iOS.git",
       "state" : {
         "branch" : "main",
-        "revision" : "3e520c3919155d9e83bf480bc57badc957f168ca"
+        "revision" : "2f02dca9579d33f40906be8b580151e6a67ad3ec"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/newrelic/newrelic-ios-agent-spm",
       "state" : {
-        "revision" : "fe8fc10fe5256fc810481971f967e541513fd4ab",
-        "version" : "7.5.4"
+        "revision" : "9d5636c2f9529ec31973aab709ba1cd934e42730",
+        "version" : "7.5.5"
       }
     },
     {
