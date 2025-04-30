@@ -1,28 +1,21 @@
 //
-//  AmortisationSchedule.swift
+//  ViewModel+calculateAmortisationSchedule.swift
 //  LoanCraft
 //
-//  Created by Vignesh Sankaran on 27/4/2025.
+//  Created by Vignesh Sankaran on 30/4/2025.
 //
 
 import Foundation
 
-struct AmortisationSchedule {
-    var schedule: [AmortisationData] = []
-
-    init(
-        principal: Decimal,
-        interest: Decimal,
-        yearsRemaining: Int
-    ) {
-        let monthlyInterestRate = interest / 12
+extension ViewModel {
+    func calculateAmortisationSchedule() {
+        let monthlyInterestRate = interest / Decimal(yearsRemaining)
         let totalPayments = yearsRemaining * 12
 
-        let topRow =
-            principal * (monthlyInterestRate * pow(1 + monthlyInterestRate, totalPayments))
+        let topRow = mortgage * (monthlyInterestRate * pow(1 + monthlyInterestRate, totalPayments))
         let monthlyPayment = topRow / (pow(1 + monthlyInterestRate, totalPayments) - 1)
 
-        var remainingBalance = principal
+        var remainingBalance = mortgage
 
         for month in 1...totalPayments {
             let interestPayment = remainingBalance * monthlyInterestRate
@@ -33,7 +26,7 @@ struct AmortisationSchedule {
                 remainingBalance = 0
             }
 
-            schedule.append(
+            amortisationSchedule.append(
                 AmortisationData(
                     month: month,
                     totalPayment: monthlyPayment,
