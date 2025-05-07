@@ -65,5 +65,6 @@ import SwiftUI
     init() {
         chartData = ChartData(principal: 0, interest: 0)
         calculateMortgageRepayment()
+        calculateAmortisationSchedule()
     }
 }
