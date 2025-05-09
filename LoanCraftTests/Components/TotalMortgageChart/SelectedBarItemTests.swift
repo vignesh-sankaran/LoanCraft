@@ -10,7 +10,8 @@ import Testing
 @testable import LoanCraft
 
 struct SelectedBarItemTests {
-    @Test func trackingValue() {
+    @Test("Tracking value")
+    func trackingValue() {
         #expect(SelectedBarItem.interest.trackingValue == .interestBarMark)
         #expect(SelectedBarItem.principal.trackingValue == .principalBarMark)
     }

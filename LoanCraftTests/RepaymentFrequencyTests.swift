@@ -10,7 +10,8 @@ import Testing
 @testable import LoanCraft
 
 struct RepaymentFrequencyTests {
-    @Test func repaymentPerYear() {
+    @Test("Repayment per year")
+    func repaymentPerYear() {
         #expect(RepaymentFrequency.week.repaymentsPerYear == 52)
         #expect(RepaymentFrequency.fortnight.repaymentsPerYear == 26)
         #expect(RepaymentFrequency.month.repaymentsPerYear == 12)

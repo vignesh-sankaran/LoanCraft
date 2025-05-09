@@ -11,7 +11,8 @@ import Testing
 @testable import LoanCraft
 
 struct ViewModelTests {
-    @Test func `init`() {
+    @Test("init")
+    func `init`() {
         let viewModel = ViewModel()
 
         #expect(viewModel.mortgage == 500_000.0)
@@ -26,7 +27,8 @@ struct ViewModelTests {
         #expect(viewModel.chartData.interest.rounded(to: 2) == 465812.56)
     }
 
-    @Test func mortgage_didSet() throws {
+    @Test("Mortgage didSet")
+    func mortgage_didSet() throws {
         let viewModel = ViewModel()
 
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
@@ -40,7 +42,8 @@ struct ViewModelTests {
         #expect(viewModel.chartData.interest.rounded(to: 2) == 326_068.79)
     }
 
-    @Test func interest_didSet() throws {
+    @Test("Interest didSet")
+    func interest_didSet() throws {
         let viewModel = ViewModel()
 
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
@@ -54,7 +57,8 @@ struct ViewModelTests {
         #expect(viewModel.chartData.interest.rounded(to: 2) == 210_950.07)
     }
 
-    @Test func yearsRemaining_didSet() throws {
+    @Test("yearsRemaining didSet")
+    func yearsRemaining_didSet() throws {
         let viewModel = ViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
@@ -67,7 +71,8 @@ struct ViewModelTests {
         #expect(viewModel.chartData.interest.rounded(to: 2) == 376_392.14)
     }
 
-    @Test func repaymentFrequency_didSet() throws {
+    @Test("repaymentFrequency didSet")
+    func repaymentFrequency_didSet() throws {
         let viewModel = ViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
@@ -82,7 +87,8 @@ struct ViewModelTests {
 
     // MARK: - Specific values
 
-    @Test func calculateMortgageRepayment_zero() {
+    @Test("calculateMortgagePayment 0")
+    func calculateMortgageRepayment_zero() {
         let viewModel = ViewModel()
 
         viewModel.mortgage = 0
@@ -90,7 +96,8 @@ struct ViewModelTests {
         #expect(viewModel.mortgageRepayment == 0.0)
     }
 
-    @Test func calculateMortgagePayment_1_000_000() {
+    @Test("calculateMortgagePayment 1,000,000")
+    func calculateMortgagePayment_1_000_000() {
         let viewModel = ViewModel()
 
         viewModel.mortgage = 1_000_000

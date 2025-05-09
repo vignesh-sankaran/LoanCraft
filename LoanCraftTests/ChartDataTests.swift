@@ -10,7 +10,8 @@ import Testing
 @testable import LoanCraft
 
 struct ChartDataTests {
-    @Test func total() {
+    @Test("Total")
+    func total() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
@@ -19,7 +20,8 @@ struct ChartDataTests {
         #expect(data.total == 110_000)
     }
 
-    @Test func formattedPrincipal() {
+    @Test("Formatted principal")
+    func formattedPrincipal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
@@ -28,7 +30,8 @@ struct ChartDataTests {
         #expect(data.formattedPrincipal == "$100,000.00")
     }
 
-    @Test func formattedInterest() {
+    @Test("Formatted interest")
+    func formattedInterest() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
@@ -37,7 +40,8 @@ struct ChartDataTests {
         #expect(data.formattedInterest == "$10,000.00")
     }
 
-    @Test func formattedTotal() {
+    @Test("Formatted total")
+    func formattedTotal() {
         let data = ChartData(
             principal: 100_000,
             interest: 10_000
