@@ -9,23 +9,22 @@ import SwiftUI
 
 struct ChartOverlay: View {
     let heading: String
-    let text: String
     let type: SelectableTextFieldType
     @Binding var textWidth: CGFloat
+    @Binding var chartData: ChartData
 
     init(
-        chartData: ChartData,
+        chartData: Binding<ChartData>,
         selectedBar: SelectedBarItem,
         textWidth: Binding<CGFloat>
     ) {
+        _chartData = chartData
         _textWidth = textWidth
         if selectedBar == .principal {
             heading = "Principal:"
-            text = chartData.formattedPrincipal
             type = .principal
         } else {
             heading = "Interest:"
-            text = chartData.formattedInterest
             type = .interest
         }
     }
@@ -38,7 +37,9 @@ struct ChartOverlay: View {
             Text(heading)
                 .font(.headline)
             SelectableTextField(
-                text: .constant(text),
+                text: type == .principal
+                    ? .constant(chartData.formattedPrincipal)
+                    : .constant(chartData.formattedInterest),
                 type: type
             ) { newValue in
                 textWidth = newValue

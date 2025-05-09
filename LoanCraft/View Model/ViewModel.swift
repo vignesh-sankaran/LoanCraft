@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable class ViewModel {
     var amortisationSchedule: [AmortisationData] = []
-    private(set) var chartData: ChartData
+    var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()

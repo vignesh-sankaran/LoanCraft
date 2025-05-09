@@ -127,7 +127,7 @@ struct LoanCraftView: View {
                             }
                     )
                     TotalMortgageChart(
-                        chartData: viewModel.chartData
+                        chartData: $viewModel.chartData
                     )
                     AmortisationChart()
                 }

@@ -13,7 +13,7 @@ struct TotalMortgageChart: View {
     @State var overlayWidth: CGFloat = 100
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
-    @State var chartData: ChartData
+    @Binding var chartData: ChartData
 
     var body: some View {
         Chart {
@@ -109,7 +109,7 @@ struct TotalMortgageChart: View {
                 if let selectedBar {
                     let offsets = calculateOverlayOffsets(from: chartProxy)
                     ChartOverlay(
-                        chartData: chartData,
+                        chartData: $chartData,
                         selectedBar: selectedBar,
                         textWidth: $overlayTextWidth
                     )
