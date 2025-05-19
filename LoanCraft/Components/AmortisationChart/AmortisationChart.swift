@@ -15,10 +15,16 @@ struct AmortisationChart: View {
     var body: some View {
         if featureFlagService.amortisationGraphEnabled {
             Chart {
-                LineMark(
-                    x: .value("", 1),
-                    y: .value("", 2)
-                )
+                ForEach(
+                    Array(
+                        amortisationSchedule.enumerated()),
+                    id: \.element.id
+                ) { index, data in
+                    LineMark(
+                        x: .value("Interest", data.remainingBalance),
+                        y: .value("Month", index)
+                    )
+                }
             }
         }
     }
