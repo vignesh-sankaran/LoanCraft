@@ -17,7 +17,8 @@ struct AmortisationChart: View {
             Chart {
                 ForEach(
                     Array(
-                        amortisationSchedule.enumerated()),
+                        amortisationSchedule.enumerated()
+                    ),
                     id: \.element.id
                 ) { index, data in
                     LineMark(
