@@ -129,7 +129,9 @@ struct LoanCraftView: View {
                     TotalMortgageChart(
                         chartData: $viewModel.chartData
                     )
-                    AmortisationChart()
+                    AmortisationChart(
+                        amortisationSchedule: $viewModel.amortisationSchedule
+                    )
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()

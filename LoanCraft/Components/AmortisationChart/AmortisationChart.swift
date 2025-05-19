@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AmortisationChart: View {
     @State private var featureFlagService = FeatureFlagService.instance
+    @Binding var amortisationSchedule: [AmortisationData]
 
     var body: some View {
         if featureFlagService.amortisationGraphEnabled {
