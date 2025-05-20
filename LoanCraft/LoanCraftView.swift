@@ -126,11 +126,11 @@ struct LoanCraftView: View {
                                 hideKeyboard()
                             }
                     )
-                    TotalMortgageChart(
-                        chartData: $viewModel.chartData
-                    )
                     AmortisationChart(
                         amortisationSchedule: $viewModel.amortisationSchedule
+                    )
+                    TotalMortgageChart(
+                        chartData: $viewModel.chartData
                     )
                 }
                 .textFieldStyle(.roundedBorder)

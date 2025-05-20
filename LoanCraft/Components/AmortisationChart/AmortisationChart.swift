@@ -22,11 +22,12 @@ struct AmortisationChart: View {
                     id: \.element.id
                 ) { index, data in
                     LineMark(
-                        x: .value("Interest", data.remainingBalance),
+                        x: .value("Total repayments", data.remainingBalance),
                         y: .value("Month", index)
                     )
                 }
             }
+            .frame(height: 200)
         }
     }
 }
