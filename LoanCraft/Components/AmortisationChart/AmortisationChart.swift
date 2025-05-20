@@ -22,7 +22,7 @@ struct AmortisationChart: View {
                     id: \.element.id
                 ) { index, data in
                     LineMark(
-                        x: .value("Total repayments", data.remainingBalance),
+                        x: .value("Principal", data.remainingPrincipal),
                         y: .value("Month", index)
                     )
                 }

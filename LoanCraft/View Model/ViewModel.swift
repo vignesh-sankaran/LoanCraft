@@ -31,6 +31,7 @@ import SwiftUI
     var repaymentFrequency: RepaymentFrequency = .fortnight {
         didSet {
             calculateMortgageRepayment()
+            calculateAmortisationSchedule()
         }
     }
     private(set) var mortgageRepayment: Decimal = 0.0 {

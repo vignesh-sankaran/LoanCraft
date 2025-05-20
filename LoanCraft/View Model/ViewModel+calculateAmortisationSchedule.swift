@@ -15,15 +15,19 @@ extension ViewModel {
         let topRow = mortgage * (monthlyInterestRate * pow(1 + monthlyInterestRate, totalPayments))
         let monthlyPayment = topRow / (pow(1 + monthlyInterestRate, totalPayments) - 1)
 
-        var remainingBalance = mortgage
+        var remainingPrincipal = mortgage
+        var remainingInterest = chartData.interest
+        var remainingTotal = chartData.total
 
         for month in 1...totalPayments {
-            let interestPayment = remainingBalance * monthlyInterestRate
+            let interestPayment = remainingPrincipal * monthlyInterestRate
             let principalPayment = monthlyPayment - interestPayment
-            remainingBalance -= principalPayment
+            remainingPrincipal -= principalPayment
+            remainingInterest -= interestPayment
+            remainingTotal -= monthlyPayment
 
-            if remainingBalance < 0 {
-                remainingBalance = 0
+            if remainingPrincipal < 0 {
+                remainingPrincipal = 0
             }
 
             amortisationSchedule.append(
@@ -32,7 +36,9 @@ extension ViewModel {
                     totalPayment: monthlyPayment,
                     principal: principalPayment,
                     interest: interestPayment,
-                    remainingBalance: remainingBalance
+                    remainingPrincipal: remainingPrincipal,
+                    remainingInterest: remainingInterest,
+                    remainingTotal: remainingTotal
                 )
             )
         }
