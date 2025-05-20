@@ -18,10 +18,9 @@ struct AmortisationChart: View {
                 data in
                 ForEach(data.schedule) { amortisationData in
                     LineMark(
-                        x: .value("Principal", amortisationData.remaining),
-                        y: .value("Month", amortisationData.month)
+                        x: .value("Month", amortisationData.month),
+                        y: .value("Remaining", amortisationData.remaining)
                     )
-                    .interpolationMethod(.linear)
                     .foregroundStyle(by: .value("Type", data.type.rawValue))
                     .symbol(by: .value("Type", data.type.rawValue))
                 }
