@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable class ViewModel {
-    var amortisationSchedule: [AmortisationData] = []
+    var amortisationSchedule: [AmortisationScheduleData] = []
     var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {

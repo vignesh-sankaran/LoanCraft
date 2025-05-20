@@ -10,21 +10,20 @@ import SwiftUI
 
 struct AmortisationChart: View {
     @State private var featureFlagService = FeatureFlagService.instance
-    @Binding var amortisationSchedule: [AmortisationData]
+    @Binding var amortisationSchedule: [AmortisationScheduleData]
 
     var body: some View {
         if featureFlagService.amortisationGraphEnabled {
-            Chart {
-                ForEach(
-                    Array(
-                        amortisationSchedule.enumerated()
-                    ),
-                    id: \.element.id
-                ) { index, data in
+            Chart(amortisationSchedule, id: \.type) {
+                data in
+                ForEach(data.schedule, id: \.month) { amortisationData in
                     LineMark(
-                        x: .value("Principal", data.remainingPrincipal),
-                        y: .value("Month", index)
+                        x: .value("Principal", amortisationData.remaining),
+                        y: .value("Month", amortisationData.month)
                     )
+                    .interpolationMethod(.linear)
+                    .foregroundStyle(by: .value("Type", data.type.rawValue))
+                    .symbol(by: .value("Type", data.type.rawValue))
                 }
             }
             .frame(height: 200)

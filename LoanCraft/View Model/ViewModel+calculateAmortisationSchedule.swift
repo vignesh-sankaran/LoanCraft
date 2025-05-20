@@ -9,6 +9,10 @@ import Foundation
 
 extension ViewModel {
     func calculateAmortisationSchedule() {
+        var totalSchedule: [AmortisationData] = []
+        var principalSchedule: [AmortisationData] = []
+        var interestSchedule: [AmortisationData] = []
+
         let monthlyInterestRate = interest / Decimal(yearsRemaining)
         let totalPayments = yearsRemaining * 12
 
@@ -30,17 +34,21 @@ extension ViewModel {
                 remainingPrincipal = 0
             }
 
-            amortisationSchedule.append(
-                AmortisationData(
-                    month: month,
-                    totalPayment: monthlyPayment,
-                    principal: principalPayment,
-                    interest: interestPayment,
-                    remainingPrincipal: remainingPrincipal,
-                    remainingInterest: remainingInterest,
-                    remainingTotal: remainingTotal
-                )
+            principalSchedule.append(
+                .init(month: month, remaining: remainingPrincipal)
+            )
+            interestSchedule.append(
+                .init(month: month, remaining: remainingInterest)
+            )
+            totalSchedule.append(
+                .init(month: month, remaining: remainingTotal)
             )
         }
+
+        amortisationSchedule = [
+            .init(type: .principal, schedule: principalSchedule),
+            .init(type: .interest, schedule: interestSchedule),
+            .init(type: .total, schedule: totalSchedule),
+        ]
     }
 }

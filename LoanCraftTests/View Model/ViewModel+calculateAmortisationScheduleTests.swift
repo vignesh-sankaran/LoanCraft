@@ -18,11 +18,8 @@ struct ViewModel_calculateAmortisationScheduleTests {
         viewModel.interest = 0.05
         viewModel.yearsRemaining = 30
 
-        #expect(viewModel.amortisationSchedule.count == 1440)
-    }
-
-    @Test("Negative number")
-    func negativeNumber() {
-
+        #expect(viewModel.amortisationSchedule[0].schedule.count == 360)
+        #expect(viewModel.amortisationSchedule[1].schedule.count == 360)
+        #expect(viewModel.amortisationSchedule[2].schedule.count == 360)
     }
 }

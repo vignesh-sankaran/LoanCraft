@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct AmortisationData: Identifiable, Equatable {
-    let id = UUID()
+enum AmortisationDataType: String {
+    case principal, interest, total
+}
+
+struct AmortisationScheduleData: Equatable {
+    let type: AmortisationDataType
+    let schedule: [AmortisationData]
+}
+
+struct AmortisationData: Equatable {
     let month: Int
-    let totalPayment: Decimal
-    let principal: Decimal
-    let interest: Decimal
-    let remainingPrincipal: Decimal
-    let remainingInterest: Decimal
-    let remainingTotal: Decimal
+    let remaining: Decimal
 }
