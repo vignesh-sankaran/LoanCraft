@@ -11,12 +11,14 @@ enum AmortisationDataType: String {
     case principal, interest, total
 }
 
-struct AmortisationScheduleData: Equatable {
+struct AmortisationScheduleData: Identifiable, Equatable {
+    let id = UUID()
     let type: AmortisationDataType
     let schedule: [AmortisationData]
 }
 
-struct AmortisationData: Equatable {
+struct AmortisationData: Identifiable, Equatable {
+    let id = UUID()
     let month: Int
     let remaining: Decimal
 }

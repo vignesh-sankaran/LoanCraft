@@ -14,9 +14,9 @@ struct AmortisationChart: View {
 
     var body: some View {
         if featureFlagService.amortisationGraphEnabled {
-            Chart(amortisationSchedule, id: \.type) {
+            Chart(amortisationSchedule) {
                 data in
-                ForEach(data.schedule, id: \.month) { amortisationData in
+                ForEach(data.schedule) { amortisationData in
                     LineMark(
                         x: .value("Principal", amortisationData.remaining),
                         y: .value("Month", amortisationData.month)
