@@ -126,12 +126,14 @@ struct LoanCraftView: View {
                                 hideKeyboard()
                             }
                     )
-                    AmortisationChart(
-                        amortisationSchedule: $viewModel.amortisationSchedule
-                    )
-                    TotalMortgageChart(
-                        chartData: $viewModel.chartData
-                    )
+                    VStack(spacing: 32) {
+                        AmortisationChart(
+                            amortisationSchedule: $viewModel.amortisationSchedule
+                        )
+                        TotalMortgageChart(
+                            chartData: $viewModel.chartData
+                        )
+                    }
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
