@@ -18,6 +18,6 @@ struct ViewModel_calculateAmortisationScheduleTests {
         viewModel.interest = 0.05
         viewModel.yearsRemaining = 30
 
-        #expect(viewModel.amortisationSchedule.count == 1440)
+        #expect(viewModel.amortisationSchedule.count == 360)
     }
 }
