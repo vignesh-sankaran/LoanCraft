@@ -9,7 +9,10 @@ import Foundation
 
 extension ViewModel {
     func calculateAmortisationSchedule() {
-        amortisationSchedule = []
+        amortisationSchedule = [
+            .init(year: 0, remaining: mortgage)
+        ]
+
         let monthlyInterestRate = interest / Decimal(yearsRemaining)
         let totalPayments = yearsRemaining * 12
 

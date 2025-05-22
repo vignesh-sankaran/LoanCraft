@@ -14,10 +14,12 @@ struct ViewModel_calculateAmortisationScheduleTests {
     func test() {
         let viewModel = ViewModel()
 
-        viewModel.mortgage = 250.000
+        viewModel.mortgage = 250_000
         viewModel.interest = 0.05
         viewModel.yearsRemaining = 30
 
-        #expect(viewModel.amortisationSchedule.count == 30)
+        #expect(viewModel.amortisationSchedule.first?.remaining == 250_000)
+        #expect(viewModel.amortisationSchedule.last?.remaining == 0)
+        #expect(viewModel.amortisationSchedule.count == 31)
     }
 }
