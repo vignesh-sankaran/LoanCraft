@@ -31,8 +31,9 @@ extension ViewModel {
                 remainingPrincipal = 0
             }
 
+            guard month % 12 == 0 else { continue }
             amortisationSchedule.append(
-                .init(month: month, remaining: remainingPrincipal)
+                .init(year: month / 12, remaining: remainingPrincipal)
             )
         }
     }

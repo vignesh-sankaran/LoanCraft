@@ -19,6 +19,6 @@ struct AmortisationScheduleData: Identifiable, Equatable {
 
 struct AmortisationData: Identifiable, Equatable {
     let id = UUID()
-    let month: Int
+    let year: Int
     let remaining: Decimal
 }

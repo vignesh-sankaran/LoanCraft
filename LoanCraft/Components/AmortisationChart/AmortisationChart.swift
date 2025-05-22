@@ -17,7 +17,7 @@ struct AmortisationChart: View {
             Chart {
                 ForEach(amortisationSchedule) { amortisationData in
                     LineMark(
-                        x: .value("Month", amortisationData.month),
+                        x: .value("Month", amortisationData.year),
                         y: .value("Remaining", amortisationData.remaining)
                     )
                 }
