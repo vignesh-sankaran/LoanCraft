@@ -50,6 +50,7 @@ struct AmortisationChart: View {
                 }
             }
             .frame(height: 200)
+            .sensoryFeedback(.selection, trigger: selectedYear)
         }
     }
 }
