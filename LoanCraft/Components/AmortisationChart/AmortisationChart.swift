@@ -71,6 +71,14 @@ struct AmortisationChart: View {
                                 ),
                                 type: .mortgagePayment
                             )
+                            Text("Years left")
+                                .font(.headline)
+                            SelectableTextField(
+                                text: .constant(
+                                    String(30 - selectedYear)
+                                ),
+                                type: .mortgagePayment
+                            )
                             .multilineTextAlignment(.center)
                         }
                         .padding(.top, 2)
