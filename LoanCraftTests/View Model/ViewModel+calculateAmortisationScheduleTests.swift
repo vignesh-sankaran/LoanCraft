@@ -31,12 +31,11 @@ struct ViewModel_calculateAmortisationScheduleTests {
         viewModel.yearsRemaining = 0
 
         #expect(
-            viewModel.amortisationSchedule == [
-                .init(
-                    year: 0,
-                    remaining: 0
-                )
-            ]
+            viewModel.amortisationSchedule.first?.year == 0
         )
+        #expect(
+            viewModel.amortisationSchedule.first?.remaining == 0
+        )
+        #expect(viewModel.amortisationSchedule.count == 1)
     }
 }
