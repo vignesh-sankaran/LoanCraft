@@ -23,6 +23,8 @@ extension ViewModel {
         var remainingInterest = chartData.interest
         var remainingTotal = chartData.total
 
+        guard totalPayments > 0 else { return }
+
         for month in 1...totalPayments {
             let interestPayment = remainingPrincipal * monthlyInterestRate
             let principalPayment = monthlyPayment - interestPayment

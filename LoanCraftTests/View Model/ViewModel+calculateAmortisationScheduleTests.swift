@@ -22,4 +22,21 @@ struct ViewModel_calculateAmortisationScheduleTests {
         #expect(viewModel.amortisationSchedule.last?.remaining == 0)
         #expect(viewModel.amortisationSchedule.count == 31)
     }
+
+    @Test("0k")
+    func test_0() {
+        let viewModel = ViewModel()
+
+        viewModel.mortgage = 0
+        viewModel.yearsRemaining = 0
+
+        #expect(
+            viewModel.amortisationSchedule == [
+                .init(
+                    year: 0,
+                    remaining: 0
+                )
+            ]
+        )
+    }
 }
