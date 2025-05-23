@@ -49,6 +49,36 @@ struct AmortisationChart: View {
                         )
                 }
             }
+            .chartOverlay { chartProxy in
+                GeometryReader { geometryProxy in
+                    VStack(
+                        alignment: .center,
+                        spacing: 4
+                    ) {
+                        Text("Principal")
+                            .font(.headline)
+                        SelectableTextField(
+                            text: .constant(
+                                amortisationSchedule[selectedYear].remaining.description),
+                            type: .mortgagePayment
+                        )
+                        .multilineTextAlignment(.center)
+                    }
+                    .padding(.top, 2)
+                    .padding(.bottom, 4)
+                    .background {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.background)
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.quaternary.opacity(0.7))
+                        }
+                        .padding(.horizontal, -8)
+                        .padding(.vertical, -4)
+                    }
+                    .position(x: 100, y: 100)
+                }
+            }
             .frame(height: 350)
             .sensoryFeedback(.selection, trigger: selectedYear)
         }
