@@ -59,7 +59,7 @@ struct AmortisationChart: View {
                             .font(.headline)
                         SelectableTextField(
                             text: .constant(
-                                amortisationSchedule[selectedYear].remaining.description),
+                                amortisationSchedule[selectedYear].remaining.currencyFormatted()),
                             type: .mortgagePayment
                         )
                         .multilineTextAlignment(.center)
