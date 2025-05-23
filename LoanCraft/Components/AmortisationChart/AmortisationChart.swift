@@ -49,7 +49,7 @@ struct AmortisationChart: View {
                         )
                 }
             }
-            .frame(height: 200)
+            .frame(height: 350)
             .sensoryFeedback(.selection, trigger: selectedYear)
         }
     }
