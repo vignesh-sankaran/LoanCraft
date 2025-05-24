@@ -75,7 +75,7 @@ struct AmortisationChart: View {
                                 .font(.headline)
                             SelectableTextField(
                                 text: .constant(
-                                    String(30 - selectedYear)
+                                    String(amortisationSchedule.count - 1 - selectedYear)
                                 ),
                                 type: .mortgagePayment
                             )
