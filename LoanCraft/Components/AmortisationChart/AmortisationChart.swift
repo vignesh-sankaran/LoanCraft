@@ -100,7 +100,7 @@ struct AmortisationChart: View {
             .frame(height: 350)
             .sensoryFeedback(
                 .impact(
-                    intensity: 0.35
+                    intensity: 0.4
                 ),
                 trigger: selectedYear
             )
