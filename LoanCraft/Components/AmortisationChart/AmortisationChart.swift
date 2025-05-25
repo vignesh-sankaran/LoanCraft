@@ -63,7 +63,7 @@ struct AmortisationChart: View {
                             alignment: .center,
                             spacing: 4
                         ) {
-                            Text("Principal")
+                            Text("Balance")
                                 .font(.headline)
                             SelectableTextField(
                                 text: .constant(
@@ -71,6 +71,7 @@ struct AmortisationChart: View {
                                 ),
                                 type: .mortgagePayment
                             )
+                            .multilineTextAlignment(.center)
                             Text("Years left")
                                 .font(.headline)
                             SelectableTextField(
@@ -86,7 +87,7 @@ struct AmortisationChart: View {
                         .background {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(.background)
+                                    .fill(.background.opacity(0.8))
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.quaternary.opacity(0.7))
                             }
