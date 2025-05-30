@@ -8,30 +8,28 @@
 import SwiftUI
 
 @Observable class ViewModel {
-    var amortisationSchedule: [AmortisationData] = []
+    var amortisationViewModel = AmortisationViewModel()
     var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()
-            calculateAmortisationSchedule()
+            amortisationViewModel.calculateSchedule()
         }
     }
     var interest: Decimal = 0.05 {
         didSet {
             calculateMortgageRepayment()
-            calculateAmortisationSchedule()
         }
     }
     var yearsRemaining = 30 {
         didSet {
             calculateMortgageRepayment()
-            calculateAmortisationSchedule()
+            amortisationViewModel.calculateSchedule()
         }
     }
     var repaymentFrequency: RepaymentFrequency = .fortnight {
         didSet {
             calculateMortgageRepayment()
-            calculateAmortisationSchedule()
         }
     }
     private(set) var mortgageRepayment: Decimal = 0.0 {
@@ -65,7 +63,8 @@ import SwiftUI
 
     init() {
         chartData = ChartData(principal: 0, interest: 0)
+        amortisationViewModel.setViewModel(self)
+        amortisationViewModel.calculateSchedule()
         calculateMortgageRepayment()
-        calculateAmortisationSchedule()
     }
 }

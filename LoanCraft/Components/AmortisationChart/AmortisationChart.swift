@@ -10,18 +10,17 @@ import SwiftUI
 
 struct AmortisationChart: View {
     @State private var featureFlagService = FeatureFlagService.instance
-    @Binding var amortisationSchedule: [AmortisationData]
-    @State private var selectedYear: Int = 0
+    @State var viewModel: AmortisationViewModel
 
     var body: some View {
-        if featureFlagService.amortisationGraphEnabled {
+        if true {
             Chart {
-                ForEach(amortisationSchedule) { amortisationData in
+                ForEach(viewModel.schedule) { amortisationData in
                     LineMark(
                         x: .value("Year", amortisationData.year),
                         y: .value("Remaining", amortisationData.remaining)
                     )
-                    RuleMark(x: .value("Year", selectedYear))
+                    RuleMark(x: .value("Year", viewModel.selectedYear))
                         .foregroundStyle(.red)
                         .lineStyle(StrokeStyle(lineWidth: 1))
                 }
@@ -32,7 +31,7 @@ struct AmortisationChart: View {
                         .gesture(
                             SpatialTapGesture()
                                 .onEnded { value in
-                                    selectedYear = findElement(
+                                    viewModel.selectedYear = findElement(
                                         location: value.location, chartProxy: chartProxy,
                                         geometryProxy: gemoetryProxy
                                     )
@@ -40,7 +39,7 @@ struct AmortisationChart: View {
                                 .exclusively(
                                     before: DragGesture()
                                         .onChanged { value in
-                                            selectedYear = findElement(
+                                            viewModel.selectedYear = findElement(
                                                 location: value.location, chartProxy: chartProxy,
                                                 geometryProxy: gemoetryProxy
                                             )
@@ -52,7 +51,7 @@ struct AmortisationChart: View {
             .chartOverlay { chartProxy in
                 GeometryReader { geometryProxy in
                     if let chartProxyPlotFrame = chartProxy.plotFrame {
-                        let startPositionX1 = chartProxy.position(forX: selectedYear) ?? 0
+                        let startPositionX1 = chartProxy.position(forX: viewModel.selectedYear) ?? 0
 
                         let lineX = startPositionX1 + geometryProxy[chartProxyPlotFrame].origin.x
                         let boxWidth: CGFloat = 100
@@ -67,7 +66,7 @@ struct AmortisationChart: View {
                                 .font(.headline)
                             SelectableTextField(
                                 text: .constant(
-                                    amortisationSchedule[selectedYear].remaining.currencyFormatted()
+                                    viewModel.principalRemaining
                                 ),
                                 type: .mortgagePayment
                             )
@@ -76,7 +75,7 @@ struct AmortisationChart: View {
                                 .font(.headline)
                             SelectableTextField(
                                 text: .constant(
-                                    String(amortisationSchedule.count - 1 - selectedYear)
+                                    viewModel.yearsRemaining
                                 ),
                                 type: .mortgagePayment
                             )
@@ -103,7 +102,7 @@ struct AmortisationChart: View {
                 .impact(
                     intensity: 0.4
                 ),
-                trigger: selectedYear
+                trigger: viewModel.selectedYear
             )
         }
     }

@@ -23,11 +23,11 @@ extension AmortisationChart {
             return 1
         }
 
-        var minDistance = amortisationSchedule.count
+        var minDistance = viewModel.schedule.count
         var index: Int?
 
-        for amortisationScheduleIndex in amortisationSchedule.indices {
-            let nthYearDistance = amortisationSchedule[amortisationScheduleIndex].year.distance(
+        for amortisationScheduleIndex in viewModel.schedule.indices {
+            let nthYearDistance = viewModel.schedule[amortisationScheduleIndex].year.distance(
                 to: year)
             if abs(nthYearDistance) < minDistance {
                 index = amortisationScheduleIndex
@@ -36,7 +36,7 @@ extension AmortisationChart {
         }
 
         if let index {
-            return amortisationSchedule[index].year
+            return viewModel.schedule[index].year
         }
 
         return 1
