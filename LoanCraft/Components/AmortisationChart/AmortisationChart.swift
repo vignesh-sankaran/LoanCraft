@@ -13,7 +13,7 @@ struct AmortisationChart: View {
     @State var viewModel: AmortisationViewModel
 
     var body: some View {
-        if true {
+        if featureFlagService.amortisationGraphEnabled {
             Chart {
                 ForEach(viewModel.schedule) { amortisationData in
                     LineMark(
