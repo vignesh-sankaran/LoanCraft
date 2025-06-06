@@ -1,5 +1,5 @@
 //
-//  ViewModel+calculateAmortisationScheduleTests.swift
+//  LoanCraftViewModel+calculateAmortisationScheduleTests.swift
 //  LoanCraft
 //
 //  Created by Vignesh Sankaran on 30/4/2025.
@@ -12,7 +12,7 @@ import Testing
 struct AmortisationViewModelTests {
     @Test("selectedYear > schedule.count")
     func test_schedule_didSet_selectedYear_greater_than() {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
         let amortisationViewModel = AmortisationViewModel()
         amortisationViewModel.setViewModel(
             viewModel
@@ -52,7 +52,7 @@ struct AmortisationViewModelTests {
 
     @Test("calculateSchedule: 0k")
     func test_0() {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
         viewModel.mortgage = 0
         viewModel.yearsRemaining = 1
         let amortisationViewModel = AmortisationViewModel()

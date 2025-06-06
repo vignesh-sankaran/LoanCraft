@@ -10,7 +10,7 @@ import Charts
 import SwiftUI
 
 struct LoanCraftView: View {
-    @State var viewModel = ViewModel()
+    @State var viewModel = LoanCraftViewModel()
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
 

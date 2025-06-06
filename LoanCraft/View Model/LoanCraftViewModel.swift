@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  LoanCraftViewModel.swift
 //  LoanCraft
 //
 //  Created by Vignesh Sankaran on 16/4/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@Observable class ViewModel {
+@Observable class LoanCraftViewModel {
     var amortisationViewModel = AmortisationViewModel()
     var chartData: ChartData
     var mortgage: Decimal = 500000.0 {

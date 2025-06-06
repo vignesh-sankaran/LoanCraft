@@ -12,7 +12,7 @@ import SwiftUI
     var selectedYear: Int = 0
     private(set) var schedule: [AmortisationData] = []
 
-    private(set) var viewModel: ViewModel?
+    private(set) var viewModel: LoanCraftViewModel?
     var yearsRemaining: String {
         String(schedule.count - 1 - selectedYear)
     }
@@ -21,7 +21,7 @@ import SwiftUI
         schedule[selectedYear].remaining.currencyFormatted()
     }
 
-    func setViewModel(_ viewModel: ViewModel) {
+    func setViewModel(_ viewModel: LoanCraftViewModel) {
         self.viewModel = viewModel
     }
 

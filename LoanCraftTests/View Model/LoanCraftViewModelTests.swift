@@ -10,10 +10,10 @@ import Testing
 
 @testable import LoanCraft
 
-struct ViewModelTests {
+struct LoanCraftViewModelTests {
     @Test("init")
     func `init`() {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
 
         #expect(viewModel.mortgage == 500_000.0)
         #expect(viewModel.interest == 0.05)
@@ -29,7 +29,7 @@ struct ViewModelTests {
 
     @Test("Mortgage didSet")
     func mortgage_didSet() throws {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
 
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
@@ -44,7 +44,7 @@ struct ViewModelTests {
 
     @Test("Interest didSet")
     func interest_didSet() throws {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
 
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
@@ -59,7 +59,7 @@ struct ViewModelTests {
 
     @Test("yearsRemaining didSet")
     func yearsRemaining_didSet() throws {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
         viewModel.yearsRemaining = 25
@@ -73,7 +73,7 @@ struct ViewModelTests {
 
     @Test("repaymentFrequency didSet")
     func repaymentFrequency_didSet() throws {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
         try #require(viewModel.mortgageRepayment.rounded(to: 2) == 1238.22)
 
         viewModel.repaymentFrequency = .month
@@ -89,7 +89,7 @@ struct ViewModelTests {
 
     @Test("calculateMortgagePayment 0")
     func calculateMortgageRepayment_zero() {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
 
         viewModel.mortgage = 0
 
@@ -98,7 +98,7 @@ struct ViewModelTests {
 
     @Test("calculateMortgagePayment 1,000,000")
     func calculateMortgagePayment_1_000_000() {
-        let viewModel = ViewModel()
+        let viewModel = LoanCraftViewModel()
 
         viewModel.mortgage = 1_000_000
         viewModel.interest = 0.04
