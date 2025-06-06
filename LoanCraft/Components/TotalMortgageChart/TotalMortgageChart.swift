@@ -34,7 +34,7 @@ struct TotalMortgageChart: View {
                 SelectableTextField(
                     bold: true,
                     font: .title3,
-                    text: .constant(chartData.formattedTotal),
+                    text: .constant(chartData.total.currencyFormatted()),
                     type: .totalMortgage
                 )
                 .multilineTextAlignment(.center)
@@ -100,7 +100,7 @@ struct TotalMortgageChart: View {
                     SelectableTextField(
                         bold: true,
                         font: .title3,
-                        text: .constant(chartData.formattedTotal),
+                        text: .constant(chartData.total.currencyFormatted()),
                         type: .totalMortgage
                     )
                     .position(x: offsetX, y: offsetY - 16)

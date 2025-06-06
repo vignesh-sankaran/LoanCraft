@@ -111,7 +111,7 @@ struct LoanCraftView: View {
                             Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):")
                                 .bold()
                             SelectableTextField(
-                                text: $viewModel.formattedMortgagePayment,
+                                text: .constant(viewModel.mortgageRepayment.currencyFormatted()),
                                 type: .mortgagePayment
                             )
                             .offset(x: -5)

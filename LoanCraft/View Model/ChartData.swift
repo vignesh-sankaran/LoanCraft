@@ -14,19 +14,4 @@ struct ChartData: Identifiable {
     var total: Decimal {
         principal + interest
     }
-    var formattedPrincipal: String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        return currencyFormatter.string(from: principal as NSNumber) ?? ""
-    }
-    var formattedInterest: String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        return currencyFormatter.string(from: interest as NSNumber) ?? ""
-    }
-    var formattedTotal: String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        return currencyFormatter.string(from: total as NSNumber) ?? ""
-    }
 }

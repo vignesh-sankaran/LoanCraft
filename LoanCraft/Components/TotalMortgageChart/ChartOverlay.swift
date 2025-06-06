@@ -38,8 +38,8 @@ struct ChartOverlay: View {
                 .font(.headline)
             SelectableTextField(
                 text: type == .principal
-                    ? .constant(chartData.formattedPrincipal)
-                    : .constant(chartData.formattedInterest),
+                    ? .constant(chartData.principal.currencyFormatted())
+                    : .constant(chartData.interest.currencyFormatted()),
                 type: type
             ) { newValue in
                 textWidth = newValue

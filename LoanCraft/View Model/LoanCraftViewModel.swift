@@ -32,16 +32,7 @@ import SwiftUI
             calculateMortgageRepayment()
         }
     }
-    private(set) var mortgageRepayment: Decimal = 0.0 {
-        didSet {
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.numberStyle = .currency
-            formattedMortgagePayment =
-                currencyFormatter.string(from: mortgageRepayment as NSNumber) ?? ""
-        }
-    }
-
-    var formattedMortgagePayment = ""
+    private(set) var mortgageRepayment: Decimal = 0.0
 
     func calculateMortgageRepayment() {
         let repaymentsPerYear = repaymentFrequency.repaymentsPerYear
