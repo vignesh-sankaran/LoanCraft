@@ -8,7 +8,6 @@
 import SwiftUI
 
 @Observable class LoanCraftViewModel {
-    var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()
@@ -48,11 +47,5 @@ import SwiftUI
 
         totalMortgage = mortgageRepayment * Decimal(repaymentsPerYear) * Decimal(yearsRemaining)
         totalInterest = totalMortgage - mortgage
-        chartData = ChartData(principal: mortgage, interest: totalInterest)
-    }
-
-    init() {
-        chartData = ChartData(principal: 0, interest: 0)
-        calculateMortgageRepayment()
     }
 }

@@ -129,9 +129,8 @@ struct LoanCraftView: View {
                     VStack(spacing: 32) {
                         AmortisationChart()
                             .environment(viewModel)
-                        TotalMortgageChart(
-                            chartData: $viewModel.chartData
-                        )
+                        TotalMortgageChart()
+                            .environment(viewModel)
                     }
                 }
                 .textFieldStyle(.roundedBorder)
@@ -139,6 +138,9 @@ struct LoanCraftView: View {
             }
             .navigationTitle("LoanCraft")
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
+        }
+        .onAppear {
+            viewModel.calculateMortgageRepayment()
         }
     }
 }

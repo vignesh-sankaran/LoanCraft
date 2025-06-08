@@ -14,4 +14,14 @@ struct ChartData: Identifiable {
     var total: Decimal {
         principal + interest
     }
+
+    init() {
+        principal = 0
+        interest = 0
+    }
+
+    init(from viewModel: LoanCraftViewModel) {
+        principal = viewModel.mortgage
+        interest = viewModel.totalInterest
+    }
 }

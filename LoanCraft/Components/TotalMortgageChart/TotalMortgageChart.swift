@@ -13,7 +13,8 @@ struct TotalMortgageChart: View {
     @State var overlayWidth: CGFloat = 100
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
-    @Binding var chartData: ChartData
+    @State var chartData = ChartData()
+    @Environment(LoanCraftViewModel.self) private var loanCraftViewModel
 
     var body: some View {
         Chart {
@@ -40,6 +41,9 @@ struct TotalMortgageChart: View {
                 .multilineTextAlignment(.center)
                 .hidden()
             }
+        }
+        .onAppear {
+            chartData = ChartData(from: loanCraftViewModel)
         }
         .chartForegroundStyleScale(
             [
