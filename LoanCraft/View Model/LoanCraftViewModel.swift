@@ -29,6 +29,8 @@ import SwiftUI
             calculateMortgageRepayment()
         }
     }
+    private(set) var totalInterest: Decimal = 0.0
+    private(set) var totalMortgage: Decimal = 0.0
     private(set) var mortgageRepayment: Decimal = 0.0
 
     func calculateMortgageRepayment() {
@@ -44,9 +46,9 @@ import SwiftUI
 
         mortgageRepayment = topLine / bottomLine
 
-        let totalMortgage = mortgageRepayment * Decimal(repaymentsPerYear) * Decimal(yearsRemaining)
-        let interest = totalMortgage - mortgage
-        chartData = ChartData(principal: mortgage, interest: interest)
+        totalMortgage = mortgageRepayment * Decimal(repaymentsPerYear) * Decimal(yearsRemaining)
+        totalInterest = totalMortgage - mortgage
+        chartData = ChartData(principal: mortgage, interest: totalInterest)
     }
 
     init() {

@@ -39,8 +39,8 @@ import SwiftUI
         let monthlyPayment = topRow / (pow(1 + monthlyInterestRate, totalPayments) - 1)
 
         var remainingPrincipal = viewModel.mortgage
-        var remainingInterest = viewModel.chartData.interest
-        var remainingTotal = viewModel.chartData.total
+        var remainingInterest = viewModel.totalInterest
+        var remainingTotal = viewModel.totalMortgage
 
         guard totalPayments > 0 else { return }
 
