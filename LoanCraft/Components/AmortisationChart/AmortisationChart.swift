@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AmortisationChart: View {
     @State private var featureFlagService = FeatureFlagService.instance
-    @State var viewModel: AmortisationViewModel
+    @State var viewModel = AmortisationViewModel()
+    @Environment(LoanCraftViewModel.self) private var loanCraftViewModel
 
     var body: some View {
         if featureFlagService.amortisationGraphEnabled {
@@ -24,6 +25,15 @@ struct AmortisationChart: View {
                         .foregroundStyle(.red)
                         .lineStyle(StrokeStyle(lineWidth: 1))
                 }
+            }
+            .onAppear {
+                viewModel.calculateSchedule(with: loanCraftViewModel)
+            }
+            .onChange(of: loanCraftViewModel.mortgage) {
+                viewModel.calculateSchedule(with: loanCraftViewModel)
+            }
+            .onChange(of: loanCraftViewModel.interest) {
+                viewModel.calculateSchedule(with: loanCraftViewModel)
             }
             .chartOverlay { chartProxy in
                 GeometryReader { gemoetryProxy in

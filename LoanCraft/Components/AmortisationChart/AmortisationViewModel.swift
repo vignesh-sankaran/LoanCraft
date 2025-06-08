@@ -9,24 +9,24 @@ import Foundation
 import SwiftUI
 
 @Observable final class AmortisationViewModel {
-    var selectedYear: Int = 0
+    var selectedYear = 0
     private(set) var schedule: [AmortisationData] = []
 
-    private(set) var viewModel: LoanCraftViewModel?
     var yearsRemaining: String {
         String(schedule.count - 1 - selectedYear)
     }
 
     var principalRemaining: String {
-        schedule[selectedYear].remaining.currencyFormatted()
+        if schedule.count == 0 {
+            Decimal(0).currencyFormatted()
+        } else {
+            schedule[selectedYear].remaining.currencyFormatted()
+        }
     }
 
-    func setViewModel(_ viewModel: LoanCraftViewModel) {
-        self.viewModel = viewModel
-    }
-
-    func calculateSchedule() {
-        guard let viewModel else { return }
+    func calculateSchedule(
+        with viewModel: LoanCraftViewModel
+    ) {
         schedule = [
             .init(year: 0, remaining: viewModel.mortgage)
         ]

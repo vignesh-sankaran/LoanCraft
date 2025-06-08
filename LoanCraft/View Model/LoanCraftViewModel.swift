@@ -8,12 +8,10 @@
 import SwiftUI
 
 @Observable class LoanCraftViewModel {
-    var amortisationViewModel = AmortisationViewModel()
     var chartData: ChartData
     var mortgage: Decimal = 500000.0 {
         didSet {
             calculateMortgageRepayment()
-            amortisationViewModel.calculateSchedule()
         }
     }
     var interest: Decimal = 0.05 {
@@ -24,7 +22,6 @@ import SwiftUI
     var yearsRemaining = 30 {
         didSet {
             calculateMortgageRepayment()
-            amortisationViewModel.calculateSchedule()
         }
     }
     var repaymentFrequency: RepaymentFrequency = .fortnight {
@@ -54,8 +51,6 @@ import SwiftUI
 
     init() {
         chartData = ChartData(principal: 0, interest: 0)
-        amortisationViewModel.setViewModel(self)
-        amortisationViewModel.calculateSchedule()
         calculateMortgageRepayment()
     }
 }

@@ -127,9 +127,8 @@ struct LoanCraftView: View {
                             }
                     )
                     VStack(spacing: 32) {
-                        AmortisationChart(
-                            viewModel: viewModel.amortisationViewModel
-                        )
+                        AmortisationChart()
+                            .environment(viewModel)
                         TotalMortgageChart(
                             chartData: $viewModel.chartData
                         )
