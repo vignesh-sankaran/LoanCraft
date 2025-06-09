@@ -131,6 +131,7 @@ struct LoanCraftView: View {
                             .environment(viewModel)
                         TotalMortgageChart()
                             .environment(viewModel)
+                            .id(viewModel.mortgageRepayment)
                     }
                 }
                 .textFieldStyle(.roundedBorder)
