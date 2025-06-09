@@ -29,12 +29,6 @@ struct AmortisationChart: View {
             .onAppear {
                 viewModel.calculateSchedule(with: loanCraftViewModel)
             }
-            .onChange(of: loanCraftViewModel.mortgage) {
-                viewModel.calculateSchedule(with: loanCraftViewModel)
-            }
-            .onChange(of: loanCraftViewModel.interest) {
-                viewModel.calculateSchedule(with: loanCraftViewModel)
-            }
             .chartOverlay { chartProxy in
                 GeometryReader { gemoetryProxy in
                     Rectangle().fill(.clear).contentShape(Rectangle())
