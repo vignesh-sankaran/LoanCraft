@@ -7,7 +7,7 @@
 
 import Charts
 import Foundation
-import SwiftUICore
+import SwiftUI
 
 extension AmortisationChart {
     func findElement(
