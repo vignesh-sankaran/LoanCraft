@@ -94,9 +94,9 @@ struct AmortisationChart: View {
                         .background {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(.background.opacity(0.8))
+                                    .fill(.background.opacity(0.9))
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(.quaternary.opacity(0.7))
+                                    .fill(.quaternary.opacity(0.9))
                             }
                             .padding(.horizontal, -8)
                             .padding(.vertical, -4)
