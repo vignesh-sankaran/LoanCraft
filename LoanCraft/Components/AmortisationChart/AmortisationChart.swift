@@ -55,14 +55,14 @@ struct AmortisationChart: View {
             .chartOverlay { chartProxy in
                 GeometryReader { geometryProxy in
                     if let chartProxyPlotFrame = chartProxy.plotFrame {
-                        let startPositionX1 = chartProxy.position(forX: viewModel.selectedYear) ?? 0
+                        let startPositionX = chartProxy.position(forX: viewModel.selectedYear) ?? 0
 
-                        let lineX = startPositionX1 + geometryProxy[chartProxyPlotFrame].origin.x
-                        let boxWidth: CGFloat = 115
-                        let boxOffset = max(
+                        let lineX = startPositionX + geometryProxy[chartProxyPlotFrame].origin.x
+                        let overlayWidth: CGFloat = 115
+                        let overlayOffset = max(
                             0,
                             min(
-                                geometryProxy.size.width - boxWidth, lineX - (boxWidth / 2)
+                                geometryProxy.size.width - overlayWidth, lineX - (overlayWidth / 2)
                             )
                         )
                         VStack(
@@ -88,7 +88,7 @@ struct AmortisationChart: View {
                             )
                             .multilineTextAlignment(.center)
                         }
-                        .frame(width: boxWidth)
+                        .frame(width: overlayWidth)
                         .padding(.top, 2)
                         .padding(.bottom, 4)
                         .background {
@@ -101,7 +101,7 @@ struct AmortisationChart: View {
                             .padding(.horizontal, -8)
                             .padding(.vertical, -4)
                         }
-                        .offset(x: boxOffset)
+                        .offset(x: overlayOffset)
                     }
                 }
             }
