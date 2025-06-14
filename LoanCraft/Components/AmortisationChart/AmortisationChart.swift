@@ -62,7 +62,7 @@ struct AmortisationChart: View {
                         let overlayOffset = max(
                             0,
                             min(
-                                geometryProxy.size.width - overlayWidth, lineX - (overlayWidth / 2)
+                                chartProxy.plotSize.width - overlayWidth, lineX - (overlayWidth / 2)
                             )
                         )
                         VStack(
