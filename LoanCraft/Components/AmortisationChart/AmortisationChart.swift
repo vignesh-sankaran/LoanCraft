@@ -58,10 +58,13 @@ struct AmortisationChart: View {
                         let startPositionX1 = chartProxy.position(forX: viewModel.selectedYear) ?? 0
 
                         let lineX = startPositionX1 + geometryProxy[chartProxyPlotFrame].origin.x
-                        let boxWidth: CGFloat = 100
+                        let boxWidth: CGFloat = 115
                         let boxOffset = max(
-                            0, min(geometryProxy.size.width - boxWidth, lineX - boxWidth / 2))
-
+                            0,
+                            min(
+                                geometryProxy.size.width - boxWidth, lineX - (boxWidth / 2)
+                            )
+                        )
                         VStack(
                             alignment: .center,
                             spacing: 4
@@ -85,6 +88,7 @@ struct AmortisationChart: View {
                             )
                             .multilineTextAlignment(.center)
                         }
+                        .frame(width: boxWidth)
                         .padding(.top, 2)
                         .padding(.bottom, 4)
                         .background {
