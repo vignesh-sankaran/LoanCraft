@@ -12,8 +12,8 @@ extension Decimal {
         maximumFractionDigits: Int = 2
     ) -> String {
         let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
         currencyFormatter.maximumFractionDigits = maximumFractionDigits
+        currencyFormatter.numberStyle = .currency
 
         return currencyFormatter.string(from: self as NSNumber) ?? ""
     }
