@@ -26,6 +26,13 @@ struct AmortisationChart: View {
                         .lineStyle(StrokeStyle(lineWidth: 1))
                 }
             }
+            .chartYAxis {
+                AxisMarks(
+                    format: .currency(
+                        code: Locale.current.currency?.identifier ?? "USD"
+                    )
+                )
+            }
             .onAppear {
                 viewModel.calculateSchedule(with: loanCraftViewModel)
             }
