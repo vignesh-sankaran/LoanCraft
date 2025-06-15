@@ -33,6 +33,20 @@ struct AmortisationChart: View {
                     )
                 )
             }
+            .chartXAxisLabel(
+                position: .bottom,
+                alignment: .center
+            ) {
+                Text("Years")
+                    .font(.headline)
+            }
+            .chartYAxisLabel(
+                position: .trailing,
+                alignment: .center
+            ) {
+                Text("Mortgage remaining")
+                    .font(.headline)
+            }
             .onAppear {
                 viewModel.calculateSchedule(with: loanCraftViewModel)
             }
