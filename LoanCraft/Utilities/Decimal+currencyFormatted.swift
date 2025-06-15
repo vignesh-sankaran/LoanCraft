@@ -8,9 +8,12 @@
 import Foundation
 
 extension Decimal {
-    func currencyFormatted() -> String {
+    func currencyFormatted(
+        maximumFractionDigits: Int = 2
+    ) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = maximumFractionDigits
 
         return currencyFormatter.string(from: self as NSNumber) ?? ""
     }

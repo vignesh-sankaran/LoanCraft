@@ -27,11 +27,17 @@ struct AmortisationChart: View {
                 }
             }
             .chartYAxis {
-                AxisMarks(
-                    format: .currency(
-                        code: Locale.current.currency?.identifier ?? "USD"
-                    )
-                )
+                AxisMarks { value in
+                    AxisValueLabel {
+                        if let decimalValue = value.as(Decimal.self) {
+                            Text(
+                                decimalValue.currencyFormatted(
+                                    maximumFractionDigits: 0
+                                )
+                            )
+                        }
+                    }
+                }
             }
             .chartXAxisLabel(
                 position: .bottom,
