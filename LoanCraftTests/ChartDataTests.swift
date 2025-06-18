@@ -10,12 +10,19 @@ import Testing
 @testable import LoanCraft
 
 struct ChartDataTests {
+    @Test("Init")
+    func test_init() {
+        let data = ChartData()
+
+        #expect(data.principal == 0)
+        #expect(data.interest == 0)
+    }
+
     @Test("Total")
     func total() {
-        let data = ChartData(
-            principal: 100_000,
-            interest: 10_000
-        )
+        var data = ChartData()
+        data.principal = 100_000
+        data.interest = 10_000
 
         #expect(data.total == 110_000)
     }
