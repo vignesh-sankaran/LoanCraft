@@ -127,12 +127,20 @@ struct LoanCraftView: View {
                             }
                     )
                     VStack(spacing: 32) {
-                        AmortisationChart()
-                            .environment(viewModel)
-                            .id(viewModel.mortgageRepayment)
-                        TotalMortgageChart()
-                            .environment(viewModel)
-                            .id(viewModel.mortgageRepayment)
+                        VStack {
+                            Text("Loan breakdown")
+                                .font(.title3)
+                            AmortisationChart()
+                                .environment(viewModel)
+                                .id(viewModel.mortgageRepayment)
+                        }
+                        VStack {
+                            Text("Total principal and interest")
+                                .font(.title3)
+                            TotalMortgageChart()
+                                .environment(viewModel)
+                                .id(viewModel.mortgageRepayment)
+                        }
                     }
                 }
                 .textFieldStyle(.roundedBorder)
