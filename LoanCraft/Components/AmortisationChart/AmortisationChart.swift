@@ -119,7 +119,7 @@ struct AmortisationChart: View {
                         .padding(.horizontal, -8)
                         .padding(.vertical, -4)
                     }
-                    .offset(x: overlayOffset)
+                    .offset(x: overlayOffset, y: -100)
                 }
             }
         }
