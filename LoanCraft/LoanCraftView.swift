@@ -6,7 +6,6 @@
 //
 
 import AmplitudeSessionReplay
-import Charts
 import SwiftUI
 
 struct LoanCraftView: View {
