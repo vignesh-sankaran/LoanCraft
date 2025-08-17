@@ -135,6 +135,9 @@ struct TotalMortgageChart: View {
             }
         }
         .frame(height: 450)
-        .sensoryFeedback(.selection, trigger: selectedBar)
+        .sensoryFeedback(
+            .impact(flexibility: .rigid),
+            trigger: selectedBar
+        )
     }
 }
