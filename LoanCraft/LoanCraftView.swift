@@ -127,9 +127,10 @@ struct LoanCraftView: View {
                             }
                     )
                     VStack(spacing: 32) {
-                        VStack {
+                        VStack(spacing: 112) {
                             Text("Loan breakdown")
                                 .font(.title3)
+                                .bold()
                             AmortisationChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
@@ -137,6 +138,7 @@ struct LoanCraftView: View {
                         VStack {
                             Text("Total principal and interest")
                                 .font(.title3)
+                                .bold()
                             TotalMortgageChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
