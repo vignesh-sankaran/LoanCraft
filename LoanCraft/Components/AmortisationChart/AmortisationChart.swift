@@ -23,6 +23,18 @@ struct AmortisationChart: View {
                     .foregroundStyle(.red)
                     .lineStyle(StrokeStyle(lineWidth: 1))
             }
+            if let selectedData = viewModel.schedule.first(
+                where: {
+                    $0.year == viewModel.selectedYear
+                }
+            ) {
+                PointMark(
+                    x: .value("Year", selectedData.year),
+                    y: .value("Remaining", selectedData.remaining)
+                )
+                .symbolSize(80)
+                .foregroundStyle(.red)
+            }
         }
         .chartYAxis {
             AxisMarks { value in
