@@ -12,6 +12,7 @@ struct LoanCraftView: View {
     @State var viewModel = LoanCraftViewModel()
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
+    @State private var selectedChart = 0
 
     var body: some View {
         NavigationStack {
@@ -125,19 +126,21 @@ struct LoanCraftView: View {
                                 hideKeyboard()
                             }
                     )
-                    VStack(spacing: 32) {
-                        VStack(spacing: 112) {
-                            Text("Loan breakdown")
-                                .font(.title3)
-                                .bold()
+                    Picker("Chart Type", selection: $selectedChart) {
+                        Text("Overview").tag(0)
+                        Text("Total").tag(1)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.vertical)
+                    Spacer(minLength: 96)
+                    if selectedChart == 0 {
+                        VStack(spacing: 16) {
                             AmortisationChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
-                        VStack {
-                            Text("Total principal and interest")
-                                .font(.title3)
-                                .bold()
+                    } else {
+                        VStack(spacing: 16) {
                             TotalMortgageChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
