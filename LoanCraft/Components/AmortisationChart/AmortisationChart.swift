@@ -70,14 +70,18 @@ struct AmortisationChart: View {
         }
         .chartOverlay { chartProxy in
             GeometryReader { gemoetryProxy in
-                Rectangle().fill(.clear).contentShape(Rectangle())
+                Rectangle()
+                    .fill(.clear)
+                    .contentShape(Rectangle())
                     .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
-                                viewModel.selectedYear = findElement(
-                                    location: value.location, chartProxy: chartProxy,
-                                    geometryProxy: gemoetryProxy
-                                )
+                                withAnimation(.easeInOut) {
+                                    viewModel.selectedYear = findElement(
+                                        location: value.location, chartProxy: chartProxy,
+                                        geometryProxy: gemoetryProxy
+                                    )
+                                }
                             }
                             .exclusively(
                                 before: DragGesture()
