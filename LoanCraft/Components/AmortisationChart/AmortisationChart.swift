@@ -19,9 +19,18 @@ struct AmortisationChart: View {
                     x: .value("Year", amortisationData.year),
                     y: .value("Remaining", amortisationData.remaining)
                 )
-                RuleMark(x: .value("Year", viewModel.selectedYear))
-                    .foregroundStyle(.red)
-                    .lineStyle(StrokeStyle(lineWidth: 1))
+                RuleMark(
+                    x: .value(
+                        "Year",
+                        viewModel.selectedYear
+                    )
+                )
+                .foregroundStyle(.red)
+                .lineStyle(
+                    StrokeStyle(
+                        lineWidth: 1
+                    )
+                )
             }
             if let selectedData = viewModel.schedule.first(
                 where: {
@@ -73,10 +82,12 @@ struct AmortisationChart: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
-                                        viewModel.selectedYear = findElement(
-                                            location: value.location, chartProxy: chartProxy,
-                                            geometryProxy: gemoetryProxy
-                                        )
+                                        withAnimation(.easeInOut) {
+                                            viewModel.selectedYear = findElement(
+                                                location: value.location, chartProxy: chartProxy,
+                                                geometryProxy: gemoetryProxy
+                                            )
+                                        }
                                     }
                             )
                     )
