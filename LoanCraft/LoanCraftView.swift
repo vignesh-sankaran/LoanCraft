@@ -133,19 +133,23 @@ struct LoanCraftView: View {
                     .pickerStyle(.segmented)
                     .padding(.vertical)
                     Spacer(minLength: 96)
-                    if selectedChart == 0 {
+                    TabView(selection: $selectedChart) {
                         VStack(spacing: 16) {
                             AmortisationChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
-                    } else {
+                        .tag(0)
                         VStack(spacing: 16) {
                             TotalMortgageChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
+                        .tag(1)
                     }
+                    .tabViewStyle(.automatic)
+                    .indexViewStyle(.page(backgroundDisplayMode: .never))
+                    .frame(height: 600)
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
