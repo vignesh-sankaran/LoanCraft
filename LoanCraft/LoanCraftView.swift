@@ -130,6 +130,7 @@ struct LoanCraftView: View {
                         Text("Overview").tag(0)
                         Text("Total").tag(1)
                     }
+                    .sensoryFeedback(.selection, trigger: selectedChart)
                     .pickerStyle(.segmented)
                     .padding(.vertical)
                     Spacer(minLength: 96)
