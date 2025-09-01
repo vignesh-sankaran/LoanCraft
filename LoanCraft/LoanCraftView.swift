@@ -135,12 +135,12 @@ struct LoanCraftView: View {
                     .padding(.vertical)
                     TabView(selection: $selectedChart) {
                         VStack {
-                            Spacer(minLength: 48)
                             AmortisationChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
                         .padding([.leading], 4)
+                        .padding([.top], 16)
                         .tag(0)
                         VStack {
                             TotalMortgageChart()
