@@ -133,15 +133,15 @@ struct LoanCraftView: View {
                     .sensoryFeedback(.selection, trigger: selectedChart)
                     .pickerStyle(.segmented)
                     .padding(.vertical)
-                    Spacer(minLength: 96)
                     TabView(selection: $selectedChart) {
-                        VStack(spacing: 16) {
+                        VStack {
+                            Spacer(minLength: 48)
                             AmortisationChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
                         .tag(0)
-                        VStack(spacing: 16) {
+                        VStack {
                             TotalMortgageChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
@@ -150,7 +150,10 @@ struct LoanCraftView: View {
                     }
                     .tabViewStyle(.automatic)
                     .indexViewStyle(.page(backgroundDisplayMode: .never))
-                    .frame(height: 600)
+                    .frame(
+                        height: 600,
+                        alignment: .top
+                    )
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
