@@ -140,6 +140,7 @@ struct LoanCraftView: View {
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
+                        .padding([.leading], 4)
                         .tag(0)
                         VStack {
                             TotalMortgageChart()

@@ -105,7 +105,7 @@ struct AmortisationChart: View {
                     let lineX = startPositionX + geometryProxy[chartProxyPlotFrame].origin.x
                     let overlayWidth: CGFloat = 115
                     let overlayOffset = max(
-                        0,
+                        4,
                         min(
                             chartProxy.plotSize.width - overlayWidth, lineX - (overlayWidth / 2)
                         )
