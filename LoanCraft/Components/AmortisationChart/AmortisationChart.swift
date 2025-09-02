@@ -76,7 +76,7 @@ struct AmortisationChart: View {
                     .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
-                                withAnimation(.easeOut(duration: 0.15)) {
+                                withAnimation(.spring(duration: 0.15)) {
                                     viewModel.selectedYear = findElement(
                                         location: value.location, chartProxy: chartProxy,
                                         geometryProxy: gemoetryProxy
