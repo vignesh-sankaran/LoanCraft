@@ -76,7 +76,7 @@ struct AmortisationChart: View {
                     .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
-                                withAnimation(.easeInOut(duration: 0.15)) {
+                                withAnimation(.easeOut(duration: 0.15)) {
                                     viewModel.selectedYear = findElement(
                                         location: value.location, chartProxy: chartProxy,
                                         geometryProxy: gemoetryProxy
@@ -86,7 +86,7 @@ struct AmortisationChart: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
-                                        withAnimation(.easeInOut(duration: 0.2)) {
+                                        withAnimation(.easeOut(duration: 0.2)) {
                                             viewModel.selectedYear = findElement(
                                                 location: value.location, chartProxy: chartProxy,
                                                 geometryProxy: gemoetryProxy
