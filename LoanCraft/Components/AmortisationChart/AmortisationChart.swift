@@ -86,7 +86,7 @@ struct AmortisationChart: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
-                                        withAnimation(.easeInOut) {
+                                        withAnimation(.easeInOut(duration: 0.2)) {
                                             viewModel.selectedYear = findElement(
                                                 location: value.location, chartProxy: chartProxy,
                                                 geometryProxy: gemoetryProxy
