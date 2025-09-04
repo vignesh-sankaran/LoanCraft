@@ -69,7 +69,7 @@ struct AmortisationChart: View {
             viewModel.calculateSchedule(with: loanCraftViewModel)
         }
         .chartOverlay { chartProxy in
-            GeometryReader { gemoetryProxy in
+            GeometryReader { geometryProxy in
                 Rectangle()
                     .fill(.clear)
                     .contentShape(Rectangle())
@@ -79,7 +79,7 @@ struct AmortisationChart: View {
                                 withAnimation(.spring(duration: 0.15)) {
                                     viewModel.selectedYear = findElement(
                                         location: value.location, chartProxy: chartProxy,
-                                        geometryProxy: gemoetryProxy
+                                        geometryProxy: geometryProxy
                                     )
                                 }
                             }
@@ -89,7 +89,7 @@ struct AmortisationChart: View {
                                         withAnimation(.easeOut(duration: 0.2)) {
                                             viewModel.selectedYear = findElement(
                                                 location: value.location, chartProxy: chartProxy,
-                                                geometryProxy: gemoetryProxy
+                                                geometryProxy: geometryProxy
                                             )
                                         }
                                     }
@@ -133,6 +133,20 @@ struct AmortisationChart: View {
                         )
                         .multilineTextAlignment(.center)
                     }
+                    .gesture(
+                        SpatialTapGesture()
+                            .exclusively(
+                                before: DragGesture()
+                                    .onChanged { value in
+                                        withAnimation(.easeOut(duration: 0.2)) {
+                                            viewModel.selectedYear = findElement(
+                                                location: value.location, chartProxy: chartProxy,
+                                                geometryProxy: geometryProxy
+                                            )
+                                        }
+                                    }
+                            )
+                    )
                     .frame(width: overlayWidth)
                     .padding(.top, 2)
                     .padding(.bottom, 4)
