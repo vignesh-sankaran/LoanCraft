@@ -5,7 +5,6 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
-import AmplitudeSessionReplay
 import PostHog
 import SwiftUI
 
@@ -165,7 +164,6 @@ struct LoanCraftView: View {
         }
         .onAppear {
             viewModel.calculateMortgageRepayment()
-            PostHogSDK.shared.capture("Test Event")
         }
     }
 }

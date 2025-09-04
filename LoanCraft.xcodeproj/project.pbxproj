@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F35C4392DB4EAED007A2A2D /* Experiment in Frameworks */ = {isa = PBXBuildFile; productRef = 2F35C4382DB4EAED007A2A2D /* Experiment */; };
-		2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3FA1662D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin */; };
 		2F7C80452DAA665400139C7C /* NewRelic in Frameworks */ = {isa = PBXBuildFile; productRef = 2F7C80442DAA665400139C7C /* NewRelic */; };
-		2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA562B82D4514A600D69DA3 /* AmplitudeSwift */; };
 		2FB907B22D79BD290066A56F /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B12D79BD290066A56F /* InlineSnapshotTesting */; };
 		2FB907B42D79BD290066A56F /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B32D79BD290066A56F /* SnapshotTesting */; };
 		2FB907B62D79BD290066A56F /* SnapshotTestingCustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB907B52D79BD290066A56F /* SnapshotTestingCustomDump */; };
@@ -103,11 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F35C4392DB4EAED007A2A2D /* Experiment in Frameworks */,
-				2FA562B92D4514A600D69DA3 /* AmplitudeSwift in Frameworks */,
 				2F7C80452DAA665400139C7C /* NewRelic in Frameworks */,
 				2FE296F92E699E8500A19A00 /* PostHog in Frameworks */,
-				2F3FA1672D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin in Frameworks */,
 				2FBA0C572D844E3200A3626E /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,12 +272,9 @@
 			);
 			mainGroup = 2FD0EA9B29E00D8F00EB19B3;
 			packageReferences = (
-				2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
-				2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */,
 				2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				2FBA0C552D844E3200A3626E /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 				2F7C80432DAA665400139C7C /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */,
-				2F35C4372DB4EAED007A2A2D /* XCRemoteSwiftPackageReference "experiment-ios-client" */,
 				2FE296F72E699E8500A19A00 /* XCRemoteSwiftPackageReference "posthog-ios" */,
 			);
 			productRefGroup = 2FD0EAA529E00D8F00EB19B3 /* Products */;
@@ -797,36 +788,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2F35C4372DB4EAED007A2A2D /* XCRemoteSwiftPackageReference "experiment-ios-client" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amplitude/experiment-ios-client";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amplitude/AmplitudeSessionReplay-iOS.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		2F7C80432DAA665400139C7C /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/newrelic/newrelic-ios-agent-spm";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.5.4;
-			};
-		};
-		2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amplitude/Amplitude-Swift";
-			requirement = {
-				branch = main;
-				kind = branch;
 			};
 		};
 		2FB907B02D79BD290066A56F /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
@@ -856,25 +823,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F35C4382DB4EAED007A2A2D /* Experiment */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F35C4372DB4EAED007A2A2D /* XCRemoteSwiftPackageReference "experiment-ios-client" */;
-			productName = Experiment;
-		};
-		2F3FA1662D57B8D100A1F01D /* AmplitudeSwiftSessionReplayPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F3FA1652D57B8D100A1F01D /* XCRemoteSwiftPackageReference "AmplitudeSessionReplay-iOS" */;
-			productName = AmplitudeSwiftSessionReplayPlugin;
-		};
 		2F7C80442DAA665400139C7C /* NewRelic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F7C80432DAA665400139C7C /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */;
 			productName = NewRelic;
-		};
-		2FA562B82D4514A600D69DA3 /* AmplitudeSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2FA562B72D4514A600D69DA3 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */;
-			productName = AmplitudeSwift;
 		};
 		2FB907B12D79BD290066A56F /* InlineSnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;

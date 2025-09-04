@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AMPLITUDE_API_KEY</key>
-	<string>941afd348769c11cf53419ef94634849</string>
+	<key>POSTHOG_API_KEY</key>
+	<string>phc_H3MgZaVIGWMjw7gus9csjp6ajvC20V3GOPkIvoTk9Rn</string>
+	<key>NEWRELIC_TOKEN</key>
+	<string>AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>

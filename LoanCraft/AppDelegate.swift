@@ -15,9 +15,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         _ application: UIApplication,
         willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        let POSTHOG_API_KEY = "phc_H3MgZaVIGWMjw7gus9csjp6ajvC20V3GOPkIvoTk9Rn"
+        guard
+            let postHogAPIKey = Bundle.main.object(forInfoDictionaryKey: "POSTHOG_API_KEY")
+                as? String
+        else {
+            fatalError("PostHog API Key not found!")
+        }
+
         let POSTHOG_HOST = "https://eu.i.posthog.com"
-        let config = PostHogConfig(apiKey: POSTHOG_API_KEY, host: POSTHOG_HOST)
+        let config = PostHogConfig(apiKey: postHogAPIKey, host: POSTHOG_HOST)
 
         config.sessionReplay = true
         config.sessionReplayConfig.maskAllImages = false
@@ -26,7 +32,14 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
 
         PostHogSDK.shared.setup(config)
 
-        NewRelic.start(withApplicationToken: "AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA")
+        guard
+            let newRelicToken = Bundle.main.object(forInfoDictionaryKey: "NEWRELIC_TOKEN")
+                as? String
+        else {
+            fatalError("NewRelic token not found!")
+        }
+
+        NewRelic.start(withApplicationToken: newRelicToken)
 
         return true
     }
