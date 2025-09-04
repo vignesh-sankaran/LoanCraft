@@ -85,7 +85,7 @@ struct TotalMortgageChart: View {
                     properties: ["overlayBeingShown": self.selectedBar != nil]
                 )
                 if self.selectedBar == selectedBar {
-                    withAnimation(.easeIn(duration: 0.11)) {
+                    withAnimation(.easeIn(duration: 0.1)) {
                         self.selectedBar = nil
                     }
                 } else if self.selectedBar == nil {
