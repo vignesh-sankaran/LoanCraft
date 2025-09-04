@@ -133,20 +133,6 @@ struct AmortisationChart: View {
                         )
                         .multilineTextAlignment(.center)
                     }
-                    .gesture(
-                        SpatialTapGesture()
-                            .exclusively(
-                                before: DragGesture()
-                                    .onChanged { value in
-                                        withAnimation(.easeOut(duration: 0.2)) {
-                                            viewModel.selectedYear = findElement(
-                                                location: value.location, chartProxy: chartProxy,
-                                                geometryProxy: geometryProxy
-                                            )
-                                        }
-                                    }
-                            )
-                    )
                     .frame(width: overlayWidth)
                     .padding(.top, 2)
                     .padding(.bottom, 4)
