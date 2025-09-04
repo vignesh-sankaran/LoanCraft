@@ -6,6 +6,7 @@
 //
 
 import AmplitudeSessionReplay
+import PostHog
 import SwiftUI
 
 struct LoanCraftView: View {
@@ -164,6 +165,7 @@ struct LoanCraftView: View {
         }
         .onAppear {
             viewModel.calculateMortgageRepayment()
+            PostHogSDK.shared.capture("Test Event")
         }
     }
 }
