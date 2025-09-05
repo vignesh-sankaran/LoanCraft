@@ -9,6 +9,7 @@ import Charts
 import SwiftUI
 
 struct AmortisationChart: View {
+    @State var analytics = AnalyticsService.instance
     @State var viewModel = AmortisationViewModel()
     @Environment(LoanCraftViewModel.self) private var loanCraftViewModel
 
@@ -76,6 +77,7 @@ struct AmortisationChart: View {
                     .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
+                                analytics.track(.lineDragBegin)
                                 withAnimation(.spring(duration: 0.15)) {
                                     viewModel.selectedYear = findElement(
                                         location: value.location, chartProxy: chartProxy,
@@ -86,6 +88,7 @@ struct AmortisationChart: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
+                                        analytics.track(.lineDragBegin)
                                         withAnimation(.easeOut(duration: 0.2)) {
                                             viewModel.selectedYear = findElement(
                                                 location: value.location, chartProxy: chartProxy,
