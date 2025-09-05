@@ -26,11 +26,14 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         let config = PostHogConfig(apiKey: postHogAPIKey, host: POSTHOG_HOST)
 
         config.sessionReplay = true
-        config.sessionReplayConfig.maskAllImages = false
-        config.sessionReplayConfig.maskAllTextInputs = true
         config.sessionReplayConfig.screenshotMode = true
+        config.captureScreenViews = false
 
         PostHogSDK.shared.setup(config)
+
+        #if DEBUG
+            PostHogSDK.shared.identify("Vignesh Sankaran")
+        #endif
 
         guard
             let newRelicToken = Bundle.main.object(forInfoDictionaryKey: "NEWRELIC_TOKEN")
