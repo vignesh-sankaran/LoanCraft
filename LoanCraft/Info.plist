@@ -8,5 +8,7 @@
 	<string>AA404fc53169dd101da646745ece4312c54ba48d1b-NRMA</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIDesignRequiresCompatibility</key>
+	<true/>
 </dict>
 </plist>
