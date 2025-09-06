@@ -17,7 +17,7 @@ enum Event: String {
     case doneButtonTapped
     case textFieldSelected
     case textFieldDeselected
-    case graphSlider = "graph slider"
+    case chartSlider = "chart slider"
     case lineDragBegin = "line drag begin"
     case lineDragEnd = "line drag end"
 }

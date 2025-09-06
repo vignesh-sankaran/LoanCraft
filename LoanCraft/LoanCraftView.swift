@@ -11,7 +11,7 @@ struct LoanCraftView: View {
     @State var viewModel = LoanCraftViewModel()
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
-    @State private var selectedChart = 0
+    @State private var selectedChart = SelectedChart.repayments
 
     var body: some View {
         NavigationStack {
@@ -126,11 +126,11 @@ struct LoanCraftView: View {
                             }
                     )
                     Picker("Chart Type", selection: $selectedChart) {
-                        Text("Overview").tag(0)
-                        Text("Total").tag(1)
+                        Text("Repayments").tag(SelectedChart.repayments)
+                        Text("Total").tag(SelectedChart.total)
                     }
                     .onChange(of: selectedChart) { _, newValue in
-                        analytics.track(.graphSlider, properties: ["selected": newValue])
+                        analytics.track(.chartSlider, properties: ["selected": newValue])
                     }
                     .sensoryFeedback(.selection, trigger: selectedChart)
                     .pickerStyle(.segmented)
@@ -143,13 +143,13 @@ struct LoanCraftView: View {
                         }
                         .padding([.leading], 4)
                         .padding([.top], 16)
-                        .tag(0)
+                        .tag(SelectedChart.repayments)
                         VStack {
                             TotalMortgageChart()
                                 .environment(viewModel)
                                 .id(viewModel.mortgageRepayment)
                         }
-                        .tag(1)
+                        .tag(SelectedChart.total)
                     }
                     .tabViewStyle(.automatic)
                     .indexViewStyle(.page(backgroundDisplayMode: .never))
