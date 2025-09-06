@@ -5,6 +5,7 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
+import UIKit
 import SwiftUI
 
 struct LoanCraftView: View {
@@ -129,6 +130,8 @@ struct LoanCraftView: View {
                         Text("Repayments").tag(SelectedChart.repayments)
                         Text("Total").tag(SelectedChart.total)
                     }
+                    .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0 : 1)
+                    .disabled(UIDevice.current.userInterfaceIdiom == .pad)
                     .onChange(of: selectedChart) { _, newValue in
                         analytics.track(.chartSlider, properties: ["selected": newValue])
                     }
@@ -136,26 +139,25 @@ struct LoanCraftView: View {
                     .pickerStyle(.segmented)
                     .padding(.vertical)
                     TabView(selection: $selectedChart) {
-                        VStack {
+                        Tab(
+                            value: SelectedChart.repayments
+                        ) {
                             AmortisationChart()
                                 .environment(viewModel)
-                                .id(viewModel.mortgageRepayment)
                         }
-                        .padding([.leading], 4)
-                        .padding([.top], 16)
-                        .tag(SelectedChart.repayments)
-                        VStack {
+                        Tab(
+                            value: SelectedChart.total
+                        ) {
                             TotalMortgageChart()
                                 .environment(viewModel)
-                                .id(viewModel.mortgageRepayment)
+                                .tag(SelectedChart.total)
                         }
-                        .tag(SelectedChart.total)
                     }
                     .tabViewStyle(.automatic)
                     .indexViewStyle(.page(backgroundDisplayMode: .never))
                     .frame(
-                        height: 600,
-                        alignment: .top
+                        height: 650,
+                        alignment: .bottom
                     )
                 }
                 .textFieldStyle(.roundedBorder)
