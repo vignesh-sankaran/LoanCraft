@@ -808,8 +808,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
+				kind = exactVersion;
+				version = "26.0.0-rc.1";
 			};
 		};
 		2FE296F72E699E8500A19A00 /* XCRemoteSwiftPackageReference "posthog-ios" */ = {

@@ -13,6 +13,7 @@ struct LoanCraftView: View {
     @FocusState var selectedTextField: SelectedTextField?
     @State var analytics = AnalyticsService.instance
     @State private var selectedChart = SelectedChart.repayments
+    @State private var selection: AttributedTextSelection?
 
     var body: some View {
         NavigationStack {
@@ -110,6 +111,8 @@ struct LoanCraftView: View {
                         ) {
                             Text("Repayment amount per \(viewModel.repaymentFrequency.rawValue):")
                                 .bold()
+                                .textSelection(.enabled)
+
                             SelectableTextField(
                                 text: .constant(viewModel.mortgageRepayment.currencyFormatted()),
                                 type: .mortgagePayment

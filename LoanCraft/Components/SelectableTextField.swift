@@ -39,7 +39,7 @@ struct SelectableTextField: View {
             text: $text
         )
         .padding(0)
-        .introspect(.textEditor, on: .iOS(.v18)) {
+        .introspect(.textEditor, on: .iOS(.v26)) {
             $0.isEditable = false
             $0.isScrollEnabled = false
             $0.textContainer.maximumNumberOfLines = 1
