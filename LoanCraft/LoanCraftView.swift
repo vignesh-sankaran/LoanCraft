@@ -145,15 +145,19 @@ struct LoanCraftView: View {
                         Tab(
                             value: SelectedChart.repayments
                         ) {
-                            AmortisationChart()
-                                .environment(viewModel)
+                            AmortisationChart(
+                                loanCraftViewModel: $viewModel
+                            )
+                            .id(viewModel.totalMortgage)
                         }
                         Tab(
                             value: SelectedChart.total
                         ) {
-                            TotalMortgageChart()
-                                .environment(viewModel)
-                                .tag(SelectedChart.total)
+                            TotalMortgageChart(
+                                loanCraftViewModel: $viewModel
+                            )
+                            .id(viewModel.totalMortgage)
+                            .tag(SelectedChart.total)
                         }
                     }
                     .tabViewStyle(.automatic)

@@ -14,7 +14,7 @@ struct TotalMortgageChart: View {
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
     @State var chartData = ChartData()
-    @Environment(LoanCraftViewModel.self) private var loanCraftViewModel
+    @Binding var loanCraftViewModel: LoanCraftViewModel
 
     var body: some View {
         Chart {
