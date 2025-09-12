@@ -11,7 +11,7 @@ import Testing
 @testable import LoanCraft
 
 struct LoanCraftViewModelTests {
-    @Test("init")
+    @Test()
     func `init`() {
         let viewModel = LoanCraftViewModel()
 
