@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"sosumi": {
+			"type": "http",
+			"url": "https://sosumi.ai/mcp"
+		},
+		"my-mcp-server-ce163274": {
+			"url": "https://sosumi.ai/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}
