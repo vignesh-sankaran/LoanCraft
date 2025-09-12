@@ -10,7 +10,6 @@ import SwiftUIIntrospect
 
 struct SelectableTextField: View {
     @State private var analytics = AnalyticsService.instance
-    @FocusState private var focused: Bool
     @State private var textWidth: CGFloat = 0
     @State private var textHeight: CGFloat = 0
     @Binding var text: String
@@ -51,7 +50,6 @@ struct SelectableTextField: View {
             $0.backgroundColor = .clear
             $0.tintColor = .systemBlue
         }
-        .focused($focused)
         .bold(bold)
         .font(font)
         .background(alignment: .leading) {
@@ -76,16 +74,6 @@ struct SelectableTextField: View {
         .frame(width: max(125, textWidth + 20), height: textHeight)
         .onChange(of: textWidth) {
             onTextWidthChanged?(textWidth)
-        }
-        .onChange(of: focused) {
-            if focused {
-                analytics.track(
-                    .textFieldSelected,
-                    properties: ["type": type.rawValue]
-                )
-            } else {
-                analytics.track(.textFieldDeselected)
-            }
         }
     }
 }
