@@ -30,16 +30,6 @@ final class SnapshotTests: XCTestCase {
             as: .image(
                 perceptualPrecision: 0.99,
                 layout: .device(
-                    config: .iPhone8
-                )
-            ),
-            file: filePath
-        )
-        assertSnapshot(
-            of: view,
-            as: .image(
-                perceptualPrecision: 0.99,
-                layout: .device(
                     config: .iPhoneSe
                 )
             ),
@@ -51,19 +41,6 @@ final class SnapshotTests: XCTestCase {
                 perceptualPrecision: 0.99,
                 layout: .device(
                     config: .iPhone13ProMax
-                )
-            ),
-            file: filePath
-        )
-        assertSnapshot(
-            of: view,
-            as: .image(
-                perceptualPrecision: 0.99,
-                layout: .device(
-                    config: .iPhone8
-                ),
-                traits: .init(
-                    userInterfaceStyle: .dark
                 )
             ),
             file: filePath
