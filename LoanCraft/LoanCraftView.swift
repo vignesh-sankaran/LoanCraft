@@ -133,38 +133,26 @@ struct LoanCraftView: View {
                         Text("Repayments").tag(SelectedChart.repayments)
                         Text("Total").tag(SelectedChart.total)
                     }
-                    .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0 : 1)
-                    .disabled(UIDevice.current.userInterfaceIdiom == .pad)
                     .onChange(of: selectedChart) { _, newValue in
                         analytics.track(.chartSlider, properties: ["selected": newValue])
                     }
                     .sensoryFeedback(.selection, trigger: selectedChart)
                     .pickerStyle(.segmented)
                     .padding(.vertical)
-                    TabView(selection: $selectedChart) {
-                        Tab(
-                            value: SelectedChart.repayments
-                        ) {
+                    Group {
+                        if selectedChart == .repayments {
                             AmortisationChart(
                                 loanCraftViewModel: $viewModel
                             )
                             .id(viewModel.totalMortgage)
-                        }
-                        Tab(
-                            value: SelectedChart.total
-                        ) {
+                            .padding(.top, 64)
+                        } else {
                             TotalMortgageChart(
                                 loanCraftViewModel: $viewModel
                             )
                             .id(viewModel.totalMortgage)
                         }
                     }
-                    .tabViewStyle(.automatic)
-                    .indexViewStyle(.page(backgroundDisplayMode: .never))
-                    .frame(
-                        height: 650,
-                        alignment: .bottom
-                    )
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding()
