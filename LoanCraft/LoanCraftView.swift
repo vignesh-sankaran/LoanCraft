@@ -157,7 +157,6 @@ struct LoanCraftView: View {
                                 loanCraftViewModel: $viewModel
                             )
                             .id(viewModel.totalMortgage)
-                            .tag(SelectedChart.total)
                         }
                     }
                     .tabViewStyle(.automatic)
