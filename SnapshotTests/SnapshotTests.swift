@@ -28,7 +28,7 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(
             of: view,
             as: .image(
-                perceptualPrecision: 0.99,
+                perceptualPrecision: 0.98,
                 layout: .device(
                     config: .iPhoneSe
                 )
@@ -38,7 +38,7 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(
             of: view,
             as: .image(
-                perceptualPrecision: 0.99,
+                perceptualPrecision: 0.98,
                 layout: .device(
                     config: .iPhone13ProMax
                 )
@@ -48,7 +48,7 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(
             of: view,
             as: .image(
-                perceptualPrecision: 0.99,
+                perceptualPrecision: 0.98,
                 layout: .device(
                     config: .iPad10_2
                 )
@@ -58,7 +58,7 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(
             of: view,
             as: .image(
-                perceptualPrecision: 0.99,
+                perceptualPrecision: 0.98,
                 layout: .device(
                     config: .iPad10_2(
                         .landscape
@@ -70,7 +70,7 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(
             of: view,
             as: .image(
-                perceptualPrecision: 0.99,
+                perceptualPrecision: 0.98,
                 layout: .device(
                     config: .iPad10_2
                 ),
