@@ -33,7 +33,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
 
         #if DEBUG
             PostHogSDK.shared.identify(
-                "debug_id",
+                UIDevice.current.identifierForVendor?.uuidString ?? "some UUID",
                 userProperties: ["name": "Vignesh Sankaran"]
             )
         #endif
