@@ -32,7 +32,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         PostHogSDK.shared.setup(config)
 
         #if DEBUG
-            PostHogSDK.shared.identify("Vignesh Sankaran")
+            PostHogSDK.shared.identify(
+                "debug_id",
+                userProperties: ["name": "Vignesh Sankaran"]
+            )
         #endif
 
         guard
