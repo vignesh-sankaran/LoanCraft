@@ -130,9 +130,14 @@ struct LoanCraftView: View {
                             }
                     )
                     Picker("Chart Type", selection: $selectedChart) {
-                        Text("Repayments").tag(SelectedChart.repayments)
-                        Text("Total").tag(SelectedChart.total)
+                        Text("Repayments")
+                            .tag(SelectedChart.repayments)
+                            .accessibilityIdentifier("picker-repayments")
+                        Text("Total")
+                            .tag(SelectedChart.total)
+                            .accessibilityIdentifier("picker-total")
                     }
+                    .accessibilityIdentifier("chart-picker")
                     .onChange(of: selectedChart) { _, newValue in
                         analytics.track(.chartSlider, properties: ["selected": newValue])
                     }

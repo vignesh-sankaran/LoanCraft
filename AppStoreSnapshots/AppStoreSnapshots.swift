@@ -38,6 +38,8 @@ final class AppStoreSnapshots: XCTestCase {
 
     func test_tap_chart() {
         app.swipeUp()
+
+        app.segmentedControls["chart-picker"].buttons["picker-total"].tap()
         app.otherElements["interest-bar-mark"].tap()
         snapshot("Tap interest bar")
     }
