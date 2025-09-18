@@ -15,6 +15,7 @@ final class SnapshotTests: XCTestCase {
         "/Volumes/workspace/repository/ci_scripts/SnapshotTests.swift"
 
     func test_default() {
+        precondition(UITraitCollection.current.userInterfaceStyle == .light)
         let view = LoanCraftView()
 
         let filePath: StaticString
