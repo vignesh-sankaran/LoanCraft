@@ -10,8 +10,11 @@ import SwiftUI
 
 struct AmortisationChart: View {
     @State var analytics = AnalyticsService.instance
-    @State var viewModel = AmortisationViewModel()
-    @Binding var loanCraftViewModel: LoanCraftViewModel
+    @State var viewModel: AmortisationViewModel
+
+    init(loanCraftViewModel: LoanCraftViewModel) {
+        viewModel = AmortisationViewModel(loanCraftViewModel: loanCraftViewModel)
+    }
 
     var body: some View {
         Chart {
@@ -67,7 +70,7 @@ struct AmortisationChart: View {
                 .font(.headline)
         }
         .onAppear {
-            viewModel.calculateSchedule(with: loanCraftViewModel)
+            viewModel.calculateSchedule()
         }
         .chartOverlay { chartProxy in
             GeometryReader { geometryProxy in

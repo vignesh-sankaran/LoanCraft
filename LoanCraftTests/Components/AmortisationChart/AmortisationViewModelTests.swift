@@ -13,16 +13,12 @@ struct AmortisationViewModelTests {
     @Test("selectedYear > schedule.count")
     func test_schedule_didSet_selectedYear_greater_than() {
         let viewModel = LoanCraftViewModel()
-        let amortisationViewModel = AmortisationViewModel()
-        amortisationViewModel.calculateSchedule(
-            with: viewModel
-        )
+        let amortisationViewModel = AmortisationViewModel(loanCraftViewModel: viewModel)
+        amortisationViewModel.calculateSchedule()
         amortisationViewModel.selectedYear = 20
         viewModel.yearsRemaining = 10
 
-        amortisationViewModel.calculateSchedule(
-            with: viewModel
-        )
+        amortisationViewModel.calculateSchedule()
 
         #expect(amortisationViewModel.selectedYear == 10)
     }
@@ -39,11 +35,9 @@ struct AmortisationViewModelTests {
 
     @Test("calculateSchedule: 500k")
     func test() {
-        let amortisationViewModel = AmortisationViewModel()
+        let amortisationViewModel = AmortisationViewModel(loanCraftViewModel: LoanCraftViewModel())
 
-        amortisationViewModel.calculateSchedule(
-            with: .init()
-        )
+        amortisationViewModel.calculateSchedule()
 
         #expect(amortisationViewModel.schedule.first?.remaining == 500_000)
         #expect(amortisationViewModel.schedule.last?.remaining == 0)
@@ -55,11 +49,11 @@ struct AmortisationViewModelTests {
         let viewModel = LoanCraftViewModel()
         viewModel.mortgage = 0
         viewModel.yearsRemaining = 1
-        let amortisationViewModel = AmortisationViewModel()
-
-        amortisationViewModel.calculateSchedule(
-            with: viewModel
+        let amortisationViewModel = AmortisationViewModel(
+            loanCraftViewModel: viewModel
         )
+
+        amortisationViewModel.calculateSchedule()
 
         #expect(
             amortisationViewModel.schedule.first?.year == 0
@@ -74,10 +68,10 @@ struct AmortisationViewModelTests {
     func test_nil_viewModel() {
         let viewModel = LoanCraftViewModel()
         viewModel.yearsRemaining = 0
-        let amortisationViewModel = AmortisationViewModel()
-        amortisationViewModel.calculateSchedule(
-            with: viewModel
+        let amortisationViewModel = AmortisationViewModel(
+            loanCraftViewModel: viewModel
         )
+        amortisationViewModel.calculateSchedule()
 
         #expect(amortisationViewModel.schedule.count == 1)
         #expect(

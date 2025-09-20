@@ -147,9 +147,8 @@ struct LoanCraftView: View {
                     Group {
                         if selectedChart == .repayments {
                             AmortisationChart(
-                                loanCraftViewModel: $viewModel
+                                loanCraftViewModel: viewModel
                             )
-                            .id(viewModel.totalMortgage)
                             .padding(.top, 64)
                         } else {
                             TotalMortgageChart(
