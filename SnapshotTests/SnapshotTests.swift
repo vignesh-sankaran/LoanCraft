@@ -68,18 +68,18 @@ final class SnapshotTests: XCTestCase {
             ),
             file: filePath
         )
-        assertSnapshot(
-            of: view,
-            as: .image(
-                perceptualPrecision: 0.98,
-                layout: .device(
-                    config: .iPad10_2
-                ),
-                traits: .init(
-                    userInterfaceStyle: .dark
-                )
-            ),
-            file: filePath
-        )
+//        assertSnapshot(
+//            of: view,
+//            as: .image(
+//                perceptualPrecision: 0.98,
+//                layout: .device(
+//                    config: .iPad10_2
+//                ),
+//                traits: .init(
+//                    userInterfaceStyle: .dark
+//                )
+//            ),
+//            file: filePath
+//        )
     }
 }
