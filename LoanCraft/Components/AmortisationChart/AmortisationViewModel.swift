@@ -52,14 +52,18 @@ import SwiftUI
             .init(year: 0, remaining: loanCraftViewModel.mortgage)
         ]
 
-        let monthlyInterestRate =
-            loanCraftViewModel.interest / Decimal(loanCraftViewModel.yearsRemaining)
-        let totalPayments = loanCraftViewModel.yearsRemaining * 12
+        let periodInterestRate =
+            loanCraftViewModel.interest
+            / Decimal(loanCraftViewModel.repaymentFrequency.repaymentsPerYear)
+
+        let totalPayments =
+            loanCraftViewModel.yearsRemaining
+            * loanCraftViewModel.repaymentFrequency.repaymentsPerYear
 
         let topRow =
             loanCraftViewModel.mortgage
-            * (monthlyInterestRate * pow(1 + monthlyInterestRate, totalPayments))
-        let monthlyPayment = topRow / (pow(1 + monthlyInterestRate, totalPayments) - 1)
+            * (periodInterestRate * pow(1 + periodInterestRate, totalPayments))
+        let periodPayment = topRow / (pow(1 + periodInterestRate, totalPayments) - 1)
 
         var remainingPrincipal = loanCraftViewModel.mortgage
         var remainingInterest = loanCraftViewModel.totalInterest
@@ -67,20 +71,24 @@ import SwiftUI
 
         guard totalPayments > 0 else { return }
 
-        for month in 1...totalPayments {
-            let interestPayment = remainingPrincipal * monthlyInterestRate
-            let principalPayment = monthlyPayment - interestPayment
+        for period in 1...totalPayments {
+            let interestPayment = remainingPrincipal * periodInterestRate
+            let principalPayment = periodPayment - interestPayment
             remainingPrincipal -= principalPayment
             remainingInterest -= interestPayment
-            remainingTotal -= monthlyPayment
+            remainingTotal -= periodPayment
 
             if remainingPrincipal < 0 {
                 remainingPrincipal = 0
             }
 
-            guard month % 12 == 0 else { continue }
+            guard period % loanCraftViewModel.repaymentFrequency.repaymentsPerYear == 0 else {
+                continue
+            }
             schedule.append(
-                .init(year: month / 12, remaining: remainingPrincipal)
+                .init(
+                    year: period / loanCraftViewModel.repaymentFrequency.repaymentsPerYear,
+                    remaining: remainingPrincipal)
             )
         }
 
