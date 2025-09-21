@@ -152,9 +152,8 @@ struct LoanCraftView: View {
                             .padding(.top, 64)
                         } else {
                             TotalMortgageChart(
-                                loanCraftViewModel: $viewModel
+                                loanCraftViewModel: viewModel
                             )
-                            .id(viewModel.totalMortgage)
                         }
                     }
                 }

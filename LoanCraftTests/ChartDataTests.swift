@@ -12,15 +12,19 @@ import Testing
 struct ChartDataTests {
     @Test("Init")
     func test_init() {
-        let data = ChartData()
+        let data = ChartData(
+            from: .init()
+        )
 
-        #expect(data.principal == 0)
+        #expect(data.principal == 500_000)
         #expect(data.interest == 0)
     }
 
     @Test("Total")
     func total() {
-        var data = ChartData()
+        let data = ChartData(
+            from: .init()
+        )
         data.principal = 100_000
         data.interest = 10_000
 

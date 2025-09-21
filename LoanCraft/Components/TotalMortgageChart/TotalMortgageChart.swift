@@ -13,8 +13,11 @@ struct TotalMortgageChart: View {
     @State var overlayWidth: CGFloat = 100
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
-    @State var chartData = ChartData()
-    @Binding var loanCraftViewModel: LoanCraftViewModel
+    @State var chartData: ChartData
+
+    init(loanCraftViewModel: LoanCraftViewModel) {
+        chartData = ChartData(from: loanCraftViewModel)
+    }
 
     var body: some View {
         Chart {
@@ -43,7 +46,7 @@ struct TotalMortgageChart: View {
             }
         }
         .onAppear {
-            chartData = ChartData(from: loanCraftViewModel)
+            chartData.observeChanges()
         }
         .chartForegroundStyleScale(
             [
