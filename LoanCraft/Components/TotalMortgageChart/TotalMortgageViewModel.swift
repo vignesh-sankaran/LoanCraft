@@ -1,5 +1,5 @@
 //
-//  ChartData.swift
+//  TotalMortgageViewModel.swift
 //  LoanCraft
 //
 //  Created by Vignesh Sankaran on 8/3/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ChartData: Identifiable {
+final class TotalMortgageViewModel: Identifiable {
     var id = UUID()
     var principal: Decimal
     var interest: Decimal

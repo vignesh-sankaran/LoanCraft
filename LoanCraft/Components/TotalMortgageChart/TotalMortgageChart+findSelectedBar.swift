@@ -17,9 +17,9 @@ extension TotalMortgageChart {
             return nil
         }
 
-        if value <= chartData.principal {
+        if value <= viewModel.principal {
             return .principal
-        } else if value <= chartData.total {
+        } else if value <= viewModel.total {
             return .interest
         } else {
             return nil

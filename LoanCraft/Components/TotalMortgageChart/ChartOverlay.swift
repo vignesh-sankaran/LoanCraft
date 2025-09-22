@@ -11,14 +11,14 @@ struct ChartOverlay: View {
     let heading: String
     let type: SelectableTextFieldType
     @Binding var textWidth: CGFloat
-    @Binding var chartData: ChartData
+    @Binding var viewModel: TotalMortgageViewModel
 
     init(
-        chartData: Binding<ChartData>,
+        viewModel: Binding<TotalMortgageViewModel>,
         selectedBar: SelectedBarItem,
         textWidth: Binding<CGFloat>
     ) {
-        _chartData = chartData
+        _viewModel = viewModel
         _textWidth = textWidth
         if selectedBar == .principal {
             heading = "Principal:"
@@ -38,8 +38,8 @@ struct ChartOverlay: View {
                 .font(.headline)
             SelectableTextField(
                 text: type == .principal
-                    ? .constant(chartData.principal.currencyFormatted())
-                    : .constant(chartData.interest.currencyFormatted()),
+                    ? .constant(viewModel.principal.currencyFormatted())
+                    : .constant(viewModel.interest.currencyFormatted()),
                 type: type
             ) { newValue in
                 textWidth = newValue

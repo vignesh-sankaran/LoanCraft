@@ -13,23 +13,23 @@ struct TotalMortgageChart: View {
     @State var overlayWidth: CGFloat = 100
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
-    @State var chartData: ChartData
+    @State var viewModel: TotalMortgageViewModel
 
     init(loanCraftViewModel: LoanCraftViewModel) {
-        chartData = ChartData(from: loanCraftViewModel)
+        viewModel = TotalMortgageViewModel(from: loanCraftViewModel)
     }
 
     var body: some View {
         Chart {
             BarMark(
                 x: .value("", ""),
-                y: .value("Total amount", chartData.principal),
+                y: .value("Total amount", viewModel.principal),
                 width: .ratio(0.85)
             )
             .foregroundStyle(by: .value("Principal", "Principal"))
             .accessibilityIdentifier("interest-bar-mark")
             BarMark(
-                x: .value("", ""), y: .value("Interest", chartData.interest),
+                x: .value("", ""), y: .value("Interest", viewModel.interest),
                 width: .ratio(0.85)
             )
             .accessibilityIdentifier("interest-bar-mark")
@@ -38,7 +38,7 @@ struct TotalMortgageChart: View {
                 SelectableTextField(
                     bold: true,
                     font: .title3,
-                    text: .constant(chartData.total.currencyFormatted()),
+                    text: .constant(viewModel.total.currencyFormatted()),
                     type: .totalMortgage
                 )
                 .multilineTextAlignment(.center)
@@ -46,7 +46,7 @@ struct TotalMortgageChart: View {
             }
         }
         .onAppear {
-            chartData.observeChanges()
+            viewModel.observeChanges()
         }
         .chartForegroundStyleScale(
             [
@@ -107,13 +107,13 @@ struct TotalMortgageChart: View {
                     let offsetX = plotFrame.midX
                     let offsetY =
                         chartProxy.position(
-                            forY: chartData.total
+                            forY: viewModel.total
                         ) ?? 0
 
                     SelectableTextField(
                         bold: true,
                         font: .title3,
-                        text: .constant(chartData.total.currencyFormatted()),
+                        text: .constant(viewModel.total.currencyFormatted()),
                         type: .totalMortgage
                     )
                     .position(x: offsetX, y: offsetY - 16)
@@ -122,7 +122,7 @@ struct TotalMortgageChart: View {
                 if let selectedBar {
                     let offsets = calculateOverlayOffsets(from: chartProxy)
                     ChartOverlay(
-                        chartData: $chartData,
+                        viewModel: $viewModel,
                         selectedBar: selectedBar,
                         textWidth: $overlayTextWidth
                     )
@@ -133,7 +133,7 @@ struct TotalMortgageChart: View {
                                     overlayWidth = geometryProxy.size.width
                                 }
                                 .onChange(
-                                    of: chartData.total
+                                    of: viewModel.total
                                 ) {
                                     overlayWidth = max(100, geometryProxy.size.width)
                                 }

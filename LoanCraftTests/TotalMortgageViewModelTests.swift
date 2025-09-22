@@ -1,5 +1,5 @@
 //
-//  ChartDataTests.swift
+//  TotalMortgageViewModelTests.swift
 //  LoanCraft
 //
 //  Created by Vignesh Sankaran on 8/3/2025.
@@ -9,10 +9,10 @@ import Testing
 
 @testable import LoanCraft
 
-struct ChartDataTests {
+struct TotalMortgageViewModelTests {
     @Test("Init")
     func test_init() {
-        let data = ChartData(
+        let data = TotalMortgageViewModel(
             from: .init()
         )
 
@@ -22,7 +22,7 @@ struct ChartDataTests {
 
     @Test("Total")
     func total() {
-        let data = ChartData(
+        let data = TotalMortgageViewModel(
             from: .init()
         )
         data.principal = 100_000

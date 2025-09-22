@@ -16,10 +16,10 @@ extension TotalMortgageChart {
         let yOffset: CGFloat =
             if selectedBar == .principal {
                 chartProxy.position(
-                    forY: chartData.principal) ?? 0
+                    forY: viewModel.principal) ?? 0
             } else {
                 chartProxy.position(
-                    forY: chartData.total + 10) ?? 0
+                    forY: viewModel.total + 10) ?? 0
             }
         return (x: xOffset, y: yOffset)
     }
