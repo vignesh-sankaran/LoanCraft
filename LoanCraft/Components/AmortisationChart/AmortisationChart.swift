@@ -11,8 +11,13 @@ import SwiftUI
 struct AmortisationChart: View {
     @State var analytics = AnalyticsService.instance
     @State var viewModel: AmortisationViewModel
+    @Binding var viewState: ViewState
 
-    init(loanCraftViewModel: LoanCraftViewModel) {
+    init(
+        _ viewState: Binding<ViewState>,
+        loanCraftViewModel: LoanCraftViewModel
+    ) {
+        _viewState = viewState
         viewModel = AmortisationViewModel(loanCraftViewModel: loanCraftViewModel)
     }
 

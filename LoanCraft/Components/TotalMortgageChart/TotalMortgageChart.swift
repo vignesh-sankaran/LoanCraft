@@ -14,8 +14,13 @@ struct TotalMortgageChart: View {
     @State var overlayTextWidth: CGFloat = 0
     @State var selectedBar: SelectedBarItem?
     @State var viewModel: TotalMortgageViewModel
+    @Binding var viewState: ViewState
 
-    init(loanCraftViewModel: LoanCraftViewModel) {
+    init(
+        _ viewState: Binding<ViewState>,
+        loanCraftViewModel: LoanCraftViewModel
+    ) {
+        _viewState = viewState
         viewModel = TotalMortgageViewModel(from: loanCraftViewModel)
     }
 

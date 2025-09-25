@@ -14,6 +14,7 @@ struct LoanCraftView: View {
     @State var analytics = AnalyticsService.instance
     @State private var selectedChart = SelectedChart.repayments
     @State private var selection: AttributedTextSelection?
+    @State private var viewState = ViewState()
 
     var body: some View {
         NavigationStack {
@@ -147,11 +148,13 @@ struct LoanCraftView: View {
                     Group {
                         if selectedChart == .repayments {
                             AmortisationChart(
-                                loanCraftViewModel: viewModel
+                                $viewState,
+                                loanCraftViewModel: viewModel,
                             )
                             .padding(.top, 64)
                         } else {
                             TotalMortgageChart(
+                                $viewState,
                                 loanCraftViewModel: viewModel
                             )
                         }
