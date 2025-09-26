@@ -24,7 +24,7 @@ import SwiftUI
     }
 
     var principalRemaining: String {
-        if schedule.count == 0 {
+        if schedule.count == 0 || selectedYear >= schedule.count {
             Decimal(0).currencyFormatted()
         } else {
             schedule[selectedYear].remaining.currencyFormatted()
