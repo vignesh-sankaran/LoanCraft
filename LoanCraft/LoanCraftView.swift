@@ -5,8 +5,8 @@
 //  Created by Vignesh Sankaran on 7/4/2023.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 struct LoanCraftView: View {
     @State var viewModel = LoanCraftViewModel()
@@ -145,19 +145,19 @@ struct LoanCraftView: View {
                     .sensoryFeedback(.selection, trigger: selectedChart)
                     .pickerStyle(.segmented)
                     .padding(.vertical)
-                    Group {
-                        if selectedChart == .repayments {
-                            AmortisationChart(
-                                $viewState,
-                                loanCraftViewModel: viewModel,
-                            )
-                            .padding(.top, 64)
-                        } else {
-                            TotalMortgageChart(
-                                $viewState,
-                                loanCraftViewModel: viewModel
-                            )
-                        }
+                    ZStack {
+                        AmortisationChart(
+                            $viewState,
+                            loanCraftViewModel: viewModel,
+                        )
+                        .padding(.top, 64)
+                        .opacity(selectedChart == .repayments ? 1 : 0)
+
+                        TotalMortgageChart(
+                            $viewState,
+                            loanCraftViewModel: viewModel
+                        )
+                        .opacity(selectedChart == .total ? 1 : 0)
                     }
                 }
                 .textFieldStyle(.roundedBorder)
