@@ -26,3 +26,6 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
+
+# Claude Code tools
+.claudecode/
